@@ -1,0 +1,48 @@
+"","Leeftijd","Marges","Perioden","Wijken.en.buurten","Regioaanduiding.Gemeentenaam..naam.","Regioaanduiding.Soort.regio..omschrijving.","Regioaanduiding.Codering..code.","Ervaren.gezondheid..goed.zeer.goed.....","Bewegen.Voldoet.aan.beweegrichtlijn....","Onder..en.overgewicht.Mate.van.overgewicht.Ernstig.overgewicht....","Roker....","Alcoholgebruik.Voldoet.aan.alcohol.richtlijn....","Lichamelijke.gezondheid.Eén.of.meer.langdurige.aandoeningen....","Psychische.klachten....","Veerkracht..Zeer..lage.veerkracht....","Hoog.risico.op.angst.of.depressie....","Eenzaamheid.Ernstig.zeer.ernstig.eenzaam...."
+"1","18 jaar of ouder","Waarde",2022,"Vlissingen","Vlissingen                              ","Gemeente  ","GM0718              ",65.7,46.9,18,19.7,47.6,38.4,22.6,18.6,10.2,17.5
+"2","18 jaar of ouder","Waarde",2022,"Voerendaal","Voerendaal                              ","Gemeente  ","GM0986              ",67.7,37.5,16.6,14.3,45.7,36.7,19.9,14.8,8.5,12.4
+"3","18 jaar of ouder","Waarde",2022,"Voorschoten","Voorschoten                             ","Gemeente  ","GM0626              ",72.2,50,13.7,13.5,42.7,33.3,18.8,14.5,8,12.5
+"4","18 jaar of ouder","Waarde",2022,"Voorst","Voorst                                  ","Gemeente  ","GM0285              ",73.1,47.6,15.1,13.6,40.4,32.5,15.6,13.9,6.7,9.8
+"5","18 jaar of ouder","Waarde",2022,"Vught","Vught                                   ","Gemeente  ","GM0865              ",72.5,46.1,14.7,14.7,35.9,32.2,17.7,13.8,7.3,11.3
+"6","18 jaar of ouder","Waarde",2022,"Waadhoeke","Waadhoeke                               ","Gemeente  ","GM1949              ",70.9,48.4,17.2,19.5,41.7,33.4,17.1,14.9,7.7,11.9
+"7","18 jaar of ouder","Waarde",2022,"Waalre","Waalre                                  ","Gemeente  ","GM0866              ",71.9,47.2,14.2,12.6,37.8,32.3,17.4,13.6,6.7,11.7
+"8","18 jaar of ouder","Waarde",2022,"Waalwijk","Waalwijk                                ","Gemeente  ","GM0867              ",67.9,40.2,18.4,18.1,42.2,33.8,21.4,17.5,9.7,14.1
+"9","18 jaar of ouder","Waarde",2022,"Waddinxveen","Waddinxveen                             ","Gemeente  ","GM0627              ",70.9,43.9,17.2,16,48.6,32.1,20.4,15.9,9.1,12.7
+"10","18 jaar of ouder","Waarde",2022,"Wageningen","Wageningen                              ","Gemeente  ","GM0289              ",72,55.6,12.4,17.8,43.2,31.3,25.4,18.2,11.9,15.6
+"11","18 jaar of ouder","Waarde",2022,"Wassenaar","Wassenaar                               ","Gemeente  ","GM0629              ",71.8,50.6,14,14.2,42.3,32.7,19.2,14.6,8.2,13.7
+"12","18 jaar of ouder","Waarde",2022,"Waterland","Waterland                               ","Gemeente  ","GM0852              ",72.9,46,14.5,14.1,36.3,31.8,17.7,14.1,7,10.9
+"13","18 jaar of ouder","Waarde",2022,"Weert","Weert                                   ","Gemeente  ","GM0988              ",67.3,44.2,16.6,16.1,43.1,34.1,21.7,16.7,9.3,14.4
+"14","18 jaar of ouder","Waarde",2022,"Weesp","Weesp                                   ","Gemeente  ","GM0457              ",71.2,47.6,14.7,16.2,41.6,32.3,22.7,16.9,9.7,14.1
+"15","18 jaar of ouder","Waarde",2022,"West Betuwe","West Betuwe                             ","Gemeente  ","GM1960              ",72.7,43.8,16.2,15.4,43.5,30.8,17.3,14.4,7.3,10.5
+"16","18 jaar of ouder","Waarde",2022,"West Maas en Waal","West Maas en Waal                       ","Gemeente  ","GM0668              ",71.3,43.6,16.5,15.3,40.3,31.9,17.2,14.7,7.3,10.7
+"17","18 jaar of ouder","Waarde",2022,"Westerkwartier","Westerkwartier                          ","Gemeente  ","GM1969              ",73.5,46.1,16.2,16.9,41.7,31.8,16.4,14.5,6.8,10.6
+"18","18 jaar of ouder","Waarde",2022,"Westerveld","Westerveld                              ","Gemeente  ","GM1701              ",72.7,46,16.1,14.5,42.3,34,15.1,14,6.1,10
+"19","18 jaar of ouder","Waarde",2022,"Westervoort","Westervoort                             ","Gemeente  ","GM0293              ",68.3,46.2,19.4,17.3,43.2,36.3,19.9,16.7,9.3,13.1
+"20","18 jaar of ouder","Waarde",2022,"Westerwolde","Westerwolde                             ","Gemeente  ","GM1950              ",67.9,41.1,22.2,19.3,47.4,38.3,19.7,17.3,8.4,13.8
+"21","18 jaar of ouder","Waarde",2022,"Westland","Westland                                ","Gemeente  ","GM1783              ",71.8,48.4,16.1,16.1,42.4,31.6,19.2,15.2,8.4,12.6
+"22","18 jaar of ouder","Waarde",2022,"Weststellingwerf","Weststellingwerf                        ","Gemeente  ","GM0098              ",70.2,44.4,17.7,17.3,43.4,33.8,17.5,16.1,7.7,11.6
+"23","18 jaar of ouder","Waarde",2022,"Westvoorne","Westvoorne                              ","Gemeente  ","GM0614              ",72.1,46.4,17.3,14.5,44.1,34,16.1,13.7,6.5,11.8
+"24","18 jaar of ouder","Waarde",2022,"Wierden","Wierden                                 ","Gemeente  ","GM0189              ",74.5,48.6,16.1,14.7,38.3,30.5,15,13.3,6.5,9.7
+"25","18 jaar of ouder","Waarde",2022,"Wijchen","Wijchen                                 ","Gemeente  ","GM0296              ",70.2,46.3,16.1,14.7,40.3,33.9,18.3,15.3,8.1,11.8
+"26","18 jaar of ouder","Waarde",2022,"Wijdemeren","Wijdemeren                              ","Gemeente  ","GM1696              ",73.8,47.2,14.3,14.3,36.7,31.3,17.2,13.2,6.9,10.6
+"27","18 jaar of ouder","Waarde",2022,"Wijk bij Duurstede","Wijk bij Duurstede                      ","Gemeente  ","GM0352              ",72.6,46.3,16.3,15.4,43.8,33.2,17.8,14.2,7.7,11
+"28","18 jaar of ouder","Waarde",2022,"Winterswijk","Winterswijk                             ","Gemeente  ","GM0294              ",70.6,51.5,18.2,16.1,39.1,33.4,18.7,16.2,8.7,12.5
+"29","18 jaar of ouder","Waarde",2022,"Woensdrecht","Woensdrecht                             ","Gemeente  ","GM0873              ",67.6,39.9,18.9,16.4,41.5,33.5,19.9,16.7,8.4,13.3
+"30","18 jaar of ouder","Waarde",2022,"Woerden","Woerden                                 ","Gemeente  ","GM0632              ",72.9,46.9,15,14.9,41.2,31.6,19.2,14.7,8.4,11.8
+"31","18 jaar of ouder","Waarde",2022,"De Wolden","De Wolden                               ","Gemeente  ","GM1690              ",74.2,45.9,15.4,14.8,40.2,31.4,15,14.3,6.1,9.6
+"32","18 jaar of ouder","Waarde",2022,"Wormerland","Wormerland                              ","Gemeente  ","GM0880              ",70.4,47.8,15.7,15.3,39.7,32.6,20.1,15.3,8.8,11.9
+"33","18 jaar of ouder","Waarde",2022,"Woudenberg","Woudenberg                              ","Gemeente  ","GM0351              ",74.1,47.4,14.9,14.5,45.9,30.5,17,14,7.3,10.4
+"34","18 jaar of ouder","Waarde",2022,"Zaanstad","Zaanstad                                ","Gemeente  ","GM0479              ",66.2,45.9,17.7,19.3,45.7,33.5,25.4,19.2,12.3,16
+"35","18 jaar of ouder","Waarde",2022,"Zaltbommel","Zaltbommel                              ","Gemeente  ","GM0297              ",71.4,42.1,16.5,16.3,45.5,31.1,19.1,15.8,8.3,11.8
+"36","18 jaar of ouder","Waarde",2022,"Zandvoort","Zandvoort                               ","Gemeente  ","GM0473              ",68.2,47.1,15.7,18.1,38.8,34.9,21,16.2,9.9,14.4
+"37","18 jaar of ouder","Waarde",2022,"Zeewolde","Zeewolde                                ","Gemeente  ","GM0050              ",72.8,46.2,16.4,17.7,43.7,31.6,19.4,14.9,8.6,12.2
+"38","18 jaar of ouder","Waarde",2022,"Zeist","Zeist                                   ","Gemeente  ","GM0355              ",71.5,48.8,14.1,15.8,44.4,33.1,21.4,16.1,9.5,13.1
+"39","18 jaar of ouder","Waarde",2022,"Zevenaar","Zevenaar                                ","Gemeente  ","GM0299              ",68.2,46.3,18.8,16.9,40.8,35.9,19.5,15.9,9,12.5
+"40","18 jaar of ouder","Waarde",2022,"Zoetermeer","Zoetermeer                              ","Gemeente  ","GM0637              ",66.7,42.6,18.2,17.8,49.9,35.2,23.4,17.9,11.1,15.7
+"41","18 jaar of ouder","Waarde",2022,"Zoeterwoude","Zoeterwoude                             ","Gemeente  ","GM0638              ",74.4,50,14.1,13.5,38.9,30.4,17.5,13.8,7.1,10.9
+"42","18 jaar of ouder","Waarde",2022,"Zuidplas","Zuidplas                                ","Gemeente  ","GM1892              ",72.3,43,16.4,15,46.9,31.7,19.1,15.3,8.3,12
+"43","18 jaar of ouder","Waarde",2022,"Zundert","Zundert                                 ","Gemeente  ","GM0879              ",69.2,40.4,17.2,14.9,37.2,31,18.5,16,7.4,11.9
+"44","18 jaar of ouder","Waarde",2022,"Zutphen","Zutphen                                 ","Gemeente  ","GM0301              ",69.3,47.2,17.8,18,42.3,37.1,20.5,16.6,10.1,13.3
+"45","18 jaar of ouder","Waarde",2022,"Zwartewaterland","Zwartewaterland                         ","Gemeente  ","GM1896              ",72.7,45.5,17.3,17.1,42.4,29.8,16.6,17.1,7.3,10.5
+"46","18 jaar of ouder","Waarde",2022,"Zwijndrecht","Zwijndrecht                             ","Gemeente  ","GM0642              ",65.6,39.5,19.9,18.1,51.6,35.6,23.9,19,11.1,15.5
+"47","18 jaar of ouder","Waarde",2022,"Zwolle","Zwolle                                  ","Gemeente  ","GM0193              ",71.5,50.4,15.6,18.9,42.1,31.2,21.6,18.3,10.3,13.5

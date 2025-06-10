@@ -1,0 +1,101 @@
+"","Leeftijd","Marges","Perioden","Wijken.en.buurten","Regioaanduiding.Gemeentenaam..naam.","Regioaanduiding.Soort.regio..omschrijving.","Regioaanduiding.Codering..code.","Ervaren.gezondheid..goed.zeer.goed.....","Bewegen.Voldoet.aan.beweegrichtlijn....","Onder..en.overgewicht.Mate.van.overgewicht.Ernstig.overgewicht....","Roker....","Alcoholgebruik.Voldoet.aan.alcohol.richtlijn....","Lichamelijke.gezondheid.Eén.of.meer.langdurige.aandoeningen....","Psychische.klachten....","Veerkracht..Zeer..lage.veerkracht....","Hoog.risico.op.angst.of.depressie....","Eenzaamheid.Ernstig.zeer.ernstig.eenzaam...."
+"1","18 jaar of ouder","Waarde",2020,"Noardeast-Fryslân","Noardeast-Fryslân                       ","Gemeente  ","GM1970              ",79.9,"    47.8",15.8,18.8,43,33.1,"       .","       .",4.9,8.4
+"2","18 jaar of ouder","Waarde",2020,"Noord-Beveland","Noord-Beveland                          ","Gemeente  ","GM1695              ",75.8,"    45.5",16.2,17,46.9,35.4,"       .","       .",5.4,10.5
+"3","18 jaar of ouder","Waarde",2020,"Noordenveld","Noordenveld                             ","Gemeente  ","GM1699              ",79.7,"    49.4",14.7,14.8,44.4,35.2,"       .","       .",4.1,8.5
+"4","18 jaar of ouder","Waarde",2020,"Noordoostpolder","Noordoostpolder                         ","Gemeente  ","GM0171              ",81.2,"    48.2",16.2,18.6,47.2,31.9,"       .","       .",5.3,8.7
+"5","18 jaar of ouder","Waarde",2020,"Noordwijk","Noordwijk                               ","Gemeente  ","GM0575              ",82.3,"    53.1",14.4,16.4,37.4,30.3,"       .","       .",5.3,9.8
+"6","18 jaar of ouder","Waarde",2020,"Nuenen, Gerwen en Nederwetten","Nuenen, Gerwen en Nederwetten           ","Gemeente  ","GM0820              ",80,"    51.3",13.5,12.7,38.5,31.6,"       .","       .",4.9,9.2
+"7","18 jaar of ouder","Waarde",2020,"Nunspeet","Nunspeet                                ","Gemeente  ","GM0302              ",81.2,"    49.7",15.1,16.2,47.1,31.8,"       .","       .",4.9,8.6
+"8","18 jaar of ouder","Waarde",2020,"Oegstgeest","Oegstgeest                              ","Gemeente  ","GM0579              ",83.4,"    53.2",11,11.7,40.7,30.9,"       .","       .",4.8,9
+"9","18 jaar of ouder","Waarde",2020,"Oirschot","Oirschot                                ","Gemeente  ","GM0823              ",81,"    49.7",13.6,12.5,34.7,29.3,"       .","       .",4.6,8.7
+"10","18 jaar of ouder","Waarde",2020,"Oisterwijk","Oisterwijk                              ","Gemeente  ","GM0824              ",79.7,"    49.8",14.8,13.9,36.5,31.3,"       .","       .",5.2,9.4
+"11","18 jaar of ouder","Waarde",2020,"Oldambt","Oldambt                                 ","Gemeente  ","GM1895              ",70.7,"    40.4",23.6,19.9,49.5,39.4,"       .","       .",6.7,11.3
+"12","18 jaar of ouder","Waarde",2020,"Oldebroek","Oldebroek                               ","Gemeente  ","GM0269              ",81.2,"    49.2",15.9,15.9,46,31.7,"       .","       .",4.9,8.3
+"13","18 jaar of ouder","Waarde",2020,"Oldenzaal","Oldenzaal                               ","Gemeente  ","GM0173              ",79.9,"    53.4",17.1,16.6,35.9,32.2,"       .","       .",5.3,9.7
+"14","18 jaar of ouder","Waarde",2020,"Olst-Wijhe","Olst-Wijhe                              ","Gemeente  ","GM1773              ",81.8,"    50.7",15.8,15.7,40.3,32.8,"       .","       .",4.5,8.4
+"15","18 jaar of ouder","Waarde",2020,"Ommen","Ommen                                   ","Gemeente  ","GM0175              ",82.4,"    50.0",16.1,15.9,39.9,31.5,"       .","       .",4.1,8.4
+"16","18 jaar of ouder","Waarde",2020,"Oost Gelre","Oost Gelre                              ","Gemeente  ","GM1586              ",81.9,"    56.4",15.9,15.5,34,31.3,"       .","       .",4.6,8.3
+"17","18 jaar of ouder","Waarde",2020,"Oosterhout","Oosterhout                              ","Gemeente  ","GM0826              ",76.9,"    46.6",16.9,16.5,42.6,33.6,"       .","       .",7,11.1
+"18","18 jaar of ouder","Waarde",2020,"Ooststellingwerf","Ooststellingwerf                        ","Gemeente  ","GM0085              ",79.3,"    49.7",16.3,17.2,43.5,34.4,"       .","       .",4.6,8.7
+"19","18 jaar of ouder","Waarde",2020,"Oostzaan","Oostzaan                                ","Gemeente  ","GM0431              ",80.4,"    49.8",14.5,14.9,40.1,31.8,"       .","       .",4.8,9
+"20","18 jaar of ouder","Waarde",2020,"Opmeer","Opmeer                                  ","Gemeente  ","GM0432              ",81.9,"    52.2",12.1,15.6,35.6,29.4,"       .","       .",4.5,7.9
+"21","18 jaar of ouder","Waarde",2020,"Opsterland","Opsterland                              ","Gemeente  ","GM0086              ",81.1,"    51.1",15,16.8,41.6,32.4,"       .","       .",4.2,7.8
+"22","18 jaar of ouder","Waarde",2020,"Oss","Oss                                     ","Gemeente  ","GM0828              ",76.8,"    47.1",16.5,18.5,42.2,33.9,"       .","       .",7.4,11.1
+"23","18 jaar of ouder","Waarde",2020,"Oude IJsselstreek","Oude IJsselstreek                       ","Gemeente  ","GM1509              ",78.5,"    50.8",18.1,17,39.7,34.1,"       .","       .",6,10.3
+"24","18 jaar of ouder","Waarde",2020,"Ouder-Amstel","Ouder-Amstel                            ","Gemeente  ","GM0437              ",81.6,"    50.2",12.4,14.5,39.8,29.6,"       .","       .",5.4,10.1
+"25","18 jaar of ouder","Waarde",2020,"Oudewater","Oudewater                               ","Gemeente  ","GM0589              ",81.2,"       .",13.6,13.9,42.5,30.4,"       .","       .",4.5,8.5
+"26","18 jaar of ouder","Waarde",2020,"Overbetuwe","Overbetuwe                              ","Gemeente  ","GM1734              ",79.9,"    52.1",15.6,15.8,39.7,32.8,"       .","       .",5.3,9.1
+"27","18 jaar of ouder","Waarde",2020,"Papendrecht","Papendrecht                             ","Gemeente  ","GM0590              ",78,"    43.7",17.4,15.7,51.1,33.2,"       .","       .",6.1,10.5
+"28","18 jaar of ouder","Waarde",2020,"Peel en Maas","Peel en Maas                            ","Gemeente  ","GM1894              ",78.8,"    54.0",15,15.3,38.3,32.4,"       .","       .",5,9.1
+"29","18 jaar of ouder","Waarde",2020,"Pekela","Pekela                                  ","Gemeente  ","GM0765              ",71.7,"    41.6",25.4,21.1,51,38.8,"       .","       .",7.4,10.7
+"30","18 jaar of ouder","Waarde",2020,"Pijnacker-Nootdorp","Pijnacker-Nootdorp                      ","Gemeente  ","GM1926              ",82.8,"    49.9",13.4,13.1,45.3,29.8,"       .","       .",5.2,9.1
+"31","18 jaar of ouder","Waarde",2020,"Purmerend","Purmerend                               ","Gemeente  ","GM0439              ",78.1,"    45.7",16.4,18.1,43.6,34,"       .","       .",6.7,10.8
+"32","18 jaar of ouder","Waarde",2020,"Putten","Putten                                  ","Gemeente  ","GM0273              ",81.3,"    49.5",14.2,15.5,46.4,31.3,"       .","       .",4.9,8.4
+"33","18 jaar of ouder","Waarde",2020,"Raalte","Raalte                                  ","Gemeente  ","GM0177              ",82.1,"    51.1",15.4,15.2,39.5,31.4,"       .","       .",4,8.3
+"34","18 jaar of ouder","Waarde",2020,"Reimerswaal","Reimerswaal                             ","Gemeente  ","GM0703              ",78.6,"    48.6",16.7,17.4,52.8,30.4,"       .","       .",5.8,11.3
+"35","18 jaar of ouder","Waarde",2020,"Renkum","Renkum                                  ","Gemeente  ","GM0274              ",78.7,"    52.4",15.3,14.4,45.8,35.9,"       .","       .",5.5,9.8
+"36","18 jaar of ouder","Waarde",2020,"Renswoude","Renswoude                               ","Gemeente  ","GM0339              ",83.7,"       .",13.9,15.3,47.4,28,"       .","       .",4.4,7.3
+"37","18 jaar of ouder","Waarde",2020,"Reusel-De Mierden","Reusel-De Mierden                       ","Gemeente  ","GM1667              ",80.4,"    49.0",15.5,13.2,37.3,29.5,"       .","       .",4.6,8.9
+"38","18 jaar of ouder","Waarde",2020,"Rheden","Rheden                                  ","Gemeente  ","GM0275              ",76.6,"    51.0",16.9,18.3,43.2,37,"       .","       .",7.2,11.2
+"39","18 jaar of ouder","Waarde",2020,"Rhenen","Rhenen                                  ","Gemeente  ","GM0340              ",79.7,"       .",15.5,15.8,50.5,33.3,"       .","       .",5.3,9
+"40","18 jaar of ouder","Waarde",2020,"Ridderkerk","Ridderkerk                              ","Gemeente  ","GM0597              ",76.2,"    40.6",18.5,16,53.5,34.2,"       .","       .",6.5,11.2
+"41","18 jaar of ouder","Waarde",2020,"Rijssen-Holten","Rijssen-Holten                          ","Gemeente  ","GM1742              ",82.6,"    49.4",16,16,41.2,28.4,"       .","       .",4.7,8.5
+"42","18 jaar of ouder","Waarde",2020,"Rijswijk","Rijswijk                                ","Gemeente  ","GM0603              ",76.2,"    45.5",15.8,16.5,50.9,34.7,"       .","       .",7.6,13.2
+"43","18 jaar of ouder","Waarde",2020,"Roerdalen","Roerdalen                               ","Gemeente  ","GM1669              ",74.9,"    49.3",17.1,17.5,44.8,38.1,"       .","       .",5.4,12
+"44","18 jaar of ouder","Waarde",2020,"Roermond","Roermond                                ","Gemeente  ","GM0957              ",73.3,"    50.4",18.1,20.7,47,38.6,"       .","       .",8.7,14.7
+"45","18 jaar of ouder","Waarde",2020,"De Ronde Venen","De Ronde Venen                          ","Gemeente  ","GM0736              ",82.1,"       .",13.4,14.4,40.5,29.9,"       .","       .",4.8,8.6
+"46","18 jaar of ouder","Waarde",2020,"Roosendaal","Roosendaal                              ","Gemeente  ","GM1674              ",75.7,"    48.4",18.3,17.5,47.2,33.3,"       .","       .",8.1,12.7
+"47","18 jaar of ouder","Waarde",2020,"Rotterdam","Rotterdam                               ","Gemeente  ","GM0599              ",74.3,"    44.8",17.6,21.6,51.8,32.7,"       .","       .",10.1,16.1
+"48","18 jaar of ouder","Waarde",2020,"Rozendaal","Rozendaal                               ","Gemeente  ","GM0277              ",85.8,"    55.7",9,10.1,35.4,30,"       .","       .",2.9,6.1
+"49","18 jaar of ouder","Waarde",2020,"Rucphen","Rucphen                                 ","Gemeente  ","GM0840              ",75.6,"    45.9",18.1,16,42.9,33,"       .","       .",6.3,10.4
+"50","18 jaar of ouder","Waarde",2020,"Schagen","Schagen                                 ","Gemeente  ","GM0441              ",80.2,"    54.9",13.5,15.6,38.9,32.3,"       .","       .",4.6,8.2
+"51","18 jaar of ouder","Waarde",2020,"Scherpenzeel","Scherpenzeel                            ","Gemeente  ","GM0279              ",82.3,"    54.1",14.5,15.6,46.5,30.5,"       .","       .",5.1,8.3
+"52","18 jaar of ouder","Waarde",2020,"Schiedam","Schiedam                                ","Gemeente  ","GM0606              ",74.9,"    44.2",18.8,21.4,52.2,33.1,"       .","       .",8.9,14.9
+"53","18 jaar of ouder","Waarde",2020,"Schiermonnikoog","Schiermonnikoog                         ","Gemeente  ","GM0088              ",79.9,"    74.6",14.5,26.3,35.7,30,"       .","       .",8.4,9.7
+"54","18 jaar of ouder","Waarde",2020,"Schouwen-Duiveland","Schouwen-Duiveland                      ","Gemeente  ","GM1676              ",77.3,"    48.2",15.4,15.7,48,34.2,"       .","       .",5,10.1
+"55","18 jaar of ouder","Waarde",2020,"Simpelveld","Simpelveld                              ","Gemeente  ","GM0965              ",73.1,"    39.7",18.5,18,48,38.2,"       .","       .",7.3,10.9
+"56","18 jaar of ouder","Waarde",2020,"Sint-Michielsgestel","Sint-Michielsgestel                     ","Gemeente  ","GM0845              ",80.7,"    51.0",13.7,13.6,35.9,30.1,"       .","       .",4.7,8.2
+"57","18 jaar of ouder","Waarde",2020,"Sittard-Geleen","Sittard-Geleen                          ","Gemeente  ","GM1883              ",71.4,"    45.7",18.7,20.1,48,39.3,"       .","       .",8.9,14.1
+"58","18 jaar of ouder","Waarde",2020,"Sliedrecht","Sliedrecht                              ","Gemeente  ","GM0610              ",77.7,"    43.5",17.5,16.2,52.2,32.7,"       .","       .",6.5,10.6
+"59","18 jaar of ouder","Waarde",2020,"Sluis","Sluis                                   ","Gemeente  ","GM1714              ",74.3,"    49.1",16.2,17.6,46.9,34.9,"       .","       .",5.3,14
+"60","18 jaar of ouder","Waarde",2020,"Smallingerland","Smallingerland                          ","Gemeente  ","GM0090              ",78.3,"    51.1",16.4,18.9,43.7,34.7,"       .","       .",5.7,9.2
+"61","18 jaar of ouder","Waarde",2020,"Soest","Soest                                   ","Gemeente  ","GM0342              ",79.9,"       .",14,15.8,43.2,32.7,"       .","       .",5.7,9.8
+"62","18 jaar of ouder","Waarde",2020,"Someren","Someren                                 ","Gemeente  ","GM0847              ",79.9,"    50.1",13.8,14.5,38.1,30.6,"       .","       .",5.4,9.3
+"63","18 jaar of ouder","Waarde",2020,"Son en Breugel","Son en Breugel                          ","Gemeente  ","GM0848              ",80.2,"    50.3",13.5,12.7,38.3,30.4,"       .","       .",5,9.3
+"64","18 jaar of ouder","Waarde",2020,"Stadskanaal","Stadskanaal                             ","Gemeente  ","GM0037              ",74.4,"    41.4",23.2,19,50.3,37,"       .","       .",5.8,10.4
+"65","18 jaar of ouder","Waarde",2020,"Staphorst","Staphorst                               ","Gemeente  ","GM0180              ",84.8,"    48.3",14.5,15.6,43.1,26.5,"       .","       .",3.7,7.7
+"66","18 jaar of ouder","Waarde",2020,"Stede Broec","Stede Broec                             ","Gemeente  ","GM0532              ",79.7,"    52.3",14.9,16.5,40.6,32.9,"       .","       .",5.5,9
+"67","18 jaar of ouder","Waarde",2020,"Steenbergen","Steenbergen                             ","Gemeente  ","GM0851              ",78.1,"    45.7",18.1,17.3,44.8,32.3,"       .","       .",5.7,10.8
+"68","18 jaar of ouder","Waarde",2020,"Steenwijkerland","Steenwijkerland                         ","Gemeente  ","GM1708              ",80.7,"    48.7",16.4,17.9,42.9,32.9,"       .","       .",4.8,8.7
+"69","18 jaar of ouder","Waarde",2020,"Stein","Stein                                   ","Gemeente  ","GM0971              ",73.3,"    46.2",17.7,17.1,45.8,37.8,"       .","       .",6.7,11.6
+"70","18 jaar of ouder","Waarde",2020,"Stichtse Vecht","Stichtse Vecht                          ","Gemeente  ","GM1904              ",80.8,"       .",14.1,15.2,41.6,31.8,"       .","       .",5.1,9
+"71","18 jaar of ouder","Waarde",2020,"Súdwest-Fryslân","Súdwest-Fryslân                         ","Gemeente  ","GM1900              ",80.5,"    53.7",14.8,17.9,40.2,32.9,"       .","       .",4.8,7.8
+"72","18 jaar of ouder","Waarde",2020,"Terneuzen","Terneuzen                               ","Gemeente  ","GM0715              ",74,"    45.4",17.9,18.6,47.8,35.1,"       .","       .",7.3,13.6
+"73","18 jaar of ouder","Waarde",2020,"Terschelling","Terschelling                            ","Gemeente  ","GM0093              ",83.4,"    71.3",14.4,18.1,35.2,29.6,"       .","       .",4.5,7.6
+"74","18 jaar of ouder","Waarde",2020,"Texel","Texel                                   ","Gemeente  ","GM0448              ",79.1,"    60.5",14,17,42.3,32.4,"       .","       .",4.4,8.7
+"75","18 jaar of ouder","Waarde",2020,"Teylingen","Teylingen                               ","Gemeente  ","GM1525              ",83,"    52.1",13.4,13.7,38.4,30.9,"       .","       .",5.1,8.9
+"76","18 jaar of ouder","Waarde",2020,"Tholen","Tholen                                  ","Gemeente  ","GM0716              ",78.3,"    46.5",17.3,16.8,50.6,31.9,"       .","       .",5.9,10.2
+"77","18 jaar of ouder","Waarde",2020,"Tiel","Tiel                                    ","Gemeente  ","GM0281              ",74.8,"    45.1",18.8,21.2,50.8,35,"       .","       .",8.2,12.2
+"78","18 jaar of ouder","Waarde",2020,"Tilburg","Tilburg                                 ","Gemeente  ","GM0855              ",77.1,"    48.3",17.9,20.5,41.8,31.9,"       .","       .",8.8,12.9
+"79","18 jaar of ouder","Waarde",2020,"Tubbergen","Tubbergen                               ","Gemeente  ","GM0183              ",83.9,"    53.1",14.2,15.1,32.8,27.7,"       .","       .",3.5,7.2
+"80","18 jaar of ouder","Waarde",2020,"Twenterand","Twenterand                              ","Gemeente  ","GM1700              ",80.6,"    48.4",19.6,17.7,39.8,32.1,"       .","       .",4.9,8.9
+"81","18 jaar of ouder","Waarde",2020,"Tynaarlo","Tynaarlo                                ","Gemeente  ","GM1730              ",81.4,"    51.4",14.2,13.9,42.4,33.7,"       .","       .",3.4,7.8
+"82","18 jaar of ouder","Waarde",2020,"Tytsjerksteradiel","Tytsjerksteradiel                       ","Gemeente  ","GM0737              ",80.9,"    51.3",14.7,16.2,41.3,33.2,"       .","       .",4.1,7.2
+"83","18 jaar of ouder","Waarde",2020,"Uitgeest","Uitgeest                                ","Gemeente  ","GM0450              ",83.2,"    59.4",12.8,13.9,34.6,29.4,"       .","       .",4.6,8.2
+"84","18 jaar of ouder","Waarde",2020,"Uithoorn","Uithoorn                                ","Gemeente  ","GM0451              ",80.6,"    46.9",14.6,15.4,42.5,30.4,"       .","       .",5.9,10.4
+"85","18 jaar of ouder","Waarde",2020,"Urk","Urk                                     ","Gemeente  ","GM0184              ",84.8,"    50.4",15.2,17.8,50.1,25.5,"       .","       .",4.7,6.8
+"86","18 jaar of ouder","Waarde",2020,"Utrecht","Utrecht                                 ","Gemeente  ","GM0344              ",81.1,"    58.1",11.4,19.4,40.3,28.2,"       .","       .",7.9,11.7
+"87","18 jaar of ouder","Waarde",2020,"Utrechtse Heuvelrug","Utrechtse Heuvelrug                     ","Gemeente  ","GM1581              ",80.3,"       .",13.5,14.1,45.9,33.4,"       .","       .",4.9,8.8
+"88","18 jaar of ouder","Waarde",2020,"Vaals","Vaals                                   ","Gemeente  ","GM0981              ",71.1,"    40.9",17.9,22.2,46.1,39.1,"       .","       .",10.3,14.3
+"89","18 jaar of ouder","Waarde",2020,"Valkenburg aan de Geul","Valkenburg aan de Geul                  ","Gemeente  ","GM0994              ",74,"    44.6",16.1,17.6,43.3,36.5,"       .","       .",6.8,12.3
+"90","18 jaar of ouder","Waarde",2020,"Valkenswaard","Valkenswaard                            ","Gemeente  ","GM0858              ",77.1,"    49.3",16,16.8,40.8,33.6,"       .","       .",6.4,11.2
+"91","18 jaar of ouder","Waarde",2020,"Veendam","Veendam                                 ","Gemeente  ","GM0047              ",75.4,"    43.2",21.1,20.4,50.2,35.9,"       .","       .",6.7,10.6
+"92","18 jaar of ouder","Waarde",2020,"Veenendaal","Veenendaal                              ","Gemeente  ","GM0345              ",78.5,"       .",16.6,17.4,53.5,33.2,"       .","       .",6.8,10.5
+"93","18 jaar of ouder","Waarde",2020,"Veere","Veere                                   ","Gemeente  ","GM0717              ",81,"    55.4",12,12.4,46.8,29.9,"       .","       .",2.9,9.5
+"94","18 jaar of ouder","Waarde",2020,"Veldhoven","Veldhoven                               ","Gemeente  ","GM0861              ",79,"    49.8",14.9,14.2,42,31.7,"       .","       .",6,10.5
+"95","18 jaar of ouder","Waarde",2020,"Velsen","Velsen                                  ","Gemeente  ","GM0453              ",77.9,"    54.8",15.5,17.8,39.5,33.9,"       .","       .",6.3,11
+"96","18 jaar of ouder","Waarde",2020,"Venlo","Venlo                                   ","Gemeente  ","GM0983              ",74.3,"    52.0",18.2,20.2,41.6,36.7,"       .","       .",8.1,13
+"97","18 jaar of ouder","Waarde",2020,"Venray","Venray                                  ","Gemeente  ","GM0984              ",77.1,"    52.7",16.5,16.9,41.1,34,"       .","       .",6.8,10.9
+"98","18 jaar of ouder","Waarde",2020,"Vijfheerenlanden","Vijfheerenlanden                        ","Gemeente  ","GM1961              ",77.7,"       .",16.3,16.9,49.6,32.3,"       .","       .",6,9.7
+"99","18 jaar of ouder","Waarde",2020,"Vlaardingen","Vlaardingen                             ","Gemeente  ","GM0622              ",74.5,"    42.6",19.1,19.6,51.7,34.6,"       .","       .",8.5,14.3
+"100","18 jaar of ouder","Waarde",2020,"Vlieland","Vlieland                                ","Gemeente  ","GM0096              ",83.6,"    71.0",15.6,30.9,37.9,28.4,"       .","       .",6.3,10.9

@@ -1,0 +1,101 @@
+"","Leeftijd","Marges","Perioden","Wijken.en.buurten","Regioaanduiding.Gemeentenaam..naam.","Regioaanduiding.Soort.regio..omschrijving.","Regioaanduiding.Codering..code.","Ervaren.gezondheid..goed.zeer.goed.....","Bewegen.Voldoet.aan.beweegrichtlijn....","Onder..en.overgewicht.Mate.van.overgewicht.Ernstig.overgewicht....","Roker....","Alcoholgebruik.Voldoet.aan.alcohol.richtlijn....","Lichamelijke.gezondheid.Eén.of.meer.langdurige.aandoeningen....","Psychische.klachten....","Veerkracht..Zeer..lage.veerkracht....","Hoog.risico.op.angst.of.depressie....","Eenzaamheid.Ernstig.zeer.ernstig.eenzaam...."
+"1","18 jaar of ouder","Waarde",2022,"Noardeast-Fryslân","Noardeast-Fryslân                       ","Gemeente  ","GM1970              ",71.2,43.7,16.6,20,42,32,17.6,16,7.5,11.9
+"2","18 jaar of ouder","Waarde",2022,"Noord-Beveland","Noord-Beveland                          ","Gemeente  ","GM1695              ",69.6,42.8,17.3,16.4,44.4,36.6,17.8,16.1,7.3,14.2
+"3","18 jaar of ouder","Waarde",2022,"Noordenveld","Noordenveld                             ","Gemeente  ","GM1699              ",72,47.8,15.8,14.5,43,33.8,15.7,14.1,6.3,10.5
+"4","18 jaar of ouder","Waarde",2022,"Noordoostpolder","Noordoostpolder                         ","Gemeente  ","GM0171              ",71.2,46,17.3,18.5,44.3,31.8,19.3,16.6,8.9,12.6
+"5","18 jaar of ouder","Waarde",2022,"Noordwijk","Noordwijk                               ","Gemeente  ","GM0575              ",72.4,50.2,15.4,16.3,37.8,31.4,19.4,15,8.5,12.5
+"6","18 jaar of ouder","Waarde",2022,"Nuenen, Gerwen en Nederwetten","Nuenen, Gerwen en Nederwetten           ","Gemeente  ","GM0820              ",72.1,46.1,13.8,12.8,38,32.9,16.7,13.5,6.7,10.7
+"7","18 jaar of ouder","Waarde",2022,"Nunspeet","Nunspeet                                ","Gemeente  ","GM0302              ",72.8,45.8,15.8,15.7,46.8,31.8,17.2,14.9,7.6,10.6
+"8","18 jaar of ouder","Waarde",2022,"Oegstgeest","Oegstgeest                              ","Gemeente  ","GM0579              ",74.9,52.5,12.1,12.7,40.5,31.1,18.1,13.5,7.4,11.8
+"9","18 jaar of ouder","Waarde",2022,"Oirschot","Oirschot                                ","Gemeente  ","GM0823              ",72.5,45.9,14.9,13.6,34.2,30.5,16.5,13.4,6.4,10.5
+"10","18 jaar of ouder","Waarde",2022,"Oisterwijk","Oisterwijk                              ","Gemeente  ","GM0824              ",71.6,44.7,15.6,14.6,36.4,32.3,17.6,14.1,7,11.3
+"11","18 jaar of ouder","Waarde",2022,"Oldambt","Oldambt                                 ","Gemeente  ","GM1895              ",64.7,41.5,26,21.7,50,38.4,22.8,20.6,10.1,16.6
+"12","18 jaar of ouder","Waarde",2022,"Oldebroek","Oldebroek                               ","Gemeente  ","GM0269              ",73.2,44.6,16.6,15.8,47.4,31.2,16.8,15.9,7.6,10.5
+"13","18 jaar of ouder","Waarde",2022,"Oldenzaal","Oldenzaal                               ","Gemeente  ","GM0173              ",70.6,51.3,17.7,16.3,35.6,32.4,18.8,15.7,8.8,12.1
+"14","18 jaar of ouder","Waarde",2022,"Olst-Wijhe","Olst-Wijhe                              ","Gemeente  ","GM1773              ",73.3,47,16,15.1,39.4,31.5,16.1,14.4,6.9,10.3
+"15","18 jaar of ouder","Waarde",2022,"Ommen","Ommen                                   ","Gemeente  ","GM0175              ",74.8,48.4,15.8,15.2,40.6,30.6,15.8,15.8,7,10.4
+"16","18 jaar of ouder","Waarde",2022,"Oost Gelre","Oost Gelre                              ","Gemeente  ","GM1586              ",74,49.6,15.9,15,33.8,30.3,15,13.8,7.2,10.1
+"17","18 jaar of ouder","Waarde",2022,"Oosterhout","Oosterhout                              ","Gemeente  ","GM0826              ",66.9,40.1,19.2,16.6,42.6,35.2,21.9,17.8,9.7,13.8
+"18","18 jaar of ouder","Waarde",2022,"Ooststellingwerf","Ooststellingwerf                        ","Gemeente  ","GM0085              ",70.6,45.2,17.7,17.2,43,34.2,17.1,15.7,7.4,11.5
+"19","18 jaar of ouder","Waarde",2022,"Oostzaan","Oostzaan                                ","Gemeente  ","GM0431              ",72.9,48.4,15,14.7,37.5,31.3,18.5,15.1,7.6,11.1
+"20","18 jaar of ouder","Waarde",2022,"Opmeer","Opmeer                                  ","Gemeente  ","GM0432              ",72.9,49.1,13.8,15.2,34.1,29.7,17.2,14.5,7.5,10.7
+"21","18 jaar of ouder","Waarde",2022,"Opsterland","Opsterland                              ","Gemeente  ","GM0086              ",73.5,45.8,15.8,16.2,41.1,32,16.3,14.7,6.8,10.7
+"22","18 jaar of ouder","Waarde",2022,"Oss","Oss                                     ","Gemeente  ","GM0828              ",68.2,44.1,17.4,17.8,41.1,33.8,21.2,17.2,10,13.7
+"23","18 jaar of ouder","Waarde",2022,"Oude IJsselstreek","Oude IJsselstreek                       ","Gemeente  ","GM1509              ",69.8,45.8,19,16.3,39,34.1,18.2,16,8.5,12.5
+"24","18 jaar of ouder","Waarde",2022,"Ouder-Amstel","Ouder-Amstel                            ","Gemeente  ","GM0437              ",72.4,48.8,13.4,15,40.3,31.9,20.9,15.7,8.6,13.4
+"25","18 jaar of ouder","Waarde",2022,"Oudewater","Oudewater                               ","Gemeente  ","GM0589              ",73.9,46.4,15,14.5,38.7,30.5,17.5,13.7,7.1,10.8
+"26","18 jaar of ouder","Waarde",2022,"Overbetuwe","Overbetuwe                              ","Gemeente  ","GM1734              ",72.2,46.2,16,14.6,41.3,33,17.6,14.4,7.6,11.1
+"27","18 jaar of ouder","Waarde",2022,"Papendrecht","Papendrecht                             ","Gemeente  ","GM0590              ",68.3,40.2,18.5,16.6,49.2,34.4,21.3,17.2,9.6,13.7
+"28","18 jaar of ouder","Waarde",2022,"Peel en Maas","Peel en Maas                            ","Gemeente  ","GM1894              ",70.1,45.3,15.5,14.4,37.5,32.5,18.4,14.9,7.5,11.9
+"29","18 jaar of ouder","Waarde",2022,"Pekela","Pekela                                  ","Gemeente  ","GM0765              ",61.7,40.1,27.2,22.8,49,40,22.8,20.8,11.1,16.7
+"30","18 jaar of ouder","Waarde",2022,"Pijnacker-Nootdorp","Pijnacker-Nootdorp                      ","Gemeente  ","GM1926              ",73.6,47.4,14.8,13.7,43.9,30.5,19.1,14.5,8.1,12.2
+"31","18 jaar of ouder","Waarde",2022,"Purmerend","Purmerend                               ","Gemeente  ","GM0439              ",68.1,45.7,17.1,17.8,42.3,33.6,22.3,17,10.3,14.2
+"32","18 jaar of ouder","Waarde",2022,"Putten","Putten                                  ","Gemeente  ","GM0273              ",73.5,46.5,15.3,15.5,46.4,30.8,16.9,14.4,7.4,10.5
+"33","18 jaar of ouder","Waarde",2022,"Raalte","Raalte                                  ","Gemeente  ","GM0177              ",74.1,50.6,15.5,14.7,39.2,30.1,15.7,14.4,6.6,10.1
+"34","18 jaar of ouder","Waarde",2022,"Reimerswaal","Reimerswaal                             ","Gemeente  ","GM0703              ",69.9,40.9,18.4,18.1,48.7,31,20.4,17.4,9.1,13.6
+"35","18 jaar of ouder","Waarde",2022,"Renkum","Renkum                                  ","Gemeente  ","GM0274              ",71.1,47.5,15.3,13.6,45.7,35.7,17.6,14.6,7.5,11.5
+"36","18 jaar of ouder","Waarde",2022,"Renswoude","Renswoude                               ","Gemeente  ","GM0339              ",75.1,45.3,14.7,15.7,46.2,27.8,16.5,13.1,7,10
+"37","18 jaar of ouder","Waarde",2022,"Reusel-De Mierden","Reusel-De Mierden                       ","Gemeente  ","GM1667              ",70.8,45.1,15.9,14.3,36,30.2,17.4,15.1,6.8,11
+"38","18 jaar of ouder","Waarde",2022,"Rheden","Rheden                                  ","Gemeente  ","GM0275              ",67.5,45.6,17.5,17.4,44.4,37.2,20.8,16.8,9.7,13.2
+"39","18 jaar of ouder","Waarde",2022,"Rhenen","Rhenen                                  ","Gemeente  ","GM0340              ",71.9,44.3,16,15.4,49.2,32.7,17.6,15.1,7.8,11.1
+"40","18 jaar of ouder","Waarde",2022,"Ridderkerk","Ridderkerk                              ","Gemeente  ","GM0597              ",66.8,38.9,19.2,16.9,51.7,35.3,22.1,18.3,10.1,14.6
+"41","18 jaar of ouder","Waarde",2022,"Rijssen-Holten","Rijssen-Holten                          ","Gemeente  ","GM1742              ",73.9,49,16.5,15.5,40.4,29.4,16.5,14.5,7.2,10.2
+"42","18 jaar of ouder","Waarde",2022,"Rijswijk","Rijswijk                                ","Gemeente  ","GM0603              ",66.4,43.9,17.2,17.3,48.4,34.7,25.1,19.1,12.5,17.2
+"43","18 jaar of ouder","Waarde",2022,"Roerdalen","Roerdalen                               ","Gemeente  ","GM1669              ",64.8,40,17.9,16,43.3,37.6,21.2,17,8.9,13
+"44","18 jaar of ouder","Waarde",2022,"Roermond","Roermond                                ","Gemeente  ","GM0957              ",64.1,42.8,18.3,19.3,46.1,38.2,25.7,19,11.6,16.8
+"45","18 jaar of ouder","Waarde",2022,"De Ronde Venen","De Ronde Venen                          ","Gemeente  ","GM0736              ",73.3,46.3,14.6,14.7,38.4,31.2,18.4,14.3,7.8,11.6
+"46","18 jaar of ouder","Waarde",2022,"Roosendaal","Roosendaal                              ","Gemeente  ","GM1674              ",64.4,41.8,19.8,18.2,45.9,35,23.5,18.6,10.6,15.7
+"47","18 jaar of ouder","Waarde",2022,"Rotterdam","Rotterdam                               ","Gemeente  ","GM0599              ",62.7,44.9,18,22.4,50.8,35.1,30.6,23.2,15.6,20.9
+"48","18 jaar of ouder","Waarde",2022,"Rozendaal","Rozendaal                               ","Gemeente  ","GM0277              ",79.3,50.9,10.7,9.1,36.3,31.4,11.8,8.9,4.3,7.3
+"49","18 jaar of ouder","Waarde",2022,"Rucphen","Rucphen                                 ","Gemeente  ","GM0840              ",65.6,37.3,20.1,16.7,41.6,33.8,19.8,18.7,8.3,13.2
+"50","18 jaar of ouder","Waarde",2022,"Schagen","Schagen                                 ","Gemeente  ","GM0441              ",71.7,52.3,14.8,15.8,37.6,33.6,18,14.8,7.7,11.4
+"51","18 jaar of ouder","Waarde",2022,"Scherpenzeel","Scherpenzeel                            ","Gemeente  ","GM0279              ",73.5,45.9,15.6,15.5,46.5,30.2,17.4,14.5,7.3,10.5
+"52","18 jaar of ouder","Waarde",2022,"Schiedam","Schiedam                                ","Gemeente  ","GM0606              ",64.2,44.9,19.2,21.4,51.4,35.1,28.2,20.9,13.7,19.3
+"53","18 jaar of ouder","Waarde",2022,"Schiermonnikoog","Schiermonnikoog                         ","Gemeente  ","GM0088              ",70.9,72.5,15.5,21.9,42.3,28.8,19.4,14.9,8.9,13.7
+"54","18 jaar of ouder","Waarde",2022,"Schouwen-Duiveland","Schouwen-Duiveland                      ","Gemeente  ","GM1676              ",69.9,42.6,17.9,16.1,46.6,35,18,15.7,7.1,13
+"55","18 jaar of ouder","Waarde",2022,"Simpelveld","Simpelveld                              ","Gemeente  ","GM0965              ",65.6,35,19.6,16.6,44.1,38.7,21.9,15.7,9.4,13.4
+"56","18 jaar of ouder","Waarde",2022,"Sint-Michielsgestel","Sint-Michielsgestel                     ","Gemeente  ","GM0845              ",73.3,45.9,14.8,13.9,35,31,16.1,13.4,6.5,10.2
+"57","18 jaar of ouder","Waarde",2022,"Sittard-Geleen","Sittard-Geleen                          ","Gemeente  ","GM1883              ",63.5,39.9,19.5,18.5,46.5,39.1,25.1,18.9,11.6,15.6
+"58","18 jaar of ouder","Waarde",2022,"Sliedrecht","Sliedrecht                              ","Gemeente  ","GM0610              ",67.9,40.2,18.6,17,51.7,33.7,21.8,17.7,10,13.8
+"59","18 jaar of ouder","Waarde",2022,"Sluis","Sluis                                   ","Gemeente  ","GM1714              ",64.5,41.3,17,16.5,46.4,34.7,18.8,16.4,8.2,15.4
+"60","18 jaar of ouder","Waarde",2022,"Smallingerland","Smallingerland                          ","Gemeente  ","GM0090              ",69.8,45.2,17.7,19.1,43.8,33.7,19.5,16.4,8.8,12.8
+"61","18 jaar of ouder","Waarde",2022,"Soest","Soest                                   ","Gemeente  ","GM0342              ",71.6,48.4,14.9,15.7,42.5,33,19.6,15.4,8.8,12.6
+"62","18 jaar of ouder","Waarde",2022,"Someren","Someren                                 ","Gemeente  ","GM0847              ",71,44.5,14.9,14.6,37.2,31.5,17.9,14.6,7.4,11.1
+"63","18 jaar of ouder","Waarde",2022,"Son en Breugel","Son en Breugel                          ","Gemeente  ","GM0848              ",72.5,44.7,14.5,13.3,38,31.4,17.2,13.7,6.9,11
+"64","18 jaar of ouder","Waarde",2022,"Stadskanaal","Stadskanaal                             ","Gemeente  ","GM0037              ",64.1,39.5,24.1,20.4,48,38.6,21.4,19.2,10.1,14.5
+"65","18 jaar of ouder","Waarde",2022,"Staphorst","Staphorst                               ","Gemeente  ","GM0180              ",76.1,46.8,13.9,15.3,41.4,26.2,15.4,16.5,6.5,9.3
+"66","18 jaar of ouder","Waarde",2022,"Stede Broec","Stede Broec                             ","Gemeente  ","GM0532              ",69.5,50.1,16.4,16.6,38.8,33.1,19.6,16.1,8.5,13.1
+"67","18 jaar of ouder","Waarde",2022,"Steenbergen","Steenbergen                             ","Gemeente  ","GM0851              ",67.8,36.6,20.3,17.8,45.1,33.7,20.3,16.6,8.6,13.8
+"68","18 jaar of ouder","Waarde",2022,"Steenwijkerland","Steenwijkerland                         ","Gemeente  ","GM1708              ",71,44.7,17.4,17.9,42.6,33,17.7,15.8,8,11.4
+"69","18 jaar of ouder","Waarde",2022,"Stein","Stein                                   ","Gemeente  ","GM0971              ",65.1,41.2,18.5,15.1,45.9,37.3,21.2,16.1,8.9,13.2
+"70","18 jaar of ouder","Waarde",2022,"Stichtse Vecht","Stichtse Vecht                          ","Gemeente  ","GM1904              ",72.5,46.6,15.3,15.5,40.3,32.2,19.1,14.6,8.2,12.1
+"71","18 jaar of ouder","Waarde",2022,"Súdwest-Fryslân","Súdwest-Fryslân                         ","Gemeente  ","GM1900              ",70.9,49.4,16,17.4,40.7,33.3,17.8,15.2,7.9,11.7
+"72","18 jaar of ouder","Waarde",2022,"Terneuzen","Terneuzen                               ","Gemeente  ","GM0715              ",66.3,42.3,18.4,18.1,44.3,34,21.1,17.5,8.8,16.4
+"73","18 jaar of ouder","Waarde",2022,"Terschelling","Terschelling                            ","Gemeente  ","GM0093              ",73,64.3,15,18.9,35.5,30.5,17.3,14,7.3,13.8
+"74","18 jaar of ouder","Waarde",2022,"Texel","Texel                                   ","Gemeente  ","GM0448              ",72.2,55,14.8,16.5,40.8,32.1,18,15.7,7.6,12.4
+"75","18 jaar of ouder","Waarde",2022,"Teylingen","Teylingen                               ","Gemeente  ","GM1525              ",73.6,49.9,15,14.9,39.2,30.6,18.6,14.5,8.1,11.6
+"76","18 jaar of ouder","Waarde",2022,"Tholen","Tholen                                  ","Gemeente  ","GM0716              ",69.8,38.4,19.8,18,48.2,32.5,20.1,17,8.7,13.5
+"77","18 jaar of ouder","Waarde",2022,"Tiel","Tiel                                    ","Gemeente  ","GM0281              ",66.5,43.6,18.8,19.7,48.9,34.6,23.4,18.9,11.3,15.4
+"78","18 jaar of ouder","Waarde",2022,"Tilburg","Tilburg                                 ","Gemeente  ","GM0855              ",66.5,45.2,18.1,21.5,40.2,33.5,26.1,19,12.2,16.2
+"79","18 jaar of ouder","Waarde",2022,"Tubbergen","Tubbergen                               ","Gemeente  ","GM0183              ",75.4,47.8,15,14.4,33.5,28.4,14.8,14,6,9.1
+"80","18 jaar of ouder","Waarde",2022,"Twenterand","Twenterand                              ","Gemeente  ","GM1700              ",71.8,46.5,18.9,17.5,40.3,31.9,16.8,16.5,7.9,10.7
+"81","18 jaar of ouder","Waarde",2022,"Tynaarlo","Tynaarlo                                ","Gemeente  ","GM1730              ",74,50.1,14.7,13.3,41.8,32.7,15.1,13,5.9,9.7
+"82","18 jaar of ouder","Waarde",2022,"Tytsjerksteradiel","Tytsjerksteradiel                       ","Gemeente  ","GM0737              ",72.8,44.9,15.6,16.8,43,32.1,16.4,14.4,6.7,10.7
+"83","18 jaar of ouder","Waarde",2022,"Uitgeest","Uitgeest                                ","Gemeente  ","GM0450              ",73.7,53.6,13.8,13.4,36.2,30.3,17.8,13.9,7.7,11
+"84","18 jaar of ouder","Waarde",2022,"Uithoorn","Uithoorn                                ","Gemeente  ","GM0451              ",71,45.8,15.8,16.5,42.8,31.6,21.5,16.3,9.5,14.2
+"85","18 jaar of ouder","Waarde",2022,"Urk","Urk                                     ","Gemeente  ","GM0184              ",74.8,49.6,16.5,17.9,51.7,26.6,16.9,15.9,7.8,9.8
+"86","18 jaar of ouder","Waarde",2022,"Utrecht","Utrecht                                 ","Gemeente  ","GM0344              ",71.8,54,12.3,19.5,38.6,29.8,27,18.3,12.6,15.6
+"87","18 jaar of ouder","Waarde",2022,"Utrechtse Heuvelrug","Utrechtse Heuvelrug                     ","Gemeente  ","GM1581              ",72.9,47,14.3,13.8,44.9,33.1,17.3,13.8,7.2,10.9
+"88","18 jaar of ouder","Waarde",2022,"Vaals","Vaals                                   ","Gemeente  ","GM0981              ",62.8,37.2,17.9,19.8,44.2,40.9,24.8,18.3,11.4,16.5
+"89","18 jaar of ouder","Waarde",2022,"Valkenburg aan de Geul","Valkenburg aan de Geul                  ","Gemeente  ","GM0994              ",66.4,38.3,17,15.3,43.3,37.2,21.5,15.7,8.9,13.6
+"90","18 jaar of ouder","Waarde",2022,"Valkenswaard","Valkenswaard                            ","Gemeente  ","GM0858              ",67.4,43.9,17.3,16,39.3,34.8,20.3,16.1,8.7,13.2
+"91","18 jaar of ouder","Waarde",2022,"Veendam","Veendam                                 ","Gemeente  ","GM0047              ",64.5,41.3,24.2,19.9,48.5,38.2,22.2,18.4,11,14.9
+"92","18 jaar of ouder","Waarde",2022,"Veenendaal","Veenendaal                              ","Gemeente  ","GM0345              ",69.6,46.3,17,17.3,50.1,33.5,20.8,16.9,9.9,12.9
+"93","18 jaar of ouder","Waarde",2022,"Veere","Veere                                   ","Gemeente  ","GM0717              ",75,51,13,13.5,47.4,32.7,14.8,12.8,5.7,10.7
+"94","18 jaar of ouder","Waarde",2022,"Veldhoven","Veldhoven                               ","Gemeente  ","GM0861              ",69.8,44.9,15.7,14.7,40.6,32.9,19.6,15.3,8.3,13.2
+"95","18 jaar of ouder","Waarde",2022,"Velsen","Velsen                                  ","Gemeente  ","GM0453              ",68.7,48.1,16.7,17.7,40.4,33.4,21.2,16.9,10.1,13.8
+"96","18 jaar of ouder","Waarde",2022,"Venlo","Venlo                                   ","Gemeente  ","GM0983              ",65.2,44.8,19,19.5,41.9,38,23.7,18.4,11,15.9
+"97","18 jaar of ouder","Waarde",2022,"Venray","Venray                                  ","Gemeente  ","GM0984              ",68.5,44.7,16.7,16.5,41.4,34.4,20.5,16.4,9,13.3
+"98","18 jaar of ouder","Waarde",2022,"Vijfheerenlanden","Vijfheerenlanden                        ","Gemeente  ","GM1961              ",70.1,43.1,17.5,16.7,46.5,32.4,19.9,16.5,9.1,12.5
+"99","18 jaar of ouder","Waarde",2022,"Vlaardingen","Vlaardingen                             ","Gemeente  ","GM0622              ",64.3,44.3,19.8,20.1,51.4,36.2,26.9,20.3,12.8,17.6
+"100","18 jaar of ouder","Waarde",2022,"Vlieland","Vlieland                                ","Gemeente  ","GM0096              ",75.1,72.6,17.7,19.8,30.1,30.1,17.3,14.2,9,14.2

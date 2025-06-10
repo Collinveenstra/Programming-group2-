@@ -1,0 +1,1 @@
+Arbeidsmarktsituatie_jongeren__regio_10062025_142603 <- read.csv("~/Downloads/Arbeidsmarktsituatie_jongeren__regio_10062025_142603.csv", sep=";")

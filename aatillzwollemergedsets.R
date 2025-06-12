@@ -1,7 +1,7 @@
 
-##################################################
+###################################################################
 ####importing the data of gemeentes and unemployment in Rstudio####
-##################################################
+###################################################################
 
 library(readr)
 
@@ -22,6 +22,7 @@ unemploymentgemeentes = read.csv("data/unemployment.csv")
 #################################################################
 
 library(dplyr)
+library(tidyverse)
 
 gemeentesmentaldata2020 = bind_rows(Aatillgoereemental2020,goestillnissewaardmental2020,noardtillvlielandmental2020,vlissingentillzwollemental2020)
 gemeentesmentaldata2022 = bind_rows(Aatillgoereemental2022,goestillnissewaardmental2022,noardtillvlielandmental2022,vlissingentillzwollemental2022)
@@ -61,4 +62,46 @@ filtered_unemploymentgemeentes = unemploymentgemeentes %>%
            str_detect(Uitkering, "Totaal") &
            str_detect(Geregistreerd.werkzoekende.bij.UWV, "Totaal"))
 
+
 write.csv(filtered_unemploymentgemeentes,"important data/filtered_unemploymentgemeentes.csv")
+
+############################################################################################
+####prepare mental and unemployment set so that we can merge them together in 1 data set####
+############################################################################################
+
+unemploymentGem = filtered_unemploymentgemeentes %>%
+#  filter(Perioden %in% c(2020,2022)) %>%
+  arrange(Perioden)
+
+
+unemploymentGem = unemploymentGem %>%
+  rename(Gemeente = Regio.s) 
+unemploymentGem$Perioden = as.character(unemploymentGem$Perioden)
+
+
+filtered_gemeentesmentaldata2020$Psychische.klachten.... = NA_real_
+
+filtered_comparisonmental2020_2022 = bind_rows(filtered_gemeentesmentaldata2020,filtered_gemeentesmentaldata2022)
+Mental2020_2022 <- filtered_comparisonmental2020_2022
+
+Mental2020_2022 = Mental2020_2022 %>%
+  rename(Gemeente = Wijken.en.buurten)
+Mental2020_2022$Perioden = as.character(Mental2020_2022$Perioden)
+
+########################################
+###now merge the 2 data sets together###
+########################################
+
+combined_data = full_join(
+  unemploymentGem,
+  Mental2020_2022,
+  by = c("Gemeente","Perioden")
+)
+
+
+
+
+
+
+
+

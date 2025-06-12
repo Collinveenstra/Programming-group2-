@@ -98,6 +98,8 @@ combined_data = full_join(
   by = c("Gemeente","Perioden")
 )
 
+write.csv(combined_data,"important data/combined_data.csv")
+
 
 
 

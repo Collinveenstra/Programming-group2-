@@ -112,9 +112,12 @@ f_unplmntchng <- filtered_unemploymentgemeentes %>%
       (`Jongeren..15.tot.27.jaar...aantal.` - lag(`Jongeren..15.tot.27.jaar...aantal.`)) / 
       lag(`Jongeren..15.tot.27.jaar...aantal.`) * 100
   ) %>%
-  dplyr::ungroup
+  ungroup()
+
+f_unplmntchng$unemployment_pct_change = round(f_unplmntchng$unemployment_pct_change, 3)
 
 write.csv(f_unplmntchng,"important data/f_unplmntchng.csv")
+
 
 
 

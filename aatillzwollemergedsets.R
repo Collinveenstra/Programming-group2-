@@ -100,6 +100,25 @@ combined_data = full_join(
 
 write.csv(combined_data,"important data/combined_data.csv")
 
+##################################################################################
+####clean the combined data set so that all useless variables are filtered out####
+##################################################################################
+
+data_cleancombined = combined_data %>%
+  select(-Onderwijsvolgend, -Arbeidskenmerken, -Uitkering, -Geregistreerd.werkzoekende.bij.UWV, -Marges)
+
+names(data_cleancombined) = c(
+  "Periode",
+  "Gemeente",
+  "Aantal_werklozen_15_27",
+  "Leeftijd",
+  "Regio_type",
+  "Psychische_klachten",
+  "Hoog_risico_angst_depressie"
+)
+
+write.csv(data_cleancombined,"important data/data_cleancombined.csv")
+
 ######################################
 ####unemployment percentage change####
 ######################################

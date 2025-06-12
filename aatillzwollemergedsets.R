@@ -100,6 +100,21 @@ combined_data = full_join(
 
 write.csv(combined_data,"important data/combined_data.csv")
 
+######################################
+####unemployment percentage change####
+######################################
+
+f_unplmntchng <- filtered_unemploymentgemeentes %>%
+  arrange(Regio.s, Perioden) %>%
+  group_by(Regio.s) %>%
+  mutate(
+    unemployment_pct_change = 
+      (`Jongeren..15.tot.27.jaar...aantal.` - lag(`Jongeren..15.tot.27.jaar...aantal.`)) / 
+      lag(`Jongeren..15.tot.27.jaar...aantal.`) * 100
+  ) %>%
+  dplyr::ungroup
+
+write.csv(f_unplmntchng,"important data/f_unplmntchng.csv")
 
 
 

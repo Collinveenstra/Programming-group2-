@@ -172,6 +172,17 @@ top10_lowrisk = data_cleancombined %>%
 write.csv(top10_highrisk, "important data/top10_highrisk.csv")
 write.csv(top10_lowrisk, "important data/top10_lowrisk.csv")
 
+#################################################################
+####calculate the change of mental risk between 2020 and 2022####
+#################################################################
+
+
+######################################################
+####make a top 10 of highest increase and decrease####
+######################################################
+
+
+
 #################################
 ####load geographical data#######
 #################################
@@ -199,8 +210,16 @@ write.csv(gemeenten_nl,"important data/gemeenten_nl.csv")
 
 
 
+###########################################################################################################
+####geographical visualization of unemployment and mental health in a specific year shown on a heat map####
+###########################################################################################################
 
-##################################################
-#### compare 2 data sets and make assumptions#####
-##################################################
+
+
+###############################################################################################
+#### compare unemployment and mental data sets and make assumptions. e.g. correlation etc.#####
+###############################################################################################
+
+
+
 

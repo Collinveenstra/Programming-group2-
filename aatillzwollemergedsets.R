@@ -137,8 +137,43 @@ f_unplmntchng$unemployment_pct_change = round(f_unplmntchng$unemployment_pct_cha
 
 write.csv(f_unplmntchng,"important data/f_unplmntchng.csv")
 
+##########################################################
+#### Mental data higher or lower than national average####
+##########################################################
+
+gem_2020 = data_cleancombined$Hoog_risico_angst_depressie[data_cleancombined$Periode == 2020 & data_cleancombined$Gemeente == "Nederland"]
+
+gem_2022 = data_cleancombined$Hoog_risico_angst_depressie[data_cleancombined$Periode == 2022 & data_cleancombined$Gemeente == "Nederland"]
+
+data_cleancombined$Boven_of_onder_gemiddeld_risico <- ifelse(
+  is.na(data_cleancombined$Hoog_risico_angst_depressie), NA,
+  ifelse(data_cleancombined$Periode == 2020 & data_cleancombined$Hoog_risico_angst_depressie > gem_2020, "Boven",
+         ifelse(data_cleancombined$Periode == 2020 & data_cleancombined$Hoog_risico_angst_depressie < gem_2020, "Onder",
+                ifelse(data_cleancombined$Periode == 2022 & data_cleancombined$Hoog_risico_angst_depressie > gem_2022, "Boven",
+                       ifelse(data_cleancombined$Periode == 2022 & data_cleancombined$Hoog_risico_angst_depressie < gem_2022, "Onder", "Gelijk"))))
+)
+
+##########################################################################
+####Top 10 gemeenten with highest and lowest fear and depression risks####
+##########################################################################
+
+top10_highrisk = data_cleancombined %>%
+  filter(Periode %in% c(2020,2022)) %>%
+  group_by(Periode) %>%
+  arrange(desc(Hoog_risico_angst_depressie)) %>%
+  slice(1:10)
+
+top10_lowrisk = data_cleancombined %>%
+  filter(Periode %in% c(2020,2022)) %>%
+  group_by(Periode) %>%
+  arrange(Hoog_risico_angst_depressie) %>%
+  slice(1:10)
+
+write.csv(top10_highrisk, "important data/top10_highrisk.csv")
+write.csv(top10_lowrisk, "important data/top10_lowrisk.csv")
+
 #################################
-####geografische data inladen####
+####load geographical data#######
 #################################
 
 library(giscoR)
@@ -149,6 +184,7 @@ View(gemeenten_nl)
 
 install.packages(c("sf","dplyr","ggplot2","tmap","rmapshaper","readr"))
 library(sf)
+y
 
 ggplot(data = gemeenten_nl) + 
   geom_sf(fill = "white", color = "black") +
@@ -158,11 +194,13 @@ ggplot(data = gemeenten_nl) +
 write.csv(gemeenten_nl,"important data/gemeenten_nl.csv")
 
 #########################################################
-####geografische data toevoegen aan combined data set####
+####add geographical data to main data set###############
 #########################################################
 
 
 
 
-
+##################################################
+#### compare 2 data sets and make assumptions#####
+##################################################
 

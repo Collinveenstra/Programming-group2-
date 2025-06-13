@@ -137,7 +137,29 @@ f_unplmntchng$unemployment_pct_change = round(f_unplmntchng$unemployment_pct_cha
 
 write.csv(f_unplmntchng,"important data/f_unplmntchng.csv")
 
+#################################
+####geografische data inladen####
+#################################
 
+library(giscoR)
+
+gemeenten_nl = gisco_get_lau(country = "NL", year = 2020) %>%
+  arrange(LAU_NAME)
+View(gemeenten_nl)
+
+install.packages(c("sf","dplyr","ggplot2","tmap","rmapshaper","readr"))
+library(sf)
+
+ggplot(data = gemeenten_nl) + 
+  geom_sf(fill = "white", color = "black") +
+  theme_minimal() +
+  labs(title = "Gemeentegrenzen van Nederland")
+
+write.csv(gemeenten_nl,"important data/gemeenten_nl.csv")
+
+#########################################################
+####geografische data toevoegen aan combined data set####
+#########################################################
 
 
 

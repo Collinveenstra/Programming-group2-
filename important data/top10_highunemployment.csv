@@ -1,41 +1,41 @@
-"","Periode","Gemeente","Aantal_jongeren","Niet_werkzame_jongeren","Leeftijd","Regio_type","Psychische_klachten","Hoog_risico_angst_depressie","werkloosheidspercentage","Boven_of_onder_gemiddelde_werkloosheid","Boven_of_onder_gemiddeld_risico"
-"1","2020","Vaals",1400,800,"18 jaar of ouder","Gemeente  ",NA,10.3,57.14,"Boven","Boven"
-"2","2020","Wassenaar",3500,2000,"18 jaar of ouder","Gemeente  ",NA,5.2,57.14,"Boven","Onder"
-"3","2020","Wageningen",10800,6000,"18 jaar of ouder","Gemeente  ",NA,7.9,55.56,"Boven","Boven"
-"4","2020","Maastricht",27300,14500,"18 jaar of ouder","Gemeente  ",NA,9.8,53.11,"Boven","Boven"
-"5","2020","Blaricum",1200,600,"18 jaar of ouder","Gemeente  ",NA,4.3,50,"Boven","Onder"
-"6","2020","Bloemendaal",2800,1400,"18 jaar of ouder","Gemeente  ",NA,3.7,50,"Boven","Onder"
-"7","2020","Laren (NH.)",1200,600,NA,NA,NA,NA,50,"Boven",NA
-"8","2020","Rozendaal",200,100,"18 jaar of ouder","Gemeente  ",NA,2.9,50,"Boven","Onder"
-"9","2020","Vlieland",200,100,"18 jaar of ouder","Gemeente  ",NA,6.3,50,"Boven","Onder"
-"10","2020","Delft",25600,12700,"18 jaar of ouder","Gemeente  ",NA,8.4,49.61,"Boven","Boven"
-"11","2021","Vaals",1400,900,NA,NA,NA,NA,64.29,"Boven",NA
-"12","2021","Wageningen",11000,5800,NA,NA,NA,NA,52.73,"Boven",NA
-"13","2021","Wassenaar",3500,1800,NA,NA,NA,NA,51.43,"Boven",NA
-"14","2021","Maastricht",28200,14200,NA,NA,NA,NA,50.35,"Boven",NA
-"15","2021","Laren (NH.)",1200,600,NA,NA,NA,NA,50,"Boven",NA
-"16","2021","Rozendaal",200,100,NA,NA,NA,NA,50,"Boven",NA
-"17","2021","Delft",26200,12200,NA,NA,NA,NA,46.56,"Boven",NA
-"18","2021","Oegstgeest",3100,1300,NA,NA,NA,NA,41.94,"Boven",NA
-"19","2021","Bloemendaal",2700,1100,NA,NA,NA,NA,40.74,"Boven",NA
-"20","2021","Amstelveen",13000,5200,NA,NA,NA,NA,40,"Boven",NA
-"21","2022","Vaals",1500,800,"18 jaar of ouder","Gemeente  ",24.8,11.4,53.33,"Boven","Boven"
-"22","2022","Wassenaar",3500,1800,"18 jaar of ouder","Gemeente  ",19.2,8.2,51.43,"Boven","Onder"
-"23","2022","Wageningen",11300,5800,"18 jaar of ouder","Gemeente  ",25.4,11.9,51.33,"Boven","Boven"
-"24","2022","Laren (NH.)",1200,600,NA,NA,NA,NA,50,"Boven",NA
-"25","2022","Rozendaal",200,100,"18 jaar of ouder","Gemeente  ",11.8,4.3,50,"Boven","Onder"
-"26","2022","Vlieland",200,100,"18 jaar of ouder","Gemeente  ",17.3,9,50,"Boven","Onder"
-"27","2022","Maastricht",29000,14200,"18 jaar of ouder","Gemeente  ",28.6,13.5,48.97,"Boven","Boven"
-"28","2022","Bloemendaal",2800,1200,"18 jaar of ouder","Gemeente  ",15.5,6,42.86,"Boven","Onder"
-"29","2022","Delft",26500,11300,"18 jaar of ouder","Gemeente  ",27.8,13,42.64,"Boven","Boven"
-"30","2022","Oegstgeest",3200,1300,"18 jaar of ouder","Gemeente  ",18.1,7.4,40.62,"Boven","Onder"
-"31","2023","Vaals",1400,800,NA,NA,NA,NA,57.14,"Boven",NA
-"32","2023","Rozendaal",200,100,NA,NA,NA,NA,50,"Boven",NA
-"33","2023","Vlieland",200,100,NA,NA,NA,NA,50,"Boven",NA
-"34","2023","Wageningen",12400,6200,NA,NA,NA,NA,50,"Boven",NA
-"35","2023","Maastricht",31200,15400,NA,NA,NA,NA,49.36,"Boven",NA
-"36","2023","Wassenaar",3500,1700,NA,NA,NA,NA,48.57,"Boven",NA
-"37","2023","Laren (NH.)",1100,500,NA,NA,NA,NA,45.45,"Boven",NA
-"38","2023","Delft",28300,12200,NA,NA,NA,NA,43.11,"Boven",NA
-"39","2023","Bloemendaal",2800,1200,NA,NA,NA,NA,42.86,"Boven",NA
-"40","2023","Oegstgeest",3200,1300,NA,NA,NA,NA,40.62,"Boven",NA
+"","Periode","Gemeente","Aantal_jongeren","Niet_werkzame_jongeren","Regio_type","Psychische_klachten","Hoog_risico_angst_depressie","Boven_of_onder_gemiddeld_risico","werkloosheidspercentage","Boven_of_onder_gemiddelde_werkloosheid"
+"1","2020","Vaals",1400,800,"Gemeente  ",NA,10.3,"Boven",57.14,"Boven"
+"2","2020","Wassenaar",3500,2000,"Gemeente  ",NA,5.2,"Onder",57.14,"Boven"
+"3","2020","Wageningen",10800,6000,"Gemeente  ",NA,7.9,"Boven",55.56,"Boven"
+"4","2020","Maastricht",27300,14500,"Gemeente  ",NA,9.8,"Boven",53.11,"Boven"
+"5","2020","Blaricum",1200,600,"Gemeente  ",NA,4.3,"Onder",50,"Boven"
+"6","2020","Bloemendaal",2800,1400,"Gemeente  ",NA,3.7,"Onder",50,"Boven"
+"7","2020","Laren (NH.)",1200,600,NA,NA,NA,NA,50,"Boven"
+"8","2020","Rozendaal",200,100,"Gemeente  ",NA,2.9,"Onder",50,"Boven"
+"9","2020","Vlieland",200,100,"Gemeente  ",NA,6.3,"Onder",50,"Boven"
+"10","2020","Delft",25600,12700,"Gemeente  ",NA,8.4,"Boven",49.61,"Boven"
+"11","2021","Vaals",1400,900,NA,NA,NA,NA,64.29,"Boven"
+"12","2021","Wageningen",11000,5800,NA,NA,NA,NA,52.73,"Boven"
+"13","2021","Wassenaar",3500,1800,NA,NA,NA,NA,51.43,"Boven"
+"14","2021","Maastricht",28200,14200,NA,NA,NA,NA,50.35,"Boven"
+"15","2021","Laren (NH.)",1200,600,NA,NA,NA,NA,50,"Boven"
+"16","2021","Rozendaal",200,100,NA,NA,NA,NA,50,"Boven"
+"17","2021","Delft",26200,12200,NA,NA,NA,NA,46.56,"Boven"
+"18","2021","Oegstgeest",3100,1300,NA,NA,NA,NA,41.94,"Boven"
+"19","2021","Bloemendaal",2700,1100,NA,NA,NA,NA,40.74,"Boven"
+"20","2021","Amstelveen",13000,5200,NA,NA,NA,NA,40,"Boven"
+"21","2022","Vaals",1500,800,"Gemeente  ",24.8,11.4,"Boven",53.33,"Boven"
+"22","2022","Wassenaar",3500,1800,"Gemeente  ",19.2,8.2,"Onder",51.43,"Boven"
+"23","2022","Wageningen",11300,5800,"Gemeente  ",25.4,11.9,"Boven",51.33,"Boven"
+"24","2022","Laren (NH.)",1200,600,NA,NA,NA,NA,50,"Boven"
+"25","2022","Rozendaal",200,100,"Gemeente  ",11.8,4.3,"Onder",50,"Boven"
+"26","2022","Vlieland",200,100,"Gemeente  ",17.3,9,"Onder",50,"Boven"
+"27","2022","Maastricht",29000,14200,"Gemeente  ",28.6,13.5,"Boven",48.97,"Boven"
+"28","2022","Bloemendaal",2800,1200,"Gemeente  ",15.5,6,"Onder",42.86,"Boven"
+"29","2022","Delft",26500,11300,"Gemeente  ",27.8,13,"Boven",42.64,"Boven"
+"30","2022","Oegstgeest",3200,1300,"Gemeente  ",18.1,7.4,"Onder",40.62,"Boven"
+"31","2023","Vaals",1400,800,NA,NA,NA,NA,57.14,"Boven"
+"32","2023","Rozendaal",200,100,NA,NA,NA,NA,50,"Boven"
+"33","2023","Vlieland",200,100,NA,NA,NA,NA,50,"Boven"
+"34","2023","Wageningen",12400,6200,NA,NA,NA,NA,50,"Boven"
+"35","2023","Maastricht",31200,15400,NA,NA,NA,NA,49.36,"Boven"
+"36","2023","Wassenaar",3500,1700,NA,NA,NA,NA,48.57,"Boven"
+"37","2023","Laren (NH.)",1100,500,NA,NA,NA,NA,45.45,"Boven"
+"38","2023","Delft",28300,12200,NA,NA,NA,NA,43.11,"Boven"
+"39","2023","Bloemendaal",2800,1200,NA,NA,NA,NA,42.86,"Boven"
+"40","2023","Oegstgeest",3200,1300,NA,NA,NA,NA,40.62,"Boven"

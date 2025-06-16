@@ -5,18 +5,20 @@
 
 library(readr)
 
+#import of mental data gemeentes 2020
 Aatillgoereemental2020 = read.csv("data/Aatillgoereemental2020.csv")
 goestillnissewaardmental2020 = read.csv("data/goestillnissewaardmental2020.csv")
 noardtillvlielandmental2020 = read.csv("data/noardtillvlielandmental2020.csv")
 vlissingentillzwollemental2020 = read.csv("data/vlissingentillzwollemental2020.csv")
 
+#import of mental data gemeentes 2022
 Aatillgoereemental2022 = read.csv("data/Aatillgoereemental.csv")
 goestillnissewaardmental2022 = read.csv("data/goestillnissewaardmental2022.csv")
 noardtillvlielandmental2022 = read.csv("data/noardtillvlielandmental2022.csv")
 vlissingentillzwollemental2022 = read.csv("data/vlissingentillzwollemental2022.csv")
 
+#import of unemployment data 2020-2023
 gem_unemployment = read.csv("standard data/gem_unemployment.csv")
-
 
 #################################################################
 ####combining the multiple pieces of gemeentes into 1 dataset####
@@ -25,6 +27,7 @@ gem_unemployment = read.csv("standard data/gem_unemployment.csv")
 library(dplyr)
 library(tidyverse)
 
+#make 1 large mental data set of all the small partial mental datasets for 2020 and 2022
 gemeentesmentaldata2020 = bind_rows(Aatillgoereemental2020,goestillnissewaardmental2020,noardtillvlielandmental2020,vlissingentillzwollemental2020)
 gemeentesmentaldata2022 = bind_rows(Aatillgoereemental2022,goestillnissewaardmental2022,noardtillvlielandmental2022,vlissingentillzwollemental2022)
 
@@ -35,11 +38,13 @@ write.csv(gemeentesmentaldata2022,"data/gemeentesmentaldata2022.csv")
 ####data cleaning, get rid of the useless variables in mental data set####
 ##########################################################################
 
+#filtering useless categories like smoking, alcohol consumption and other health statistics, so that we only have mental data left
 filtered_gemeentesmentaldata2020 = gemeentesmentaldata2020 %>%
   select(Leeftijd,Marges,Perioden,Wijken.en.buurten,Regioaanduiding.Soort.regio..omschrijving.,Psychische.klachten....,Hoog.risico.op.angst.of.depressie....)
 
 write.csv(filtered_gemeentesmentaldata2020,"important data/filtered_gemeentesmentaldata2020.csv")
 
+#the same for the data of 2022
 filtered_gemeentesmentaldata2022 = gemeentesmentaldata2022 %>%
   select(Leeftijd,Marges,Perioden,Wijken.en.buurten,Regioaanduiding.Soort.regio..omschrijving.,Psychische.klachten....,Hoog.risico.op.angst.of.depressie....)
 
@@ -49,9 +54,11 @@ write.csv(filtered_gemeentesmentaldata2022,"important data/filtered_gemeentesmen
 ####data cleaning, get rid of the useless variables in unemployment data set####
 ################################################################################
 
+#to calculate unemployment% we need total population and the unemployed population. Therefore we can filter out the employed population
 fltrd_unemployment = gem_unemployment %>%
   filter(Arbeidskenmerken %in% c("Totaal ", "Arb.pos.: niet-werkzame bevolking"))
 
+#this category was not useful for our analysis so to make the data set less complex we filtered this variable out 
 fltrd_unemployment = fltrd_unemployment %>%
   filter(Geregistreerd.werkzoekende.bij.UWV %in% "Totaal")
 
@@ -61,22 +68,34 @@ write.csv(fltrd_unemployment,"important data/fltrd_unemployment")
 ####prepare mental and unemployment set so that we can merge them together in 1 data set####
 ############################################################################################
 
+# unemployment data set arranged at Period
 fltrd_unemployment = fltrd_unemployment %>%
   arrange(Perioden)
 
+# variable name changed from regio.s to gemeente
 fltrd_unemployment = fltrd_unemployment %>%
   rename(Gemeente = Regio.s) 
+
+#Period made as character so that we could combine the data sets 
 fltrd_unemployment$Perioden = as.character(fltrd_unemployment$Perioden)
 
+#instead of no value, we made all missing values of 2020 NA
 filtered_gemeentesmentaldata2020$Psychische.klachten.... = NA_real_
 
+#combined the 2020 and 2022 mental data set
 Mental2020_2022 = bind_rows(filtered_gemeentesmentaldata2020,filtered_gemeentesmentaldata2022)
 
+#variable name changed from wijken en buurten to gemeente
 Mental2020_2022 = Mental2020_2022 %>%
   rename(Gemeente = Wijken.en.buurten)
+
+#Period made as character so thaat we could combine the data sets
 Mental2020_2022$Perioden = as.character(Mental2020_2022$Perioden)
 
-#######################
+#########################
+####
+#########################
+
 totaal_unemp <- fltrd_unemployment %>% filter(Arbeidskenmerken == "Totaal ")
 totaal_unemp$aantal_jongeren <- totaal_unemp$Jongeren..15.tot.27.jaar...aantal.
 totaal_unemp$Jongeren..15.tot.27.jaar...aantal. <- NULL
@@ -96,6 +115,7 @@ write.csv(unemployment,"important data/unemployment.csv")
 ###now merge the 2 data sets together###
 ########################################
 
+#merge the mental and unemployment data set
 Combined_data = full_join(unemployment,Mental2020_2022, by = c("Gemeente","Perioden"))
 
 write.csv(Combined_data,"important data/Combined_data.csv")

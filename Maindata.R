@@ -105,14 +105,13 @@ write.csv(Combined_data,"important data/Combined_data.csv")
 ##################################################################################
 
 Data_Cleancombined = Combined_data %>%
-  select(-Onderwijsvolgend, -Uitkering, -Geregistreerd.werkzoekende.bij.UWV, -Marges)
+  select(-Onderwijsvolgend, -Uitkering, -Geregistreerd.werkzoekende.bij.UWV, -Marges, -Leeftijd)
 
 names(Data_Cleancombined) = c(
   "Periode",
   "Gemeente",
   "Aantal_jongeren",
   "Niet_werkzame_jongeren",
-  "Leeftijd",
   "Regio_type",
   "Psychische_klachten",
   "Hoog_risico_angst_depressie"
@@ -200,6 +199,10 @@ top10_lowunemployment = Data_Cleancombined %>%
 
 write.csv(top10_highunemployment,"important data/top10_highunemployment.csv")
 write.csv(top10_lowunemployment, "important data/top10_lowunemployment.csv")
+
+##############################
+####temporal visualization####
+##############################
 
 
 

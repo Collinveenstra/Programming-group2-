@@ -1,0 +1,41 @@
+"","Periode","Gemeente","Aantal_jongeren","Niet_werkzame_jongeren","Leeftijd","Regio_type","Psychische_klachten","Hoog_risico_angst_depressie","werkloosheidspercentage","Boven_of_onder_gemiddelde_werkloosheid","Boven_of_onder_gemiddeld_risico"
+"1","2020","Schiermonnikoog",100,0,"18 jaar of ouder","Gemeente  ",NA,8.4,0,"Onder","Boven"
+"2","2020","Urk",4100,600,"18 jaar of ouder","Gemeente  ",NA,4.7,14.63,"Onder","Onder"
+"3","2020","Zwartewaterland",3700,600,"18 jaar of ouder","Gemeente  ",NA,4.2,16.22,"Onder","Onder"
+"4","2020","Opmeer",1800,300,"18 jaar of ouder","Gemeente  ",NA,4.5,16.67,"Onder","Onder"
+"5","2020","Bladel",2900,500,"18 jaar of ouder","Gemeente  ",NA,4.8,17.24,"Onder","Onder"
+"6","2020","Staphorst",2900,500,"18 jaar of ouder","Gemeente  ",NA,3.7,17.24,"Onder","Onder"
+"7","2020","Nederweert",2300,400,"18 jaar of ouder","Gemeente  ",NA,5,17.39,"Onder","Onder"
+"8","2020","Neder-Betuwe",4000,700,"18 jaar of ouder","Gemeente  ",NA,5.5,17.5,"Onder","Onder"
+"9","2020","Boekel",1700,300,"18 jaar of ouder","Gemeente  ",NA,4.8,17.65,"Onder","Onder"
+"10","2020","Bunschoten",3400,600,"18 jaar of ouder","Gemeente  ",NA,5,17.65,"Onder","Onder"
+"11","2021","Schiermonnikoog",100,0,NA,NA,NA,NA,0,"Onder",NA
+"12","2021","Vlieland",300,0,NA,NA,NA,NA,0,"Onder",NA
+"13","2021","Urk",4100,500,NA,NA,NA,NA,12.2,"Onder",NA
+"14","2021","Reusel-De Mierden",1600,200,NA,NA,NA,NA,12.5,"Onder",NA
+"15","2021","Scherpenzeel",1600,200,NA,NA,NA,NA,12.5,"Onder",NA
+"16","2021","Staphorst",3000,400,NA,NA,NA,NA,13.33,"Onder",NA
+"17","2021","Dinkelland",4100,600,NA,NA,NA,NA,14.63,"Onder",NA
+"18","2021","Hilvarenbeek",2000,300,NA,NA,NA,NA,15,"Onder",NA
+"19","2021","Nunspeet",4000,600,NA,NA,NA,NA,15,"Onder",NA
+"20","2021","Rijssen-Holten",6000,900,NA,NA,NA,NA,15,"Onder",NA
+"21","2022","Schiermonnikoog",100,0,"18 jaar of ouder","Gemeente  ",19.4,8.9,0,"Onder","Onder"
+"22","2022","Renswoude",900,100,"18 jaar of ouder","Gemeente  ",16.5,7,11.11,"Onder","Onder"
+"23","2022","Boekel",1700,200,"18 jaar of ouder","Gemeente  ",16.6,7.1,11.76,"Onder","Onder"
+"24","2022","Urk",4200,500,"18 jaar of ouder","Gemeente  ",16.9,7.8,11.9,"Onder","Onder"
+"25","2022","Scherpenzeel",1600,200,"18 jaar of ouder","Gemeente  ",17.4,7.3,12.5,"Onder","Onder"
+"26","2022","Staphorst",3100,400,"18 jaar of ouder","Gemeente  ",15.4,6.5,12.9,"Onder","Onder"
+"27","2022","Dinkelland",4200,600,"18 jaar of ouder","Gemeente  ",15.6,6.2,14.29,"Onder","Onder"
+"28","2022","Oudewater",1400,200,"18 jaar of ouder","Gemeente  ",17.5,7.1,14.29,"Onder","Onder"
+"29","2022","Edam-Volendam",5500,800,"18 jaar of ouder","Gemeente  ",17.5,7.4,14.55,"Onder","Onder"
+"30","2022","Someren",2700,400,"18 jaar of ouder","Gemeente  ",17.9,7.4,14.81,"Onder","Onder"
+"31","2023","Schiermonnikoog",100,0,NA,NA,NA,NA,0,"Onder",NA
+"32","2023","Renswoude",900,100,NA,NA,NA,NA,11.11,"Onder",NA
+"33","2023","Reusel-De Mierden",1700,200,NA,NA,NA,NA,11.76,"Onder",NA
+"34","2023","Bergen (L.)",1600,200,NA,NA,NA,NA,12.5,"Onder",NA
+"35","2023","Staphorst",3100,400,NA,NA,NA,NA,12.9,"Onder",NA
+"36","2023","Scherpenzeel",1500,200,NA,NA,NA,NA,13.33,"Onder",NA
+"37","2023","Rijssen-Holten",5900,800,NA,NA,NA,NA,13.56,"Onder",NA
+"38","2023","Bladel",2800,400,NA,NA,NA,NA,14.29,"Onder",NA
+"39","2023","Oudewater",1400,200,NA,NA,NA,NA,14.29,"Onder",NA
+"40","2023","Nunspeet",4100,600,NA,NA,NA,NA,14.63,"Onder",NA

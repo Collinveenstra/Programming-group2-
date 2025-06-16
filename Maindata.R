@@ -155,10 +155,51 @@ top10_lowrisk = Data_Cleancombined %>%
 write.csv(top10_highrisk, "important data/top10_highrisk.csv")
 write.csv(top10_lowrisk, "important data/top10_lowrisk.csv")
 
+#####################################
+####unemployment percentage#########
+#####################################
 
+Data_Cleancombined$werkloosheidspercentage = (Data_Cleancombined$Niet_werkzame_jongeren/Data_Cleancombined$Aantal_jongeren)*100
+Data_Cleancombined$werkloosheidspercentage = round(Data_Cleancombined$werkloosheidspercentage,2)
 
+##########################################################
+#### Mental data higher or lower than national average####
+##########################################################
 
+Data_Cleancombined$Periode <- gsub("\\*", "", Data_Cleancombined$Periode)
 
+gemunemployment_2020 = Data_Cleancombined$werkloosheidspercentage[Data_Cleancombined$Periode == 2020 & Data_Cleancombined$Gemeente == "Nederland"]
+gemunempoyment_2021 = Data_Cleancombined$werkloosheidspercentage[Data_Cleancombined$Periode == 2021 & Data_Cleancombined$Gemeente == "Nederland"]
+gemunemployment_2022 = Data_Cleancombined$werkloosheidspercentage[Data_Cleancombined$Periode == 2022 & Data_Cleancombined$Gemeente == "Nederland"]
+gemunemployment_2023 = Data_Cleancombined$werkloosheidspercentage[Data_Cleancombined$Periode == 2023 & Data_Cleancombined$Gemeente == "Nederland"]
+
+Data_Cleancombined$Boven_of_onder_gemiddelde_werkloosheid <- ifelse(
+  is.na(Data_Cleancombined$werkloosheidspercentage), NA,
+  ifelse(Data_Cleancombined$Periode == 2020 & Data_Cleancombined$werkloosheidspercentage > gemunemployment_2020, "Boven",
+         ifelse(Data_Cleancombined$Periode == 2020 & Data_Cleancombined$werkloosheidspercentage < gemunemployment_2020, "Onder",
+                ifelse(Data_Cleancombined$Periode == 2021 & Data_Cleancombined$werkloosheidspercentage > gemunempoyment_2021, "Boven",
+                       ifelse(Data_Cleancombined$Periode == 2021 & Data_Cleancombined$werkloosheidspercentage < gemunempoyment_2021, "Onder",
+                              ifelse(Data_Cleancombined$Periode == 2022 & Data_Cleancombined$werkloosheidspercentage > gemunemployment_2022, "Boven",
+                                     ifelse(Data_Cleancombined$Periode == 2022 & Data_Cleancombined$werkloosheidspercentage < gemunemployment_2022, "Onder",
+                                            ifelse(Data_Cleancombined$Periode == 2023 & Data_Cleancombined$werkloosheidspercentage > gemunemployment_2023, "Boven",
+                                                   ifelse(Data_Cleancombined$Periode == 2023 & Data_Cleancombined$werkloosheidspercentage < gemunemployment_2023, "Onder","Gelijk")))))))))
+
+##########################################################################
+####Top 10 gemeenten with highest and lowest unemployment####
+##########################################################################
+
+top10_highunemployment = Data_Cleancombined %>%
+  group_by(Periode) %>%
+  arrange(desc(werkloosheidspercentage)) %>%
+  slice(1:10)
+
+top10_lowunemployment = Data_Cleancombined %>%
+  group_by(Periode) %>%
+  arrange(werkloosheidspercentage) %>%
+  slice(1:10)
+
+write.csv(top10_highunemployment,"important data/top10_highunemployment.csv")
+write.csv(top10_lowunemployment, "important data/top10_lowunemployment.csv")
 
 
 

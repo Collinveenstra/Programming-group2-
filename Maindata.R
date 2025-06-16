@@ -119,6 +119,13 @@ names(Data_Cleancombined) = c(
 
 write.csv(Data_Cleancombined,"important data/Data_Cleancombined.csv")
 
+#####################################
+####unemployment percentage#########
+#####################################
+
+Data_Cleancombined$werkloosheidspercentage = (Data_Cleancombined$Niet_werkzame_jongeren/Data_Cleancombined$Aantal_jongeren)*100
+Data_Cleancombined$werkloosheidspercentage = round(Data_Cleancombined$werkloosheidspercentage,2)
+
 ##########################################################
 #### Mental data higher or lower than national average####
 ##########################################################
@@ -135,31 +142,6 @@ Data_Cleancombined$Boven_of_onder_gemiddeld_risico <- ifelse(
                        ifelse(Data_Cleancombined$Periode == 2022 & Data_Cleancombined$Hoog_risico_angst_depressie < gem_2022, "Onder", "Gelijk"))))
 )
 
-##########################################################################
-####Top 10 gemeenten with highest and lowest fear and depression risks####
-##########################################################################
-
-top10_highrisk = Data_Cleancombined %>%
-  filter(Periode %in% c(2020,2022)) %>%
-  group_by(Periode) %>%
-  arrange(desc(Hoog_risico_angst_depressie)) %>%
-  slice(1:10)
-
-top10_lowrisk = Data_Cleancombined %>%
-  filter(Periode %in% c(2020,2022)) %>%
-  group_by(Periode) %>%
-  arrange(Hoog_risico_angst_depressie) %>%
-  slice(1:10)
-
-write.csv(top10_highrisk, "important data/top10_highrisk.csv")
-write.csv(top10_lowrisk, "important data/top10_lowrisk.csv")
-
-#####################################
-####unemployment percentage#########
-#####################################
-
-Data_Cleancombined$werkloosheidspercentage = (Data_Cleancombined$Niet_werkzame_jongeren/Data_Cleancombined$Aantal_jongeren)*100
-Data_Cleancombined$werkloosheidspercentage = round(Data_Cleancombined$werkloosheidspercentage,2)
 
 ##########################################################
 #### Mental data higher or lower than national average####
@@ -184,6 +166,25 @@ Data_Cleancombined$Boven_of_onder_gemiddelde_werkloosheid <- ifelse(
                                                    ifelse(Data_Cleancombined$Periode == 2023 & Data_Cleancombined$werkloosheidspercentage < gemunemployment_2023, "Onder","Gelijk")))))))))
 
 ##########################################################################
+####Top 10 gemeenten with highest and lowest fear and depression risks####
+##########################################################################
+
+top10_highrisk = Data_Cleancombined %>%
+  filter(Periode %in% c(2020,2022)) %>%
+  group_by(Periode) %>%
+  arrange(desc(Hoog_risico_angst_depressie)) %>%
+  slice(1:10)
+
+top10_lowrisk = Data_Cleancombined %>%
+  filter(Periode %in% c(2020,2022)) %>%
+  group_by(Periode) %>%
+  arrange(Hoog_risico_angst_depressie) %>%
+  slice(1:10)
+
+write.csv(top10_highrisk, "important data/top10_highrisk.csv")
+write.csv(top10_lowrisk, "important data/top10_lowrisk.csv")
+
+##########################################################################
 ####Top 10 gemeenten with highest and lowest unemployment####
 ##########################################################################
 
@@ -204,7 +205,35 @@ write.csv(top10_lowunemployment, "important data/top10_lowunemployment.csv")
 ####temporal visualization####
 ##############################
 
+library(ggplot2)
+library(dplyr)
 
+#het idee hier is goed alleen door de top 10 over die jaren te nemen krijg je waardes van maar 1 of 2 jaar in de grafiek
+# daarom moeten we de top 10 hoogste en laagste in 2020 pakken en de trend van die gemeentes verder bekijken
+
+Data_Cleancombined$Periode = as.numeric(Data_Cleancombined$Periode)
+top10_highunemployment$Periode = as.numeric(top10_highunemployment$Periode)
+top10_lowunemployment$Periode = as.numeric(top10_lowunemployment$Periode)
+
+top10HLunem = bind_rows(top10_highunemployment, top10_lowunemployment)
+
+landelijkunem = Data_Cleancombined %>%
+  filter(Gemeente == "Nederland")
+
+ggplot(top10HLunem, aes(x = Periode, y = werkloosheidspercentage, color = Gemeente)) +
+  geom_line(linewidth = 1) +
+  geom_point() +
+  labs(
+    title = "Ontwikkeling werkloosheidspercentage (2020–2023)",
+    subtitle = "Top 10 hoogste en laagste gemeenten + landelijk gemiddelde",
+    x = "Jaar",
+    y = "Werkloosheidspercentage",
+    color = "Gemeente"
+  ) +
+  geom_line(data = landelijkunem, aes(x = Periode, y = werkloosheidspercentage),
+            color = "black", linewidth = 1.2, linetype = "dashed") +
+  scale_x_continuous(breaks = 2020:2023) +
+  theme_minimal()
 
 
 

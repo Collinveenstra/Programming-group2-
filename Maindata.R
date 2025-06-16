@@ -90,13 +90,81 @@ nietwerkzaam$Arbeidskenmerken <- NULL
 
 unemployment <- full_join(totaal_unemp, nietwerkzaam, by = c("Onderwijsvolgend", "Uitkering", "Geregistreerd.werkzoekende.bij.UWV", "Perioden", "Gemeente"))
 
+write.csv(unemployment,"important data/unemployment.csv")
+
 ########################################
 ###now merge the 2 data sets together###
 ########################################
 
-Combined_data = full_join(gem_unemployment,Mental2020_2022, by = c("Gemeente","Perioden"))
+Combined_data = full_join(unemployment,Mental2020_2022, by = c("Gemeente","Perioden"))
 
-combined_data = full_join(gem_unemployment,Mental2020_2022,by = c("Gemeente,"Perioden"))
+write.csv(Combined_data,"important data/Combined_data.csv")
+
+##################################################################################
+####clean the combined data set so that all useless variables are filtered out####
+##################################################################################
+
+Data_Cleancombined = Combined_data %>%
+  select(-Onderwijsvolgend, -Uitkering, -Geregistreerd.werkzoekende.bij.UWV, -Marges)
+
+names(Data_Cleancombined) = c(
+  "Periode",
+  "Gemeente",
+  "Aantal_jongeren",
+  "Niet_werkzame_jongeren",
+  "Leeftijd",
+  "Regio_type",
+  "Psychische_klachten",
+  "Hoog_risico_angst_depressie"
+)
+
+write.csv(Data_Cleancombined,"important data/Data_Cleancombined.csv")
+
+##########################################################
+#### Mental data higher or lower than national average####
+##########################################################
+
+gem_2020 = Data_Cleancombined$Hoog_risico_angst_depressie[Data_Cleancombined$Periode == 2020 & Data_Cleancombined$Gemeente == "Nederland"]
+
+gem_2022 = Data_Cleancombined$Hoog_risico_angst_depressie[Data_Cleancombined$Periode == 2022 & Data_Cleancombined$Gemeente == "Nederland"]
+
+Data_Cleancombined$Boven_of_onder_gemiddeld_risico <- ifelse(
+  is.na(Data_Cleancombined$Hoog_risico_angst_depressie), NA,
+  ifelse(Data_Cleancombined$Periode == 2020 & Data_Cleancombined$Hoog_risico_angst_depressie > gem_2020, "Boven",
+         ifelse(Data_Cleancombined$Periode == 2020 & Data_Cleancombined$Hoog_risico_angst_depressie < gem_2020, "Onder",
+                ifelse(Data_Cleancombined$Periode == 2022 & Data_Cleancombined$Hoog_risico_angst_depressie > gem_2022, "Boven",
+                       ifelse(Data_Cleancombined$Periode == 2022 & Data_Cleancombined$Hoog_risico_angst_depressie < gem_2022, "Onder", "Gelijk"))))
+)
+
+##########################################################################
+####Top 10 gemeenten with highest and lowest fear and depression risks####
+##########################################################################
+
+top10_highrisk = Data_Cleancombined %>%
+  filter(Periode %in% c(2020,2022)) %>%
+  group_by(Periode) %>%
+  arrange(desc(Hoog_risico_angst_depressie)) %>%
+  slice(1:10)
+
+top10_lowrisk = Data_Cleancombined %>%
+  filter(Periode %in% c(2020,2022)) %>%
+  group_by(Periode) %>%
+  arrange(Hoog_risico_angst_depressie) %>%
+  slice(1:10)
+
+write.csv(top10_highrisk, "important data/top10_highrisk.csv")
+write.csv(top10_lowrisk, "important data/top10_lowrisk.csv")
 
 
-write.csv(combined_data,"important data/combined_data.csv")
+
+
+
+
+
+
+
+
+
+
+
+

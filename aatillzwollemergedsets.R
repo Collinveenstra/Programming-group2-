@@ -216,10 +216,5 @@ write.csv(gemeenten_nl,"important data/gemeenten_nl.csv")
 
 
 
-###############################################################################################
-#### compare unemployment and mental data sets and make assumptions. e.g. correlation etc.#####
-###############################################################################################
-
-
 
 

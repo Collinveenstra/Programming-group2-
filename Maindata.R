@@ -246,21 +246,6 @@ top10HLunem = bind_rows(top10_highunemployment, top10_lowunemployment)
 landelijkunem = Data_Cleancombined %>%
   filter(Gemeente == "Nederland")
 
-ggplot(Subgroupunemp, aes(x = Periode, y = unemployment_percentage, color = Gemeente)) +
-  geom_line(linewidth = 1) +
-  geom_point() +
-  labs(
-    title = "Ontwikkeling unemployment_percentage (2020–2023)",
-    subtitle = "Top 10 hoogste en laagste gemeenten + landelijk gemiddelde",
-    x = "Jaar",
-    y = "unemployment_percentage",
-    color = "Gemeente"
-  ) +
-  geom_line(data = landelijkunem, aes(x = Periode, y = unemployment_percentage),
-            color = "black", linewidth = 1.2, linetype = "dashed") +
-  scale_x_continuous(breaks = 2020:2023) +
-  theme_minimal()
-
 #top 10 gemeentes with the highest unemployment from 2020
 library(dplyr)
 
@@ -276,7 +261,7 @@ library(dplyr)
 selected_gemeentes <- c(
   "Vaals", "Wassenaar", "Wageningen", "Maastricht",
   "Blaricum", "Bloemendaal", "Laren (NH.)", 
-  "Rozendaal", "Vlieland", "Delft"
+  "Rozendaal", "Delft", "Gooise Meren"
 )
 
 TOP10HIGH2020 <- Data_Cleancombined %>%
@@ -317,6 +302,22 @@ Subgroupunemp = bind_rows(TOP10HIGH2020, TOP10LOW2020)
 #Vlieland is an island with 300 people, so there was no unemployment one year and half the population was unemployed the next
 
 write.csv(Subgroupunemp,"important data/Subgroupemp.csv")
+
+####
+ggplot(Subgroupunemp, aes(x = Periode, y = unemployment_percentage, color = Gemeente)) +
+  geom_line(linewidth = 1) +
+  geom_point() +
+  labs(
+    title = "Ontwikkeling unemployment_percentage (2020–2023)",
+    subtitle = "Top 10 hoogste en laagste gemeenten + landelijk gemiddelde",
+    x = "Jaar",
+    y = "unemployment_percentage",
+    color = "Gemeente"
+  ) +
+  geom_line(data = landelijkunem, aes(x = Periode, y = unemployment_percentage),
+            color = "black", linewidth = 1.2, linetype = "dashed") +
+  scale_x_continuous(breaks = 2020:2023) +
+  theme_minimal()
 
 ###unemployment percentage change
 Data_Cleancombined <- Data_Cleancombined %>%

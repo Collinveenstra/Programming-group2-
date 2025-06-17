@@ -246,7 +246,7 @@ top10HLunem = bind_rows(top10_highunemployment, top10_lowunemployment)
 landelijkunem = Data_Cleancombined %>%
   filter(Gemeente == "Nederland")
 
-ggplot(top10HLunem, aes(x = Periode, y = unemployment_percentage, color = Gemeente)) +
+ggplot(Subgroupunemp, aes(x = Periode, y = unemployment_percentage, color = Gemeente)) +
   geom_line(linewidth = 1) +
   geom_point() +
   labs(
@@ -261,6 +261,93 @@ ggplot(top10HLunem, aes(x = Periode, y = unemployment_percentage, color = Gemeen
   scale_x_continuous(breaks = 2020:2023) +
   theme_minimal()
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#top 10 gemeentes with the highest unemployment from 2020
+library(dplyr)
+
+top10_gemeentes_2020 <- Data_Cleancombined %>%
+  filter(Periode == 2020) %>%                        # Keep only rows from the year 2020
+  arrange(desc(unemployment_percentage)) %>%         # Sort by unemployment percentage, highest first
+  slice_head(n = 10)                                 # Take the top 10 rows
+
+top10_gemeentes_2020
+#new data set with data solely from the gemeentes with the highest unemployment 2020-2023
+library(dplyr)
+
+selected_gemeentes <- c(
+  "Vaals", "Wassenaar", "Wageningen", "Maastricht",
+  "Blaricum", "Bloemendaal", "Laren (NH.)", 
+  "Rozendaal", "Vlieland", "Delft"
+)
+
+TOP10HIGH2020 <- Data_Cleancombined %>%
+  filter(Periode >= 2020 & Periode <= 2023) %>%       # Keep only years 2020–2023
+  filter(Gemeente %in% selected_gemeentes)      # Keep only the specified Gemeentes
+
+# View the new dataset
+View(TOP10HIGH2020)
+
+#top 10 gemeentes with the lowest unemployment from 2020
+library(dplyr)
+
+lowest10_gemeentes_2020 <- Data_Cleancombined %>%
+  filter(Periode == 2020) %>%                         # Only rows from the year 2020
+  arrange(unemployment_percentage) %>%               # Sort by unemployment percentage (lowest first)
+  slice_head(n = 10)                                  # Take the top 10 rows
+
+lowest10_gemeentes_2020
+library(dplyr)
+
+selected_gemeentes <- c(
+  "Schiermonnikoog", "Urk", "Zwartewaterland", "Opmeer",
+  "Bladel", "Staphorst", "Nederweert", "Neder-Betuwe",
+  "Boekel", "Bunschoten"
+)
+
+TOP10LOW2020 <- Data_Cleancombined %>%
+  filter(Periode >= 2020 & Periode <= 2023) %>%        # Filter years 2020 to 2023
+  filter(Gemeente %in% selected_gemeentes)             # Filter to selected Gemeentes
+
+# View the new dataset
+View(TOP10LOW2020)
+library(dplyr)
+Subgroupunemp = bind_rows(TOP10HIGH2020, TOP10LOW2020)
+#Vlieland is an island with 300 people, so there was no unemployment one year and half the population was unemployed the next
 
 
 

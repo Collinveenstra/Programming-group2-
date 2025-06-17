@@ -321,8 +321,11 @@ TOP10HIGH2020 <- Data_Cleancombined %>%
   filter(Periode >= 2020 & Periode <= 2023) %>%       # Keep only years 2020–2023
   filter(Gemeente %in% selected_gemeentes)      # Keep only the specified Gemeentes
 
+write.csv(TOP10HIGH2020, "important data/TOP10HIGH2020.csv")
+
 # View the new dataset
 View(TOP10HIGH2020)
+
 
 #top 10 gemeentes with the lowest unemployment from 2020
 library(dplyr)

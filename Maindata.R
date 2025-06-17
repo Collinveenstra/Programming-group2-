@@ -312,6 +312,7 @@ write.csv(TOP10LOW2020,"important data/TOP10LOW2020.csv")
 # View the new dataset
 View(TOP10LOW2020)
 library(dplyr)
+
 Subgroupunemp = bind_rows(TOP10HIGH2020, TOP10LOW2020)
 #Vlieland is an island with 300 people, so there was no unemployment one year and half the population was unemployed the next
 
@@ -373,5 +374,6 @@ ggplot(geo_data) +
     title = "Youth unemployment per gemeente (2020)",
     caption = "Source: CBS"
   )
+
 
 

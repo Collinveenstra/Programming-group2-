@@ -377,3 +377,4 @@ Data_Cleancombined <- Data_Cleancombined %>%
 plot(unemployment_percentage, col = "blue")  # Change point color to blue
 
 
+

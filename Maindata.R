@@ -261,42 +261,9 @@ ggplot(Subgroupunemp, aes(x = Periode, y = unemployment_percentage, color = Geme
   scale_x_continuous(breaks = 2020:2023) +
   theme_minimal()
 
-
-###geo map
-library(giscoR)
-
-gemeenten_nl = gisco_get_lau(country = "NL", year = 2020) %>%
-  arrange(LAU_NAME)
-View(gemeenten_nl)
-
-install.packages(c("sf","dplyr","ggplot2","tmap","rmapshaper","readr"))
-library(sf)
-
-gemeenten_nl = gemeenten_nl %>%
-  rename(Periode = YEAR, Gemeente = LAU_NAME, Gemeentegrenzen = `_ogr_geometry_`) 
-
-gemeenten_nl = gemeenten_nl %>%
-  select(Gemeente, Periode, Gemeentegrenzen)
-
-write.csv(gemeenten_nl,"important data/gemeenten_nl.csv")
-
-geo_data = Data_Cleancombined %>%
-  inner_join(gemeenten_nl, by = c("Periode", "Gemeente"))
-
-geo_data = geo_data %>%
-  filter(!is.na(unemployment_percentage)) %>%
-  st_sf()
-
-write.csv(geo_data,"important data/geo_data.csv")
-
-ggplot(geo_data) +
-  geom_sf(aes(fill = unemployment_percentage), color = NA) +
-  scale_fill_viridis_c(option = "inferno", name = "Werkloosheid (%)") +
-  theme_minimal() +
-  labs(
-    title = "Youth unemployment per gemeente (2020)",
-    caption = "Source: CBS"
-  )
+#######################################################
+# Calculate yearly change per Gemeente
+Data_Cleancombined$Periode <- as.numeric(Data_Cleancombined$Periode) #make sure its numeric
 
 
 #top 10 gemeentes with the highest unemployment from 2020
@@ -326,6 +293,8 @@ write.csv(TOP10HIGH2020, "important data/TOP10HIGH2020.csv")
 # View the new dataset
 View(TOP10HIGH2020)
 
+write.csv(TOP10HIGH2020,"important data/TOP10HIGH2020.csv")
+
 
 #top 10 gemeentes with the lowest unemployment from 2020
 library(dplyr)
@@ -347,13 +316,14 @@ selected_gemeentes <- c(
 TOP10LOW2020 <- Data_Cleancombined %>%
   filter(Periode >= 2020 & Periode <= 2023) %>%        # Filter years 2020 to 2023
   filter(Gemeente %in% selected_gemeentes)             # Filter to selected Gemeentes
-
+write.csv(TOP10LOW2020,"important data/TOP10LOW2020.csv")
 # View the new dataset
 View(TOP10LOW2020)
 library(dplyr)
 Subgroupunemp = bind_rows(TOP10HIGH2020, TOP10LOW2020)
 #Vlieland is an island with 300 people, so there was no unemployment one year and half the population was unemployed the next
 
+write.csv(Subgroupunemp,"important data/Subgroupemp.csv")
 
 
 
@@ -372,5 +342,7 @@ Data_Cleancombined <- Data_Cleancombined %>%
  # Round to 2 decimals
 Data_Cleancombined <- Data_Cleancombined %>%
   mutate(unemployment_change = round(unemployment_change, 2))
+plot(unemployment_percentage, col = "blue")  # Change point color to blue
+
 
 

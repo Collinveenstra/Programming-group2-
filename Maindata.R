@@ -261,9 +261,21 @@ ggplot(top10HLunem, aes(x = Periode, y = unemployment_percentage, color = Gemeen
   scale_x_continuous(breaks = 2020:2023) +
   theme_minimal()
 
+#######################################################
+# Calculate yearly change per Gemeente
+Data_Cleancombined$Periode <- as.numeric(Data_Cleancombined$Periode) #make sure its numeric
 
-
-
-
-
-
+Data_Cleancombined <- Data_Cleancombined %>%
+  arrange(Gemeente, Periode) %>%
+  group_by(Gemeente) %>%
+  mutate(
+    unemployment_change = if_else(
+      Periode - lag(Periode) == 1 & !is.na(lag(Niet_werkzame_jongeren)),
+      (Niet_werkzame_jongeren - lag(Niet_werkzame_jongeren)) / lag(Niet_werkzame_jongeren) * 100,
+      NA_real_
+    )
+  ) %>%
+  ungroup()
+ # Round to 2 decimals
+Data_Cleancombined <- Data_Cleancombined %>%
+  mutate(unemployment_change = round(unemployment_change, 2))

@@ -389,7 +389,6 @@ ggplot(landelijkunem, aes(x = Periode, y = unemployment_percentage)) +
   theme_minimal()
 
 ###
-
 library(giscoR)
 
 gemeenten_nl = gisco_get_lau(country = "NL", year = 2020) %>%
@@ -410,6 +409,7 @@ write.csv(gemeenten_nl,"important data/gemeenten_nl.csv")
 geo_data = Data_Cleancombined %>%
   inner_join(gemeenten_nl, by = c("Periode", "Gemeente"))
 
+library(sf)
 geo_data = geo_data %>%
   filter(!is.na(unemployment_percentage)) %>%
   st_sf()

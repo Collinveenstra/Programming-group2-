@@ -393,7 +393,6 @@ ggplot(landelijkunem, aes(x = Periode, y = unemployment_percentage)) +
 plot(Data_Cleancombined$unemployment_percentage, col = "blue")  # Change point color to blue
 
 ###
-###
 library(giscoR)
 
 gemeenten_nl = gisco_get_lau(country = "NL", year = 2020) %>%
@@ -401,7 +400,6 @@ gemeenten_nl = gisco_get_lau(country = "NL", year = 2020) %>%
 View(gemeenten_nl)
 
 install.packages(c("sf","dplyr","ggplot2","tmap","rmapshaper","readr"))
-library(sf)
 
 gemeenten_nl = gemeenten_nl %>%
   rename(Periode = YEAR, Gemeente = LAU_NAME, Gemeentegrenzen = `_ogr_geometry_`) 
@@ -414,6 +412,7 @@ write.csv(gemeenten_nl,"important data/gemeenten_nl.csv")
 geo_data = Data_Cleancombined %>%
   inner_join(gemeenten_nl, by = c("Periode", "Gemeente"))
 
+library(sf)
 geo_data = geo_data %>%
   filter(!is.na(unemployment_percentage)) %>%
   st_sf()

@@ -375,6 +375,8 @@ ggplot(geo_data) +
     title = "Youth unemployment (15-27)\n per gemeente in 2020"
   )
 
-
-
+############ change the name of the dutch variables
+naam_aangepast <- Data_Cleancombined %>%
+  rename(high_risk_anx_dep = Hoog_risico_angst_depressie, mental_problems = Psychische_klachten, total_youth = Aantal_jongeren, total_unemployed_youth = Niet_werkzame_jongeren)
+view(naam_aangepast)
 

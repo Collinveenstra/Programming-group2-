@@ -81,15 +81,27 @@ Please use a separate 'R block' of code for each type of cleaning. So, e.g. one 
 
 ## 3.2 Generate necessary variables
 
-Variable 1
+Variable 1: Unemployment percentage
 
-```{r gen_var1}
+```{Data_Cleancombined$unemployment_percentage = (Data_Cleancombined$Niet_werkzame_jongeren/Data_Cleancombined$Aantal_jongeren)*100}
+
+Data_Cleancombined$unemployment_percentage = round(Data_Cleancombined$unemployment_percentage,2)
 
 ```
 
-Variable 2
+Variable 2: Unemployment change per year
 
-```{r gen_var2}
+```{Data_Cleancombined <- Data_Cleancombined %>%}
+  arrange(Gemeente, Periode) %>%
+  group_by(Gemeente) %>%
+  mutate(
+    unemployment_change = if_else(
+      Periode - lag(Periode) == 1 & !is.na(lag(Niet_werkzame_jongeren)),
+      (Niet_werkzame_jongeren - lag(Niet_werkzame_jongeren)) / lag(Niet_werkzame_jongeren) * 100,
+      NA_real_
+    )
+  ) %>%
+  ungroup()
 
 ```
 

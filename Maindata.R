@@ -243,6 +243,9 @@ top10_lowunemployment$Periode = as.numeric(top10_lowunemployment$Periode)
 
 top10HLunem = bind_rows(top10_highunemployment, top10_lowunemployment)
 
+#####
+
+
 landelijkunem = Data_Cleancombined %>%
   filter(Gemeente == "Nederland")
 

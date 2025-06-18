@@ -52,8 +52,7 @@ head(dataset)
 ``` r
 inline_code = TRUE
 ```
-
-<<<<<<< HEAD
+ 
 ### MHI-5: Percentage of people reporting psychological complaints
 =======
 ## 2.3 Describe the type of variables included

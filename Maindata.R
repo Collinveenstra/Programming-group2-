@@ -243,8 +243,30 @@ top10_lowunemployment$Periode = as.numeric(top10_lowunemployment$Periode)
 
 top10HLunem = bind_rows(top10_highunemployment, top10_lowunemployment)
 
+#####
+
+
 landelijkunem = Data_Cleancombined %>%
   filter(Gemeente == "Nederland")
+
+ggplot(Subgroupunemp, aes(x = Periode, y = unemployment_percentage, color = Gemeente)) +
+  geom_line(linewidth = 1) +
+  geom_point() +
+  labs(
+    title = "Ontwikkeling unemployment_percentage (2020–2023)",
+    subtitle = "Top 10 hoogste en laagste gemeenten + landelijk gemiddelde",
+    x = "Jaar",
+    y = "unemployment_percentage",
+    color = "Gemeente"
+  ) +
+  geom_line(data = landelijkunem, aes(x = Periode, y = unemployment_percentage),
+            color = "black", linewidth = 1.2, linetype = "dashed") +
+  scale_x_continuous(breaks = 2020:2023) +
+  theme_minimal()
+
+#######################################################
+# Calculate yearly change per Gemeente
+Data_Cleancombined$Periode <- as.numeric(Data_Cleancombined$Periode) #make sure its numeric
 
 #top 10 gemeentes with the highest unemployment from 2020
 library(dplyr)
@@ -261,7 +283,7 @@ library(dplyr)
 selected_gemeentes <- c(
   "Vaals", "Wassenaar", "Wageningen", "Maastricht",
   "Blaricum", "Bloemendaal", "Laren (NH.)", 
-  "Rozendaal", "Delft", "Gooise Meren"
+  "Rozendaal", "Vlieland", "Delft"
 )
 
 TOP10HIGH2020 <- Data_Cleancombined %>%
@@ -272,6 +294,9 @@ write.csv(TOP10HIGH2020, "important data/TOP10HIGH2020.csv")
 
 # View the new dataset
 View(TOP10HIGH2020)
+
+write.csv(TOP10HIGH2020,"important data/TOP10HIGH2020.csv")
+
 
 #top 10 gemeentes with the lowest unemployment from 2020
 library(dplyr)
@@ -297,27 +322,10 @@ write.csv(TOP10LOW2020,"important data/TOP10LOW2020.csv")
 # View the new dataset
 View(TOP10LOW2020)
 library(dplyr)
-
 Subgroupunemp = bind_rows(TOP10HIGH2020, TOP10LOW2020)
 #Vlieland is an island with 300 people, so there was no unemployment one year and half the population was unemployed the next
 
 write.csv(Subgroupunemp,"important data/Subgroupemp.csv")
-
-####
-ggplot(Subgroupunemp, aes(x = Periode, y = unemployment_percentage, color = Gemeente)) +
-  geom_line(linewidth = 1) +
-  geom_point() +
-  labs(
-    title = "Ontwikkeling unemployment_percentage (2020–2023)",
-    subtitle = "Top 10 hoogste en laagste gemeenten + landelijk gemiddelde",
-    x = "Jaar",
-    y = "unemployment_percentage",
-    color = "Gemeente"
-  ) +
-  geom_line(data = landelijkunem, aes(x = Periode, y = unemployment_percentage),
-            color = "black", linewidth = 1.2, linetype = "dashed") +
-  scale_x_continuous(breaks = 2020:2023) +
-  theme_minimal()
 
 ###unemployment percentage change
 Data_Cleancombined <- Data_Cleancombined %>%
@@ -332,10 +340,54 @@ Data_Cleancombined <- Data_Cleancombined %>%
   ) %>%
   ungroup()
  # Round to 2 decimals
-Data_Cleancombined <- Data_Cleancombined %>%
-  mutate(unemployment_change = round(unemployment_change, 2))
+library(ggplot2)
+library(dplyr)
 
+library(ggplot2)
+library(dplyr)
 
+# Remove Vlieland and Schiermonnikoog (those are islands with little population, and therefore zero unemployment in some years, so it gives a wrong visual)
+plot_data <- Subgroupunemp %>%
+  filter(!Gemeente %in% c("Vlieland", "Schiermonnikoog"))
+
+# Define groups without Vlieland
+high_gemeentes <- c("Vaals", "Wassenaar", "Wageningen", "Maastricht",
+                    "Blaricum", "Bloemendaal", "Laren (NH.)", 
+                    "Rozendaal", "Delft")  # Vlieland removed
+
+low_gemeentes <- c("Urk", "Zwartewaterland", "Opmeer",
+                   "Bladel", "Staphorst", "Nederweert", "Neder-Betuwe",
+                   "Boekel", "Bunschoten")
+
+plot_data <- plot_data %>%
+  mutate(group = case_when(
+    Gemeente %in% high_gemeentes ~ "High Unemployment",
+    Gemeente %in% low_gemeentes  ~ "Low Unemployment",
+    TRUE ~ "Other"
+  ))
+
+# Plot with reversed colors: low = blue, high = red
+ggplot(plot_data, aes(x = factor(Gemeente, levels=unique(Gemeente)), 
+                      y = unemployment_percentage, fill = group)) +
+  geom_col(position = "dodge") +
+  scale_fill_manual(values = c("Low Unemployment" = "blue", "High Unemployment" = "red")) +
+  facet_wrap(~ Periode) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(x = "Gemeente", y = "Unemployment Percentage", fill = "Group",
+       title = "Unemployment % by Gemeente (2020-2023), Vlieland & Schiermonnikoog Removed")
+
+### visual temporal
+
+ggplot(landelijkunem, aes(x = Periode, y = unemployment_percentage)) +
+  geom_line(color = "blue", size = 1.2) +
+  geom_point(color = "blue", size = 3) +
+  labs(title = "Unemployment in the Netherlands (2020-2023)",
+       x = "Year",
+       y = "Unemployment (%)") +
+  scale_y_continuous(breaks = (0:4)*10, lim = c(0,40)) +
+  theme_minimal()
+              
 
 plot(Data_Cleancombined$unemployment_percentage, col = "blue")  # Change point color to blue
 
@@ -368,12 +420,15 @@ geo_data = geo_data %>%
 write.csv(geo_data,"important data/geo_data.csv")
 
 ggplot(geo_data) +
-  geom_sf(aes(fill = unemployment_percentage), color = "black") +
-  scale_fill_viridis_c(option = "inferno", name = "Youth Unemployment (%)") +
+  geom_sf(aes(fill = unemployment_percentage), color = NA) +
+  scale_fill_viridis_c(option = "inferno", name = "Werkloosheid (%)") +
   theme_minimal() +
   labs(
-    title = "Youth unemployment (15-27)\n per gemeente in 2020"
-  )
+    title = "Youth unemployment per gemeente (2020)",
+    caption = "Source: CBS"
+  )  
+
+
 
 ############ change the name of the dutch variables
 naam_aangepast <- Data_Cleancombined %>%

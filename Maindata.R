@@ -466,6 +466,7 @@ ggplot(landelijkunem, aes(x = Periode, y = unemployment_percentage)) +
   geom_vline(xintercept = 2022, linetype = "solid", color = "black", linewidth = 1) +
   annotate("text", x = 2021, y = 20, size = 3.5, label = "End of Covid-19 -->")
 
+#correct version
   
 
 

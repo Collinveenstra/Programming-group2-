@@ -368,13 +368,13 @@ geo_data = geo_data %>%
 write.csv(geo_data,"important data/geo_data.csv")
 
 ggplot(geo_data) +
-  geom_sf(aes(fill = unemployment_percentage), color = NA) +
-  scale_fill_viridis_c(option = "inferno", name = "Werkloosheid (%)") +
+  geom_sf(aes(fill = unemployment_percentage), color = "black") +
+  scale_fill_viridis_c(option = "inferno", name = "Youth Unemployment (%)") +
   theme_minimal() +
   labs(
-    title = "Youth unemployment per gemeente (2020)",
-    caption = "Source: CBS"
+    title = "Youth unemployment (15-27)\n per gemeente in 2020"
   )
+
 
 
 

@@ -53,6 +53,8 @@ head(dataset)
 inline_code = TRUE
 ```
 
+## 2.3 Describe the type of variables included
+
 ### MHI-5: Percentage of people reporting psychological complaints
 
 The analysis surrounding psychological complaints is measured by the Mental Health Inventory 5 (MHI-5), which is the international standard procedure to measure mental health. It includes five questions related to the well being of an individual over the past month, related to displays of anxiety, depression, behavioral/emotional control and general positive effect. Based on the results of the questionnaire, people received a score ranging from 0 (extremely unhealthy) to 100 (perfectly healthy). A person is considered psychologically unhealthy by the Statistics Netherlands (CBS) if they have received a score lower than 60. The only data we had available was for the year of 2022 because the data of 2020, 2021 and 2023 were not available and that explains the N/A markings in the graph.
@@ -61,23 +63,13 @@ The analysis surrounding psychological complaints is measured by the Mental Heal
 
 The data was based on the Kessler-10 (K10) questionnaire: a very commonly used screening questionnaire for anxiety and depression. It includes 10 questions concerning emotional states like worthlessness, tiredness and nervousness (during the past 4 weeks). Each question is answered on a 5 point scale, ranging from “Always” (highest score of 5) to “Never” (lowest score of 1). If 3 or more answers are marked as “Impossible to answer”, the indicator receives the value Impossible. If 1 or 2 items are Impossible, their values are estimated based on the average score for those items. The total score ranges from 10 to 50, where 10-50 suggests that there’s no or low risk, 16-29 that there is moderate risk, and 30-50 that there is high risk of anxiety disorder or depression. We could find data for 2020 and 2022.
 
-### Marit's column
+### Unemployment Variables
 
 The data inside the table shows the labor market situation of young people who are between 15 and 27 years old in the Netherlands (total youth), who were registered in the Basisregistratie Personen (BRP). It indicates whether a person is working, studying, searching for work and registered as job seekers at the UWV, or receiving benefits. The people working can be divided into self employed or employees. This data can be split in different regions. The total number of people with a benefit is counted for the whole month. The gemeenten are classified to the situation on January first 2024. The source for people who are seeking for work and registered at the UWV is from 2005-2018 UWV Werkbedrijf and after that it is Geregistreerd Werkzoekende UWV.
 
 we used all the gemeentes
 
 total unemployed youth = people that did not want to work and people who couldnt find work.
-
-## 2.3 Describe the type of variables included
-
-Think of things like:
-
--   Do the variables contain health information or SES information?
-
--   Have they been measured by interviewing individuals or is the data coming from administrative sources?
-
-*For the sake of this example, I will continue with the assignment...*
 
 # Part 3 - Quantifying
 
@@ -95,26 +87,16 @@ Please use a separate 'R block' of code for each type of cleaning. So, e.g. one 
 
 Variable 1: Unemployment percentage
 
-```{Data_Cleancombined$unemployment_percentage = (Data_Cleancombined$Niet_werkzame_jongeren/Data_Cleancombined$Aantal_jongeren)*100}
+\`\`\`{Data_Cleancombined$unemployment_percentage = (Data_Cleancombined$Niet_werkzame_jongeren/Data_Cleancombined\$Aantal_jongeren)\*100}
 
 Data_Cleancombined$unemployment_percentage = round(Data_Cleancombined$unemployment_percentage,2)
 
-```
+```         
 
 Variable 2: Unemployment change per year
 
-```{Data_Cleancombined <- Data_Cleancombined %>%}
-  arrange(Gemeente, Periode) %>%
-  group_by(Gemeente) %>%
-  mutate(
-    unemployment_change = if_else(
-      Periode - lag(Periode) == 1 & !is.na(lag(Niet_werkzame_jongeren)),
-      (Niet_werkzame_jongeren - lag(Niet_werkzame_jongeren)) / lag(Niet_werkzame_jongeren) * 100,
-      NA_real_
-    )
-  ) %>%
-  ungroup()
-
+```f3175f2a-e8a0-4436-be12-b33925b6d220
+31b8e172-b470-440e-83d8-e6b185028602:dAB5AHAAZQA6AFoAZwBBAHoAQQBEAEUAQQBOAHcAQQAxAEEARwBZAEEATQBnAEIAaABBAEMAMABBAFoAUQBBADQAQQBHAEUAQQBNAEEAQQB0AEEARABRAEEATgBBAEEAegBBAEQAWQBBAEwAUQBCAGkAQQBHAFUAQQBNAFEAQQB5AEEAQwAwAEEAWQBnAEEAegBBAEQATQBBAE8AUQBBAHkAQQBEAFUAQQBZAGcAQQAyAEEARwBRAEEATQBnAEEAeQBBAEQAQQBBAAoAcABvAHMAaQB0AGkAbwBuADoATgBnAEEAegBBAEQAVQBBAE8AQQBBAD0ACgBwAHIAZQBmAGkAeAA6AAoAcwBvAHUAcgBjAGUAOgBZAEEAQgBnAEEARwBBAEEAZQB3AEIARQBBAEcARQBBAGQAQQBCAGgAQQBGADgAQQBRAHcAQgBzAEEARwBVAEEAWQBRAEIAdQBBAEcATQBBAGIAdwBCAHQAQQBHAEkAQQBhAFEAQgB1AEEARwBVAEEAWgBBAEEAZwBBAEQAdwBBAEwAUQBBAGcAQQBFAFEAQQBZAFEAQgAwAEEARwBFAEEAWAB3AEIARABBAEcAdwBBAFoAUQBCAGgAQQBHADQAQQBZAHcAQgB2AEEARwAwAEEAWQBnAEIAcABBAEcANABBAFoAUQBCAGsAQQBDAEEAQQBKAFEAQQArAEEAQwBVAEEAZgBRAEEASwBBAEMAQQBBAEkAQQBCAGgAQQBIAEkAQQBjAGcAQgBoAEEARwA0AEEAWgB3AEIAbABBAEMAZwBBAFIAdwBCAGwAQQBHADAAQQBaAFEAQgBsAEEARwA0AEEAZABBAEIAbABBAEMAdwBBAEkAQQBCAFEAQQBHAFUAQQBjAGcAQgBwAEEARwA4AEEAWgBBAEIAbABBAEMAawBBAEkAQQBBAGwAQQBEADQAQQBKAFEAQQBLAEEAQwBBAEEASQBBAEIAbgBBAEgASQBBAGIAdwBCADEAQQBIAEEAQQBYAHcAQgBpAEEASABrAEEASwBBAEIASABBAEcAVQBBAGIAUQBCAGwAQQBHAFUAQQBiAGcAQgAwAEEARwBVAEEASwBRAEEAZwBBAEMAVQBBAFAAZwBBAGwAQQBBAG8AQQBJAEEAQQBnAEEARwAwAEEAZABRAEIAMABBAEcARQBBAGQAQQBCAGwAQQBDAGcAQQBDAGcAQQBnAEEAQwBBAEEASQBBAEEAZwBBAEgAVQBBAGIAZwBCAGwAQQBHADAAQQBjAEEAQgBzAEEARwA4AEEAZQBRAEIAdABBAEcAVQBBAGIAZwBCADAAQQBGADgAQQBZAHcAQgBvAEEARwBFAEEAYgBnAEIAbgBBAEcAVQBBAEkAQQBBADkAQQBDAEEAQQBhAFEAQgBtAEEARgA4AEEAWgBRAEIAcwBBAEgATQBBAFoAUQBBAG8AQQBBAG8AQQBJAEEAQQBnAEEAQwBBAEEASQBBAEEAZwBBAEMAQQBBAFUAQQBCAGwAQQBIAEkAQQBhAFEAQgB2AEEARwBRAEEAWgBRAEEAZwBBAEMAMABBAEkAQQBCAHMAQQBHAEUAQQBaAHcAQQBvAEEARgBBAEEAWgBRAEIAeQBBAEcAawBBAGIAdwBCAGsAQQBHAFUAQQBLAFEAQQBnAEEARAAwAEEAUABRAEEAZwBBAEQARQBBAEkAQQBBAG0AQQBDAEEAQQBJAFEAQgBwAEEASABNAEEATABnAEIAdQBBAEcARQBBAEsAQQBCAHMAQQBHAEUAQQBaAHcAQQBvAEEARQA0AEEAYQBRAEIAbABBAEgAUQBBAFgAdwBCADMAQQBHAFUAQQBjAGcAQgByAEEASABvAEEAWQBRAEIAdABBAEcAVQBBAFgAdwBCAHEAQQBHADgAQQBiAGcAQgBuAEEARwBVAEEAYwBnAEIAbABBAEcANABBAEsAUQBBAHAAQQBDAHcAQQBDAGcAQQBnAEEAQwBBAEEASQBBAEEAZwBBAEMAQQBBAEkAQQBBAG8AQQBFADQAQQBhAFEAQgBsAEEASABRAEEAWAB3AEIAMwBBAEcAVQBBAGMAZwBCAHIAQQBIAG8AQQBZAFEAQgB0AEEARwBVAEEAWAB3AEIAcQBBAEcAOABBAGIAZwBCAG4AQQBHAFUAQQBjAGcAQgBsAEEARwA0AEEASQBBAEEAdABBAEMAQQBBAGIAQQBCAGgAQQBHAGMAQQBLAEEAQgBPAEEARwBrAEEAWgBRAEIAMABBAEYAOABBAGQAdwBCAGwAQQBIAEkAQQBhAHcAQgA2AEEARwBFAEEAYgBRAEIAbABBAEYAOABBAGEAZwBCAHYAQQBHADQAQQBaAHcAQgBsAEEASABJAEEAWgBRAEIAdQBBAEMAawBBAEsAUQBBAGcAQQBDADgAQQBJAEEAQgBzAEEARwBFAEEAWgB3AEEAbwBBAEUANABBAGEAUQBCAGwAQQBIAFEAQQBYAHcAQgAzAEEARwBVAEEAYwBnAEIAcgBBAEgAbwBBAFkAUQBCAHQAQQBHAFUAQQBYAHcAQgBxAEEARwA4AEEAYgBnAEIAbgBBAEcAVQBBAGMAZwBCAGwAQQBHADQAQQBLAFEAQQBnAEEAQwBvAEEASQBBAEEAeABBAEQAQQBBAE0AQQBBAHMAQQBBAG8AQQBJAEEAQQBnAEEAQwBBAEEASQBBAEEAZwBBAEMAQQBBAFQAZwBCAEIAQQBGADgAQQBjAGcAQgBsAEEARwBFAEEAYgBBAEIAZgBBAEEAbwBBAEkAQQBBAGcAQQBDAEEAQQBJAEEAQQBwAEEAQQBvAEEASQBBAEEAZwBBAEMAawBBAEkAQQBBAGwAQQBEADQAQQBKAFEAQQBLAEEAQwBBAEEASQBBAEIAMQBBAEcANABBAFoAdwBCAHkAQQBHADgAQQBkAFEAQgB3AEEAQwBnAEEASwBRAEEASwBBAEEAbwBBAFkAQQBCAGcAQQBHAEEAQQAKAHMAdQBmAGYAaQB4ADoA:31b8e172-b470-440e-83d8-e6b185028602
 ```
 
 ## 3.3 Visualize temporal variation

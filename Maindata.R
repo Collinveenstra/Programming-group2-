@@ -249,21 +249,6 @@ top10HLunem = bind_rows(top10_highunemployment, top10_lowunemployment)
 landelijkunem = Data_Cleancombined %>%
   filter(Gemeente == "Nederland")
 
-ggplot(Subgroupunemp, aes(x = Periode, y = unemployment_percentage, color = Gemeente)) +
-  geom_line(linewidth = 1) +
-  geom_point() +
-  labs(
-    title = "Ontwikkeling unemployment_percentage (2020–2023)",
-    subtitle = "Top 10 hoogste en laagste gemeenten + landelijk gemiddelde",
-    x = "Jaar",
-    y = "unemployment_percentage",
-    color = "Gemeente"
-  ) +
-  geom_line(data = landelijkunem, aes(x = Periode, y = unemployment_percentage),
-            color = "black", linewidth = 1.2, linetype = "dashed") +
-  scale_x_continuous(breaks = 2020:2023) +
-  theme_minimal()
-
 #######################################################
 # Calculate yearly change per Gemeente
 Data_Cleancombined$Periode <- as.numeric(Data_Cleancombined$Periode) #make sure its numeric
@@ -327,6 +312,22 @@ Subgroupunemp = bind_rows(TOP10HIGH2020, TOP10LOW2020)
 
 write.csv(Subgroupunemp,"important data/Subgroupemp.csv")
 
+####
+ggplot(Subgroupunemp, aes(x = Periode, y = unemployment_percentage, color = Gemeente)) +
+  geom_line(linewidth = 1) +
+  geom_point() +
+  labs(
+    title = "Ontwikkeling unemployment_percentage (2020–2023)",
+    subtitle = "Top 10 hoogste en laagste gemeenten + landelijk gemiddelde",
+    x = "Jaar",
+    y = "unemployment_percentage",
+    color = "Gemeente"
+  ) +
+  geom_line(data = landelijkunem, aes(x = Periode, y = unemployment_percentage),
+            color = "black", linewidth = 1.2, linetype = "dashed") +
+  scale_x_continuous(breaks = 2020:2023) +
+  theme_minimal()
+
 ###unemployment percentage change
 Data_Cleancombined <- Data_Cleancombined %>%
   arrange(Gemeente, Periode) %>%
@@ -380,7 +381,7 @@ ggplot(plot_data, aes(x = factor(Gemeente, levels=unique(Gemeente)),
 ### visual temporal
 
 ggplot(landelijkunem, aes(x = Periode, y = unemployment_percentage)) +
-  geom_line(color = "blue", size = 1.2) +
+  geom_line(color = "blue", linewidth = 1.2) +
   geom_point(color = "blue", size = 3) +
   labs(title = "Unemployment in the Netherlands (2020-2023)",
        x = "Year",
@@ -420,12 +421,11 @@ geo_data = geo_data %>%
 write.csv(geo_data,"important data/geo_data.csv")
 
 ggplot(geo_data) +
-  geom_sf(aes(fill = unemployment_percentage), color = NA) +
-  scale_fill_viridis_c(option = "inferno", name = "Werkloosheid (%)") +
+  geom_sf(aes(fill = unemployment_percentage), color = "black") +
+  scale_fill_viridis_c(option = "inferno", name = "Unemployment (%)") +
   theme_minimal() +
   labs(
     title = "Youth unemployment per gemeente (2020)",
-    caption = "Source: CBS"
   )  
 
 

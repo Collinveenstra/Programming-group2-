@@ -385,6 +385,20 @@ ggplot(plot_data, aes(x = factor(Gemeente, levels=unique(Gemeente)),
 
 
 
+### visual temporal
+
+ggplot(landelijkunem, aes(x = Periode, y = unemployment_percentage)) +
+  geom_line(color = "blue", size = 1.2) +
+  geom_point(color = "blue", size = 3) +
+  labs(title = "Unemployment in the Netherlands (2020-2023)",
+       x = "Year",
+       y = "Unemployment (%)") +
+  scale_y_continuous(breaks = (0:4)*10, lim = c(0,40)) +
+  theme_minimal()
+                
+
+
+
 
 
 

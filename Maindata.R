@@ -375,6 +375,20 @@ ggplot(geo_data) +
     title = "Youth unemployment (15-27)\n per gemeente in 2020"
   )
 
+### visual temporal
+
+ggplot(landelijkunem, aes(x = Periode, y = unemployment_percentage)) +
+  geom_line(color = "blue", size = 1.2) +
+  geom_point(color = "blue", size = 3) +
+  labs(title = "Unemployment in the Netherlands (2020-2023)",
+       x = "Year",
+       y = "Unemployment (%)") +
+  scale_y_continuous(breaks = (0:4)*10, lim = c(0,40)) +
+  theme_minimal()
+                
+
+
+
 
 
 

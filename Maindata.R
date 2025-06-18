@@ -393,6 +393,7 @@ ggplot(landelijkunem, aes(x = Periode, y = unemployment_percentage)) +
 plot(Data_Cleancombined$unemployment_percentage, col = "blue")  # Change point color to blue
 
 ###
+
 library(giscoR)
 
 gemeenten_nl = gisco_get_lau(country = "NL", year = 2020) %>%
@@ -430,5 +431,31 @@ ggplot(geo_data) +
 ############ change the name of the dutch variables
 Data_Cleancombined <- Data_Cleancombined %>%
   rename(High_Risk_Anxiety_Depression = Hoog_risico_angst_depressie, MHI_5 = Psychische_klachten, Total_Youth = Aantal_jongeren, Total_Unemployed_Youth = Niet_werkzame_jongeren)
+
+
+
+library(ggplot2)
+library(dplyr)
+
+# Assuming your grouped data is in `plot_data` with columns:
+# - unemployment_percentage (numeric)
+# - group ("High Unemployment" or "Low Unemployment")
+
+
+ggplot(plot_data, aes(x = group, y = unemployment_percentage, fill = group)) +
+  geom_boxplot() +
+  scale_fill_manual(values = c("High Unemployment" = "red", "Low Unemployment" = "blue")) +
+  labs(
+    title = "Unemployment Percentage by Group",
+    x = NULL,
+    y = "Unemployment Percentage (%)",
+    fill = "Group"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_blank(),    # Remove x-axis labels
+    axis.ticks.x = element_blank(),   # Remove x-axis ticks
+    legend.position = "right"
+  )
 
 

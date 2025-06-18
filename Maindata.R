@@ -359,74 +359,34 @@ low_gemeentes <- c("Urk", "Zwartewaterland", "Opmeer",
                    "Bladel", "Staphorst", "Nederweert", "Neder-Betuwe",
                    "Boekel", "Bunschoten")
 
-plot_data <- plot_data %>%
-  mutate(group = case_when(
-    Gemeente %in% high_gemeentes ~ "High Unemployment",
-    Gemeente %in% low_gemeentes  ~ "Low Unemployment",
-    TRUE ~ "Other"
-  ))
-
-# Plot with reversed colors: low = blue, high = red
-ggplot(plot_data, aes(x = factor(Gemeente, levels=unique(Gemeente)), 
-                      y = unemployment_percentage, fill = group)) +
-  geom_col(position = "dodge") +
-  scale_fill_manual(values = c("Low Unemployment" = "blue", "High Unemployment" = "red")) +
-  facet_wrap(~ Periode) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  labs(x = "Gemeente", y = "Unemployment Percentage", fill = "Group",
-       title = "Unemployment % by Gemeente (2020-2023), Vlieland & Schiermonnikoog Removed")
-
-### visual temporal
-
-ggplot(landelijkunem, aes(x = Periode, y = unemployment_percentage)) +
-  geom_line(color = "blue", size = 1.2) +
-  geom_point(color = "blue", size = 3) +
-  labs(title = "Unemployment in the Netherlands (2020-2023)",
-       x = "Year",
-       y = "Unemployment (%)") +
-  scale_y_continuous(breaks = (0:4)*10, lim = c(0,40)) +
-  theme_minimal()
-              
-
-plot(Data_Cleancombined$unemployment_percentage, col = "blue")  # Change point color to blue
 
 ###
 ###
-library(giscoR)
+library(ggplot2)
+library(dplyr)
 
-gemeenten_nl = gisco_get_lau(country = "NL", year = 2020) %>%
-  arrange(LAU_NAME)
-View(gemeenten_nl)
+# Assuming your grouped data is in `plot_data` with columns:
+# - unemployment_percentage (numeric)
+# - group ("High Unemployment" or "Low Unemployment")
 
-install.packages(c("sf","dplyr","ggplot2","tmap","rmapshaper","readr"))
-library(sf)
-
-gemeenten_nl = gemeenten_nl %>%
-  rename(Periode = YEAR, Gemeente = LAU_NAME, Gemeentegrenzen = `_ogr_geometry_`) 
-
-gemeenten_nl = gemeenten_nl %>%
-  select(Gemeente, Periode, Gemeentegrenzen)
-
-write.csv(gemeenten_nl,"important data/gemeenten_nl.csv")
-
-geo_data = Data_Cleancombined %>%
-  inner_join(gemeenten_nl, by = c("Periode", "Gemeente"))
-
-geo_data = geo_data %>%
-  filter(!is.na(unemployment_percentage)) %>%
-  st_sf()
-
-write.csv(geo_data,"important data/geo_data.csv")
-
-ggplot(geo_data) +
-  geom_sf(aes(fill = unemployment_percentage), color = NA) +
-  scale_fill_viridis_c(option = "inferno", name = "Werkloosheid (%)") +
-  theme_minimal() +
+ggplot(plot_data, aes(x = group, y = unemployment_percentage, fill = group)) +
+  geom_boxplot() +
+  scale_fill_manual(values = c("High Unemployment" = "red", "Low Unemployment" = "blue")) +
   labs(
-    title = "Youth unemployment per gemeente (2020)",
-    caption = "Source: CBS"
-  )  
+    title = "Unemployment Percentage by Group",
+    x = NULL,
+    y = "Unemployment Percentage (%)",
+    fill = "Group"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_blank(),    # Remove x-axis labels
+    axis.ticks.x = element_blank(),   # Remove x-axis ticks
+    legend.position = "right"
+  )
+
+
+
 
 
 

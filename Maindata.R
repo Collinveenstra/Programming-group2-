@@ -243,8 +243,15 @@ top10_lowunemployment$Periode = as.numeric(top10_lowunemployment$Periode)
 
 top10HLunem = bind_rows(top10_highunemployment, top10_lowunemployment)
 
+#####
+
+
 landelijkunem = Data_Cleancombined %>%
   filter(Gemeente == "Nederland")
+
+#######################################################
+# Calculate yearly change per Gemeente
+Data_Cleancombined$Periode <- as.numeric(Data_Cleancombined$Periode) #make sure its numeric
 
 #top 10 gemeentes with the highest unemployment from 2020
 library(dplyr)
@@ -261,7 +268,7 @@ library(dplyr)
 selected_gemeentes <- c(
   "Vaals", "Wassenaar", "Wageningen", "Maastricht",
   "Blaricum", "Bloemendaal", "Laren (NH.)", 
-  "Rozendaal", "Delft", "Gooise Meren"
+  "Rozendaal", "Vlieland", "Delft"
 )
 
 TOP10HIGH2020 <- Data_Cleancombined %>%
@@ -272,6 +279,9 @@ write.csv(TOP10HIGH2020, "important data/TOP10HIGH2020.csv")
 
 # View the new dataset
 View(TOP10HIGH2020)
+
+write.csv(TOP10HIGH2020,"important data/TOP10HIGH2020.csv")
+
 
 #top 10 gemeentes with the lowest unemployment from 2020
 library(dplyr)
@@ -297,7 +307,6 @@ write.csv(TOP10LOW2020,"important data/TOP10LOW2020.csv")
 # View the new dataset
 View(TOP10LOW2020)
 library(dplyr)
-
 Subgroupunemp = bind_rows(TOP10HIGH2020, TOP10LOW2020)
 #Vlieland is an island with 300 people, so there was no unemployment one year and half the population was unemployed the next
 
@@ -332,10 +341,54 @@ Data_Cleancombined <- Data_Cleancombined %>%
   ) %>%
   ungroup()
  # Round to 2 decimals
-Data_Cleancombined <- Data_Cleancombined %>%
-  mutate(unemployment_change = round(unemployment_change, 2))
+library(ggplot2)
+library(dplyr)
 
+library(ggplot2)
+library(dplyr)
 
+# Remove Vlieland and Schiermonnikoog (those are islands with little population, and therefore zero unemployment in some years, so it gives a wrong visual)
+plot_data <- Subgroupunemp %>%
+  filter(!Gemeente %in% c("Vlieland", "Schiermonnikoog"))
+
+# Define groups without Vlieland
+high_gemeentes <- c("Vaals", "Wassenaar", "Wageningen", "Maastricht",
+                    "Blaricum", "Bloemendaal", "Laren (NH.)", 
+                    "Rozendaal", "Delft")  # Vlieland removed
+
+low_gemeentes <- c("Urk", "Zwartewaterland", "Opmeer",
+                   "Bladel", "Staphorst", "Nederweert", "Neder-Betuwe",
+                   "Boekel", "Bunschoten")
+
+plot_data <- plot_data %>%
+  mutate(group = case_when(
+    Gemeente %in% high_gemeentes ~ "High Unemployment",
+    Gemeente %in% low_gemeentes  ~ "Low Unemployment",
+    TRUE ~ "Other"
+  ))
+
+# Plot with reversed colors: low = blue, high = red
+ggplot(plot_data, aes(x = factor(Gemeente, levels=unique(Gemeente)), 
+                      y = unemployment_percentage, fill = group)) +
+  geom_col(position = "dodge") +
+  scale_fill_manual(values = c("Low Unemployment" = "blue", "High Unemployment" = "red")) +
+  facet_wrap(~ Periode) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(x = "Gemeente", y = "Unemployment Percentage", fill = "Group",
+       title = "Unemployment % by Gemeente (2020-2023), Vlieland & Schiermonnikoog Removed")
+
+### visual temporal
+
+ggplot(landelijkunem, aes(x = Periode, y = unemployment_percentage)) +
+  geom_line(color = "blue", linewidth = 1.2) +
+  geom_point(color = "blue", size = 3) +
+  labs(title = "Unemployment in the Netherlands (2020-2023)",
+       x = "Year",
+       y = "Unemployment (%)") +
+  scale_y_continuous(breaks = (0:4)*10, lim = c(0,40)) +
+  theme_minimal()
+              
 
 plot(Data_Cleancombined$unemployment_percentage, col = "blue")  # Change point color to blue
 
@@ -369,12 +422,16 @@ write.csv(geo_data,"important data/geo_data.csv")
 
 ggplot(geo_data) +
   geom_sf(aes(fill = unemployment_percentage), color = "black") +
-  scale_fill_viridis_c(option = "inferno", name = "Youth Unemployment (%)") +
+  scale_fill_viridis_c(option = "inferno", name = "Unemployment (%)") +
   theme_minimal() +
   labs(
-    title = "Youth unemployment (15-27)\n per gemeente in 2020"
-  )
+    title = "Youth unemployment per gemeente (2020)",
+  )  
 
 
 
+############ change the name of the dutch variables
+naam_aangepast <- Data_Cleancombined %>%
+  rename(high_risk_anx_dep = Hoog_risico_angst_depressie, mental_problems = Psychische_klachten, total_youth = Aantal_jongeren, total_unemployed_youth = Niet_werkzame_jongeren)
+view(naam_aangepast)
 

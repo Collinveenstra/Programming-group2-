@@ -4,7 +4,6 @@
 ###################################################################
 
 library(readr)
-
 Aatillgoereemental2020 = read.csv("data/Aatillgoereemental2020.csv")
 goestillnissewaardmental2020 = read.csv("data/goestillnissewaardmental2020.csv")
 noardtillvlielandmental2020 = read.csv("data/noardtillvlielandmental2020.csv")
@@ -186,7 +185,6 @@ write.csv(top10_lowrisk, "important data/top10_lowrisk.csv")
 #################################
 ####load geographical data#######
 #################################
-
 library(giscoR)
 
 gemeenten_nl = gisco_get_lau(country = "NL", year = 2020) %>%
@@ -208,8 +206,8 @@ write.csv(gemeenten_nl,"important data/gemeenten_nl.csv")
 ####add geographical data to main data set###############
 #########################################################
 
-
-
+#this should be used to show difference in names of shapefile and dataset
+names(gemeenten_nl)
 ###########################################################################################################
 ####geographical visualization of unemployment and mental health in a specific year shown on a heat map####
 ###########################################################################################################

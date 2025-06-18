@@ -91,11 +91,7 @@ Please use a separate 'R block' of code for each type of cleaning. So, e.g. one 
 
 Variable 1: Unemployment percentage
 
-
-
-
 Variable 2: Unemployment change per year
-
 
 ## 3.3 Visualize temporal variation
 

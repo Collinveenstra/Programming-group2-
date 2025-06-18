@@ -2,7 +2,6 @@
 ###################################################################
 ####importing the data of gemeentes and unemployment in Rstudio####
 ###################################################################
-
 library(readr)
 
 #import of mental data gemeentes 2020
@@ -388,9 +387,6 @@ ggplot(landelijkunem, aes(x = Periode, y = unemployment_percentage)) +
        y = "Unemployment (%)") +
   scale_y_continuous(breaks = (0:4)*10, lim = c(0,40)) +
   theme_minimal()
-              
-
-plot(Data_Cleancombined$unemployment_percentage, col = "blue")  # Change point color to blue
 
 ###
 
@@ -399,8 +395,6 @@ library(giscoR)
 gemeenten_nl = gisco_get_lau(country = "NL", year = 2020) %>%
   arrange(LAU_NAME)
 View(gemeenten_nl)
-
-install.packages(c("sf","dplyr","ggplot2","tmap","rmapshaper","readr"))
 
 gemeenten_nl = gemeenten_nl %>%
   rename(Periode = YEAR, Gemeente = LAU_NAME, Gemeentegrenzen = `_ogr_geometry_`) 
@@ -457,5 +451,18 @@ ggplot(plot_data, aes(x = group, y = unemployment_percentage, fill = group)) +
     axis.ticks.x = element_blank(),   # Remove x-axis ticks
     legend.position = "right"
   )
+
+### event analysis
+ggplot(landelijkunem, aes(x = Periode, y = unemployment_percentage)) +
+  geom_line(color = "blue", linewidth = 1.2) +
+  geom_point(color = "blue", size = 3) +
+  labs(title = "Unemployment in the Netherlands (2020-2023)",
+       x = "Year",
+       y = "Unemployment (%)") +
+  scale_y_continuous(breaks = (0:8)*5, lim = c(0,40)) +
+  theme_minimal() +
+  geom_vline(xintercept = 2022, linetype = "solid", color = "black", linewidth = 1) +
+  annotate("text", x = 2021, y = 20, size = 3.5, label = "End of Covid-19 -->")
+  
 
 

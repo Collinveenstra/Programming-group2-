@@ -55,7 +55,9 @@ In this case we see 28 variables, but we miss some information on what units the
 inline_code = TRUE
 ```
 
-These are things that are usually included in the metadata of the dataset. For your project, you need to provide us with the information from your metadata that we need to understand your dataset of choice.
+### Percentage of people reporting psychological complaints
+
+The analysis surrounding psychological complaints is measured by the Mental Health Inventory 5 (MHI-5), which is the international standard procedure to measure mental health. It includes five questions related to the well being of an individual over the past month, related to displays of anxiety, depression, behavioral/emotional control and general positive effect. Based on the results of the questionnaire, people received a score ranging from 0 (extremely unhealthy) to 100 (perfectly healthy). A person is considered psychologically unhealthy by the Statistics Netherlands (CBS) if they have received a score lower than 60. The data for the years of 2012, 2016, and 2020 are not available.
 
 ## 2.3 Describe the type of variables included
 

@@ -1,7 +1,7 @@
 ---
-title: "Template"
-author: "Studentnames and studentnumbers here"
-date: "`r Sys.Date()`"
+title: "The Mental Health Impact of Youth Unemployment in the Netherlands"
+author: "Collin Veenstra 2856836, Margarida Birne 2861977, Marit Springer 2860040, Naofal Adlouni 2860056, Valentina Caruso 2836174, Xenia Drude 2845696"
+date: "`2025-05-26`"
 output: pdf_document
 ---
 
@@ -15,25 +15,21 @@ install.packages("tidyverse")
 require(tidyverse)
 ```
 
-# Title Page
+# The Mental Health Impact of Youth Unemployment in the Netherlands
 
-Include your names
+Collin Veenstra, Margarida Birne, Marit Springer, Naofal Adlouni, Valentina Caruso, Xenia Drude
 
-Include the tutorial group number
+Tutorial 2
 
-Include your tutorial lecturer's name
+Chantal Schouwenaar
 
-# Part 1 - Identify a Social Problem
-
-Use APA referencing throughout your document. [Here's a link to some explanation.](https://www.mendeley.com/guides/apa-citation-guide/)
+# Introduction
 
 ## 1.1 Describe the Social Problem
 
-Include the following:
+In the Netherlands, depression has proven to be the most prevalent mental health disorder, with almost one in five individuals expressing depressive symptoms (de Graaf et al., 2010, Trimbos Institute, 2020). Unemployment has been identified as a main factor that aggravates this issue. Beyond its financial implications, being out of work has substantial psychological consequences. It often has an affect on self-esteem, increased physical and cognitive issues, and, in severe cases, suicidal tendencies (Ringdal & Rootjes, 2022). These aspects are not not only a result of economic stress but also due to a loss of other benefits such as a sense of purpose, the absence of routine and decreased social connections (ElMorsy, 2024).
 
--   Why is this relevant?
-
--   ...
+There is an extensive amount of research surrounding the correlation among mental health and unemployment. This analysis is focused on how this relationship affects young people in the Netherlands. For emerging adults, working is important as it is associated with obtaining greater independence, forming an identity and starting a career. In the Netherlands, individuals are legally allowed to work from the age of 13 with certain conditions and freely from the age of 16 (Netherlands Enterprise Agency, n.d). Employment from a young age is widely normalized and many times expected during adolescence. Therefore, not having a job can be unsettling and a disruption of deeply rooted social expectations, leading to higher risk of mental health implications.
 
 # Part 2 - Data Sourcing
 

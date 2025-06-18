@@ -268,7 +268,6 @@ ggplot(Subgroupunemp, aes(x = Periode, y = unemployment_percentage, color = Geme
 # Calculate yearly change per Gemeente
 Data_Cleancombined$Periode <- as.numeric(Data_Cleancombined$Periode) #make sure its numeric
 
-
 #top 10 gemeentes with the highest unemployment from 2020
 library(dplyr)
 
@@ -347,7 +346,7 @@ library(dplyr)
 library(ggplot2)
 library(dplyr)
 
-# Remove Vlieland and Schiermonnikoog
+# Remove Vlieland and Schiermonnikoog (those are islands with little population, and therefore zero unemployment in some years, so it gives a wrong visual)
 plot_data <- Subgroupunemp %>%
   filter(!Gemeente %in% c("Vlieland", "Schiermonnikoog"))
 

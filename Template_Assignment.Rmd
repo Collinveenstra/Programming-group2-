@@ -39,6 +39,27 @@ Preferably from a URL, but if not, make sure to download the data and store it i
 
 ```{r loading_data}
 dataset <- midwest
+
+
+###################################################################
+####importing the data of gemeentes and unemployment in Rstudio####
+###################################################################
+library(readr)
+
+#import of mental data gemeentes 2020
+Aatillgoereemental2020 = read.csv("data/Aatillgoereemental2020.csv")
+goestillnissewaardmental2020 = read.csv("data/goestillnissewaardmental2020.csv")
+noardtillvlielandmental2020 = read.csv("data/noardtillvlielandmental2020.csv")
+vlissingentillzwollemental2020 = read.csv("data/vlissingentillzwollemental2020.csv")
+
+#import of mental data gemeentes 2022
+Aatillgoereemental2022 = read.csv("data/Aatillgoereemental.csv")
+goestillnissewaardmental2022 = read.csv("data/goestillnissewaardmental2022.csv")
+noardtillvlielandmental2022 = read.csv("data/noardtillvlielandmental2022.csv")
+vlissingentillzwollemental2022 = read.csv("data/vlissingentillzwollemental2022.csv")
+
+#import of unemployment data 2020-2023
+gem_unemployment = read.csv("standard data/gem_unemployment.csv")
 ```
 
 midwest is an example dataset included in the tidyverse package
@@ -82,6 +103,37 @@ Say we want to include only larger distances (above 2) in our dataset, we can fi
 
 ```{r data_cleaning}
 mean(dataset$percollege)
+
+
+##########################################################################
+####data cleaning, get rid of the useless variables in mental data set####
+##########################################################################
+
+#filtering useless categories like smoking, alcohol consumption and other health statistics, so that we only have mental data left
+filtered_gemeentesmentaldata2020 = gemeentesmentaldata2020 %>%
+  select(Leeftijd,Marges,Perioden,Wijken.en.buurten,Regioaanduiding.Soort.regio..omschrijving.,Psychische.klachten....,Hoog.risico.op.angst.of.depressie....)
+
+write.csv(filtered_gemeentesmentaldata2020,"important data/filtered_gemeentesmentaldata2020.csv")
+
+#the same for the data of 2022
+filtered_gemeentesmentaldata2022 = gemeentesmentaldata2022 %>%
+  select(Leeftijd,Marges,Perioden,Wijken.en.buurten,Regioaanduiding.Soort.regio..omschrijving.,Psychische.klachten....,Hoog.risico.op.angst.of.depressie....)
+
+write.csv(filtered_gemeentesmentaldata2022,"important data/filtered_gemeentesmentaldata2022.csv")
+
+################################################################################
+####data cleaning, get rid of the useless variables in unemployment data set####
+################################################################################
+
+#to calculate unemployment% we need total population and the unemployed population. Therefore we can filter out the employed population
+fltrd_unemployment = gem_unemployment %>%
+  filter(Arbeidskenmerken %in% c("Totaal ", "Arb.pos.: niet-werkzame bevolking"))
+
+#this category was not useful for our analysis so to make the data set less complex we filtered this variable out 
+fltrd_unemployment = fltrd_unemployment %>%
+  filter(Geregistreerd.werkzoekende.bij.UWV %in% "Totaal")
+
+write.csv(fltrd_unemployment,"important data/fltrd_unemployment")
 ```
 
 Please use a separate 'R block' of code for each type of cleaning. So, e.g. one for missing values, a new one for removing unnecessary variables etc.

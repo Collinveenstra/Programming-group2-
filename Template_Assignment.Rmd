@@ -98,6 +98,14 @@ The data inside the table shows the labor market situation of young people who a
 Say we want to include only larger distances (above 2) in our dataset, we can filter for this.
 
 ```{r data_cleaning}
+
+#make 1 large mental data set of all the small partial mental datasets for 2020 and 2022
+gemeentesmentaldata2020 = bind_rows(Aatillgoereemental2020,goestillnissewaardmental2020,noardtillvlielandmental2020,vlissingentillzwollemental2020)
+gemeentesmentaldata2022 = bind_rows(Aatillgoereemental2022,goestillnissewaardmental2022,noardtillvlielandmental2022,vlissingentillzwollemental2022)
+
+write.csv(gemeentesmentaldata2020,"data/gemeentesmentaldata2020.csv")
+write.csv(gemeentesmentaldata2022,"data/gemeentesmentaldata2022.csv")
+
 ##########################################################################
 ####data cleaning, get rid of the useless variables in mental data set####
 ##########################################################################
@@ -127,6 +135,83 @@ fltrd_unemployment = fltrd_unemployment %>%
   filter(Geregistreerd.werkzoekende.bij.UWV %in% "Totaal")
 
 write.csv(fltrd_unemployment,"important data/fltrd_unemployment")
+
+############################################################################################
+####prepare mental and unemployment set so that we can merge them together in 1 data set####
+############################################################################################
+
+# unemployment data set arranged at Period
+fltrd_unemployment = fltrd_unemployment %>%
+  arrange(Perioden)
+
+# variable name changed from regio.s to gemeente
+fltrd_unemployment = fltrd_unemployment %>%
+  rename(Gemeente = Regio.s) 
+
+#Period made as character so that we could combine the data sets 
+fltrd_unemployment$Perioden = as.character(fltrd_unemployment$Perioden)
+
+#instead of no value, we made all missing values of 2020 NA
+filtered_gemeentesmentaldata2020$Psychische.klachten.... = NA_real_
+
+#combined the 2020 and 2022 mental data set
+Mental2020_2022 = bind_rows(filtered_gemeentesmentaldata2020,filtered_gemeentesmentaldata2022)
+
+#variable name changed from wijken en buurten to gemeente
+Mental2020_2022 = Mental2020_2022 %>%
+  rename(Gemeente = Wijken.en.buurten)
+
+#Period made as character so thaat we could combine the data sets
+Mental2020_2022$Perioden = as.character(Mental2020_2022$Perioden)
+
+#########################
+####
+#########################
+
+totaal_unemp <- fltrd_unemployment %>% filter(Arbeidskenmerken == "Totaal ")
+totaal_unemp$aantal_jongeren <- totaal_unemp$Jongeren..15.tot.27.jaar...aantal.
+totaal_unemp$Jongeren..15.tot.27.jaar...aantal. <- NULL
+totaal_unemp$X <- NULL
+totaal_unemp$Arbeidskenmerken <- NULL
+nietwerkzaam <- fltrd_unemployment %>% filter(Arbeidskenmerken != "Totaal ")
+nietwerkzaam$nietwerkzame_jongeren <- nietwerkzaam$Jongeren..15.tot.27.jaar...aantal.
+nietwerkzaam$Jongeren..15.tot.27.jaar...aantal. <- NULL
+nietwerkzaam$X <- NULL
+nietwerkzaam$Arbeidskenmerken <- NULL
+
+unemployment <- full_join(totaal_unemp, nietwerkzaam, by = c("Onderwijsvolgend", "Uitkering", "Geregistreerd.werkzoekende.bij.UWV", "Perioden", "Gemeente"))
+
+write.csv(unemployment,"important data/unemployment.csv")
+
+########################################
+###now merge the 2 data sets together###
+########################################
+
+#merge the mental and unemployment data set
+Combined_data = full_join(unemployment,Mental2020_2022, by = c("Gemeente","Perioden"))
+
+write.csv(Combined_data,"important data/Combined_data.csv")
+
+##################################################################################
+####clean the combined data set so that all useless variables are filtered out####
+##################################################################################
+
+#clean up0 all useless variables so that the data set becomes more clear
+Data_Cleancombined = Combined_data %>%
+  select(-Onderwijsvolgend, -Uitkering, -Geregistreerd.werkzoekende.bij.UWV, -Marges, -Leeftijd)
+
+#change the variable names to easier names
+names(Data_Cleancombined) = c(
+  "Periode",
+  "Gemeente",
+  "Aantal_jongeren",
+  "Niet_werkzame_jongeren",
+  "Regio_type",
+  "Psychische_klachten",
+  "Hoog_risico_angst_depressie"
+)
+
+write.csv(Data_Cleancombined,"important data/Data_Cleancombined.csv")
 ```
 
 Please use a separate 'R block' of code for each type of cleaning. So, e.g. one for missing values, a new one for removing unnecessary variables etc.
@@ -153,9 +238,7 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 ## 3.5 Visualize sub-population variation
 
-Here you provide a description of why the plot above is relevant to your specific social problem.
-#Firstly, the gemeente unemployment data from 2020-2023 was compared, to define the top 10 gemeentes with the lowest and highest percentages of unemployment. The gemeentes Vlieland and Schiermonnikoog were then excluded, due to being islands with low levels of population,  which were therefore giving the wrong idea of the overall percentages, since they had zero unemployment in some years. Finally, the results were compiled into the box plot, to visualise the findings.This is relevant to mental health and unemployment in the Netherlands, because it gives us an accurate visual of one of the variables.
-## 3.6 Event analysis
+Here you provide a description of why the plot above is relevant to your specific social problem. #Firstly, the gemeente unemployment data from 2020-2023 was compared, to define the top 10 gemeentes with the lowest and highest percentages of unemployment. The gemeentes Vlieland and Schiermonnikoog were then excluded, due to being islands with low levels of population, which were therefore giving the wrong idea of the overall percentages, since they had zero unemployment in some years. Finally, the results were compiled into the box plot, to visualise the findings.This is relevant to mental health and unemployment in the Netherlands, because it gives us an accurate visual of one of the variables. \## 3.6 Event analysis
 
 Analyze the relationship between two variables.
 

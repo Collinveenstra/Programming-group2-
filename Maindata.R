@@ -157,16 +157,16 @@ avgmental_2020 = Data_Cleancombined$Hoog_risico_angst_depressie[Data_Cleancombin
 avgmental_2022 = Data_Cleancombined$Hoog_risico_angst_depressie[Data_Cleancombined$Periode == 2022 & Data_Cleancombined$Gemeente == "Nederland"]
 
 #compare the gemeentes to national average which gives a value of Above or Below average
-Data_Cleancombined$Above_or_Below_national_risk <- ifelse(
+Data_Cleancombined$Above_or_Below_National_Risk <- ifelse(
   is.na(Data_Cleancombined$Hoog_risico_angst_depressie), NA,
   ifelse(Data_Cleancombined$Periode == 2020 & Data_Cleancombined$Hoog_risico_angst_depressie > avgmental_2020, "Above",
          ifelse(Data_Cleancombined$Periode == 2020 & Data_Cleancombined$Hoog_risico_angst_depressie < avgmental_2020, "Below",
                 ifelse(Data_Cleancombined$Periode == 2022 & Data_Cleancombined$Hoog_risico_angst_depressie > avgmental_2022, "Above",
-                       ifelse(Data_Cleancombined$Periode == 2022 & Data_Cleancombined$Hoog_risico_angst_depressie < avgmental_2022, "Below", "Gelijk")))))
+                       ifelse(Data_Cleancombined$Periode == 2022 & Data_Cleancombined$Hoog_risico_angst_depressie < avgmental_2022, "Below", "Equal")))))
 
 
 ##########################################################
-#### Mental data higher or lower than national average####
+#### unemployment higher or lower than national average####
 ##########################################################
 
 #in the dataset 2023 was stated as 2023*, so we had to correct this
@@ -179,7 +179,7 @@ avgunemp_2022 = Data_Cleancombined$unemployment_percentage[Data_Cleancombined$Pe
 avgunemp_2023 = Data_Cleancombined$unemployment_percentage[Data_Cleancombined$Periode == 2023 & Data_Cleancombined$Gemeente == "Nederland"]
 
 #compare the gemeentes to national unemployment average which gives a value of Above or Below average
-Data_Cleancombined$Above_or_Below_national_unemployment <- ifelse(
+Data_Cleancombined$Above_or_Below_National_Unemployment <- ifelse(
   is.na(Data_Cleancombined$unemployment_percentage), NA,
   ifelse(Data_Cleancombined$Periode == 2020 & Data_Cleancombined$unemployment_percentage > avgunemp_2020, "Above",
          ifelse(Data_Cleancombined$Periode == 2020 & Data_Cleancombined$unemployment_percentage < avgunemp_2020, "Below",
@@ -233,24 +233,9 @@ write.csv(top10_lowunemployment, "important data/top10_lowunemployment.csv")
 library(ggplot2)
 library(dplyr)
 
-#het idee hier is goed alleen door de top 10 over die jaren te nemen krijg je waardes van maar 1 of 2 jaar in de grafiek
-# daarom moeten we de top 10 hoogste en laagste in 2020 pakken en de trend van die gemeentes verder bekijken
-
-Data_Cleancombined$Periode = as.numeric(Data_Cleancombined$Periode)
-top10_highunemployment$Periode = as.numeric(top10_highunemployment$Periode)
-top10_lowunemployment$Periode = as.numeric(top10_lowunemployment$Periode)
-
-top10HLunem = bind_rows(top10_highunemployment, top10_lowunemployment)
-
 #####
-
-
 landelijkunem = Data_Cleancombined %>%
   filter(Gemeente == "Nederland")
-
-#######################################################
-# Calculate yearly change per Gemeente
-Data_Cleancombined$Periode <- as.numeric(Data_Cleancombined$Periode) #make sure its numeric
 
 #top 10 gemeentes with the highest unemployment from 2020
 library(dplyr)
@@ -311,21 +296,7 @@ Subgroupunemp = bind_rows(TOP10HIGH2020, TOP10LOW2020)
 
 write.csv(Subgroupunemp,"important data/Subgroupemp.csv")
 
-####
-ggplot(Subgroupunemp, aes(x = Periode, y = unemployment_percentage, color = Gemeente)) +
-  geom_line(linewidth = 1) +
-  geom_point() +
-  labs(
-    title = "Ontwikkeling unemployment_percentage (2020–2023)",
-    subtitle = "Top 10 hoogste en laagste gemeenten + landelijk gemiddelde",
-    x = "Jaar",
-    y = "unemployment_percentage",
-    color = "Gemeente"
-  ) +
-  geom_line(data = landelijkunem, aes(x = Periode, y = unemployment_percentage),
-            color = "black", linewidth = 1.2, linetype = "dashed") +
-  scale_x_continuous(breaks = 2020:2023) +
-  theme_minimal()
+Data_Cleancombined$Periode = as.numeric(Data_Cleancombined$Periode)
 
 ###unemployment percentage change
 Data_Cleancombined <- Data_Cleancombined %>%
@@ -366,18 +337,26 @@ plot_data <- plot_data %>%
     TRUE ~ "Other"
   ))
 
-# Plot with reversed colors: low = blue, high = red
-ggplot(plot_data, aes(x = factor(Gemeente, levels=unique(Gemeente)), 
-                      y = unemployment_percentage, fill = group)) +
-  geom_col(position = "dodge") +
-  scale_fill_manual(values = c("Low Unemployment" = "blue", "High Unemployment" = "red")) +
-  facet_wrap(~ Periode) +
+###boxplot
+ggplot(plot_data, aes(x = group, y = unemployment_percentage, fill = group)) +
+  geom_boxplot() +
+  scale_fill_manual(values = c("High Unemployment" = "red", "Low Unemployment" = "blue")) +
+  labs(
+    title = "Unemployment Percentage \nby Subgroup (2020-2023)",
+    x = NULL,
+    y = "Unemployment Percentage (%)\n",
+    fill = "group"
+  ) +
   theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  labs(x = "Gemeente", y = "Unemployment Percentage", fill = "Group",
-       title = "Unemployment % by Gemeente (2020-2023), Vlieland & Schiermonnikoog Removed")
+  theme(
+    axis.text.x = element_blank(),    # Remove x-axis labels
+    axis.ticks.x = element_blank(),   # Remove x-axis ticks
+    legend.position = "right"
+  ) +
+  scale_y_continuous(breaks = (0:6)*10, lim = c(0,70))
 
 ### visual temporal
+landelijkunem$Periode = as.numeric(landelijkunem$Periode)
 
 ggplot(landelijkunem, aes(x = Periode, y = unemployment_percentage)) +
   geom_line(color = "blue", linewidth = 1.2) +
@@ -428,6 +407,19 @@ ggplot(geo_data) +
 Data_Cleancombined <- Data_Cleancombined %>%
   rename(High_Risk_Anxiety_Depression = Hoog_risico_angst_depressie, MHI_5 = Psychische_klachten, Total_Youth = Aantal_jongeren, Total_Unemployed_Youth = Niet_werkzame_jongeren)
 
+names(Data_Cleancombined) = c(
+  "Period",
+  "Gemeente",
+  "Total_Youth",
+  "Total_Unemployed_Youth",
+  "Region_Type",
+  "MHI_5",
+  "High_Risk_Anxiety_Depression",
+  "Unemployment(%)",
+  "Above_or_Below_National_Risk",
+  "Above_or_Below_National_Unemployment",
+  "Unemployment_Change_per_Year"
+)
 
 
 library(ggplot2)
@@ -437,23 +429,7 @@ library(dplyr)
 # - unemployment_percentage (numeric)
 # - group ("High Unemployment" or "Low Unemployment")
 
-
-ggplot(plot_data, aes(x = group, y = unemployment_percentage, fill = group)) +
-  geom_boxplot() +
-  scale_fill_manual(values = c("High Unemployment" = "red", "Low Unemployment" = "blue")) +
-  labs(
-    title = "Unemployment Percentage by Group",
-    x = NULL,
-    y = "Unemployment Percentage (%)",
-    fill = "Group"
-  ) +
-  theme_minimal() +
-  theme(
-    axis.text.x = element_blank(),    # Remove x-axis labels
-    axis.ticks.x = element_blank(),   # Remove x-axis ticks
-    legend.position = "right"
-  )
-
+landelijkunem$Periode = as.numeric(landelijkunem$Periode)
 ### event analysis
 ggplot(landelijkunem, aes(x = Periode, y = unemployment_percentage)) +
   geom_line(color = "blue", linewidth = 1.2) +
@@ -465,6 +441,10 @@ ggplot(landelijkunem, aes(x = Periode, y = unemployment_percentage)) +
   theme_minimal() +
   geom_vline(xintercept = 2022, linetype = "solid", color = "black", linewidth = 1) +
   annotate("text", x = 2021, y = 20, size = 3.5, label = "End of Covid-19 -->")
+
+####
+
+
 
 
 

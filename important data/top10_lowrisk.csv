@@ -1,4 +1,4 @@
-"","Periode","Gemeente","Aantal_jongeren","Niet_werkzame_jongeren","Regio_type","Psychische_klachten","Hoog_risico_angst_depressie","unemployment_percentage","Above_or_Below_national_risk","Above_or_Below_national_unemployment"
+"","Periode","Gemeente","Aantal_jongeren","Niet_werkzame_jongeren","Regio_type","Psychische_klachten","Hoog_risico_angst_depressie","unemployment_percentage","Above_or_Below_National_Risk","Above_or_Below_National_Unemployment"
 "1","2020","Rozendaal",200,100,"Gemeente  ",NA,2.9,50,"Below","Above"
 "2","2020","Veere",2700,500,"Gemeente  ",NA,2.9,18.52,"Below","Below"
 "3","2020","Tynaarlo",3500,1400,"Gemeente  ",NA,3.4,40,"Below","Above"

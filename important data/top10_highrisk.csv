@@ -1,4 +1,4 @@
-"","Periode","Gemeente","Aantal_jongeren","Niet_werkzame_jongeren","Regio_type","Psychische_klachten","Hoog_risico_angst_depressie","unemployment_percentage","Above_or_Below_national_risk","Above_or_Below_national_unemployment"
+"","Periode","Gemeente","Aantal_jongeren","Niet_werkzame_jongeren","Regio_type","Psychische_klachten","Hoog_risico_angst_depressie","unemployment_percentage","Above_or_Below_National_Risk","Above_or_Below_National_Unemployment"
 "1","2020","Heerlen",10900,3700,"Gemeente  ",NA,11.5,33.94,"Above","Above"
 "2","2020","Kerkrade",4900,1700,"Gemeente  ",NA,10.4,34.69,"Above","Above"
 "3","2020","Vaals",1400,800,"Gemeente  ",NA,10.3,57.14,"Above","Above"

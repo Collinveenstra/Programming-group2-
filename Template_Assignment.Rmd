@@ -93,6 +93,39 @@ The data inside the table shows the labor market situation of young people who a
 
 ## 3.1 Data cleaning
 
+### Make 1 large mental data set of all the small partial mental datasets for 2020 and 2022
+
+```{r}
+
+```
+
+### Get rid of the useless variables in mental data set
+
+```{r}
+
+```
+
+### Get rid of the useless variables in unemployment data set
+
+```{r}
+
+```
+
+### Prepare mental and unemployment set so that we can merge them together in 1 data set
+
+```{r}
+
+```
+
+### Now merge the 2 data sets together
+
+```{r}
+
+```
+
+
+### clean the combined data set so that all useless variables are filtered out
+
 ```{r data_cleaning}
 
 #make 1 large mental data set of all the small partial mental datasets for 2020 and 2022
@@ -210,18 +243,16 @@ names(Data_Cleancombined) = c(
 write.csv(Data_Cleancombined,"important data/Data_Cleancombined.csv")
 ```
 
-Please use a separate 'R block' of code for each type of cleaning. So, e.g. one for missing values, a new one for removing unnecessary variables etc.
-
 ## 3.2 Generate necessary variables
 
-Variable 1: Unemployment percentage
+### Variable 1: Unemployment percentage
 
 ```{r}
 Data_Cleancombined$unemployment_percentage = (Data_Cleancombined$Niet_werkzame_jongeren/Data_Cleancombined$Aantal_jongeren)*100
 Data_Cleancombined$unemployment_percentage = round(Data_Cleancombined$unemployment_percentage,2)
 ```
 
-Variable 2: Unemployment change per year
+### Variable 2: Unemployment change per year
 
 ```{r echo=FALSE}
 avgmental_2020 = Data_Cleancombined$Hoog_risico_angst_depressie[Data_Cleancombined$Periode == 2020 & Data_Cleancombined$Gemeente == "Nederland"]
@@ -258,7 +289,7 @@ ggplot(df_percentmental, aes(x = Periode, y = percentage, fill = Above_or_Below_
   theme_minimal()
 ```
 
-Variable 3: National Unemployment Averages of 2020-2023
+### Variable 3: National Unemployment Averages of 2020-2023
 
 ```{r echo=FALSE}
 #in the dataset 2023 was stated as 2023*, so we had to correct this
@@ -306,7 +337,7 @@ ggplot(df_percent, aes(x = Periode, y = percentage, fill = Above_or_Below_Nation
   theme_minimal()
 ```
 
-Variable 4: Unemployment Percentage Change
+### Variable 4: Unemployment Percentage Change
 
 ```{r echo=FALSE}
 
@@ -510,7 +541,7 @@ We decided to chose the end of corona as an event. As it is possible to see in t
 
 ## 5.1 Github repository link
 
-Provide the link to your PUBLIC repository here: ...
+<https://github.com/Collinveenstra/Programming-group2->
 
 ## 5.2 Reference list
 

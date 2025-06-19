@@ -359,6 +359,18 @@ Firstly, the gemeente unemployment data from 2020-2023 was compared, to define t
 ## 3.6 Event analysis
 
 Analyze the relationship between two variables.
+```{r}
+ggplot(landelijkunem, aes(x = Periode, y = unemployment_percentage)) +
+  geom_line(color = "blue", linewidth = 1.2) +
+  geom_point(color = "blue", size = 3) +
+  labs(title = "Unemployment in the Netherlands (2020-2023)",
+       x = "Year",
+       y = "Unemployment (%)") +
+  scale_y_continuous(breaks = (0:8)*5, lim = c(0,40)) +
+  theme_minimal() +
+  geom_vline(xintercept = 2022, linetype = "solid", color = "black", linewidth = 1) +
+  annotate("text", x = 2021, y = 20, size = 3.5, label = "End of Covid-19 -->")
+```
 
 ```{r analysis}
 

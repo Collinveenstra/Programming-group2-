@@ -442,7 +442,54 @@ ggplot(landelijkunem, aes(x = Periode, y = unemployment_percentage)) +
   geom_vline(xintercept = 2022, linetype = "solid", color = "black", linewidth = 1) +
   annotate("text", x = 2021, y = 20, size = 3.5, label = "End of Covid-19 -->")
 
-####
+####Above or Below national unemployment visual 
+dfunem = Data_Cleancombined %>%
+  filter(Above_or_Below_National_Unemployment != "Equal")
+
+df_percent <- dfunem %>%
+  group_by(Period, Above_or_Below_National_Unemployment) %>%
+  summarise(amount = n(), .groups = "drop") %>%
+  group_by(Period) %>%
+  mutate(
+    percentage = 100 * amount / sum(amount) 
+  )
+
+ggplot(df_percent, aes(x = Period, y = percentage, fill = Above_or_Below_National_Unemployment)) +
+  geom_col(position = "dodge") +
+  scale_fill_manual(values = c("Above" = "red", "Below" = "steelblue")) +
+  labs(
+    title = "Percentage Gemeenten Above/Below \nNational Average per Year",
+    x = "Year",
+    y = "Percentage of Gemeentes",
+    fill = "Above/Below"
+  ) +
+  theme_minimal()
+
+####Above or Below national unemployment visual
+
+dfmental = Data_Cleancombined %>%
+  filter(Above_or_Below_National_Risk != "Equal")
+
+df_percentmental <- dfmental %>%
+  group_by(Period, Above_or_Below_National_Risk) %>%
+  summarise(amount = n(), .groups = "drop") %>%
+  group_by(Period) %>%
+  mutate(
+    percentage = 100 * amount / sum(amount) 
+  )
+
+ggplot(df_percentmental, aes(x = Period, y = percentage, fill = Above_or_Below_National_Risk)) +
+  geom_col(position = "dodge") +
+  scale_fill_manual(values = c("Above" = "red", "Below" = "steelblue")) +
+  labs(
+    title = "Percentage Gemeenten \nAbove or Below National \nMental Average per Year",
+    x = "Year",
+    y = "Percentage of Gemeentes",
+    fill = "Above/Below"
+  ) +
+  theme_minimal()
+
+
 
 
 

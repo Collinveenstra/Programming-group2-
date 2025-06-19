@@ -45,8 +45,6 @@ There is an extensive amount of research surrounding the correlation among menta
 
 ## 2.1 Load in the data
 
-Preferably from a URL, but if not, make sure to download the data and store it in a shared location that you can load the data in from. Do not store the data in a folder you include in the Github repository!
-
 ```{r loading_data}
 
 #import of mental data gemeentes 2020
@@ -68,7 +66,7 @@ gem_unemployment = read.csv("standard data/gem_unemployment.csv")
 ## 2.2 Provide a short summary of the dataset(s)
 
 ```{r}
-head(dataset)
+#head(dataset)
 ```
 
 For this project, we used all the gemeentes in the Netherlands, that could be roughly considered municipalities. Our data came from the national government's website (CBS StatLine). There is missing data because there was no information available in for certain years - the item 2.3 explains in more detail each variable of our analysis.
@@ -94,8 +92,6 @@ The data inside the table shows the labor market situation of young people who a
 # Part 3 - Quantifying
 
 ## 3.1 Data cleaning
-
-Say we want to include only larger distances (above 2) in our dataset, we can filter for this.
 
 ```{r data_cleaning}
 
@@ -262,6 +258,8 @@ ggplot(df_percentmental, aes(x = Periode, y = percentage, fill = Above_or_Below_
   theme_minimal()
 ```
 
+Variable 3: National Unemployment Averages of 2020-2023
+
 ```{r}
 #in the dataset 2023 was stated as 2023*, so we had to correct this
 Data_Cleancombined$Periode <- gsub("\\*", "", Data_Cleancombined$Periode)
@@ -307,6 +305,8 @@ ggplot(df_percent, aes(x = Periode, y = percentage, fill = Above_or_Below_Nation
   ) +
   theme_minimal()
 ```
+
+Variable 4: Unemployment Percentage Change
 
 ```{r}
 
@@ -470,6 +470,7 @@ ggplot(plot_data, aes(x = group, y = unemployment_percentage, fill = group)) +
 ## 3.6 Event analysis
 
 Analyze the relationship between two variables.
+
 ```{r}
 ggplot(landelijkunem, aes(x = Periode, y = unemployment_percentage)) +
   geom_line(color = "blue", linewidth = 1.2) +
@@ -487,10 +488,7 @@ ggplot(landelijkunem, aes(x = Periode, y = unemployment_percentage)) +
 
 ```
 
-
-
 Here you provide a description of why the plot above is relevant to your specific social problem.
-
 
 ```{r}
 names(Data_Cleancombined) = c(

@@ -411,7 +411,8 @@ ggplot(geo_data) +
   )  
 ```
 
-The heat map above shows the corresponding youth unemployment percentage per dutch municipality in the year 2020 from 0% to 50%. It visualizes the spatial differences the country is facing regarding this issue, helping the overall understanding of the multitude of factors, that may have an impact on the social problem overall. The contrasting data can be explained by the very low population in some areas, that then has a stronger impact on the overall percentage.
+The heat map above shows the percentage of youth unemployment per Dutch municipality (gemeente) in the year of 2020, ranging from 0% to over 50%. This spatial variation is important for our analysis as it allows us to better identify regional disparities in youth unemployment across the Netherlands. By making more apparent the municipalities with particularly high or low unemployment rates, where there may be at greater risk of mental health issues among young people. It helps us with the overall understanding of the multitude of factors that may have an impact on the social problem overall.  The contrasting data can be explained by the very low population in some areas, which then has a stronger impact on the general percentage.
+
 
 ## 3.5 Visualize sub-population variation
 

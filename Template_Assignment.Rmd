@@ -497,7 +497,9 @@ ggplot(plot_data, aes(x = group, y = unemployment_percentage, fill = group)) +
   scale_y_continuous(breaks = (0:6)*10, lim = c(0,70))
 ```
 
-Firstly, the gemeente unemployment data from 2020-2023 was compared, to define the top 10 gemeentes with the lowest and highest percentages of unemployment. The gemeentes Vlieland and Schiermonnikoog were then excluded, due to being islands with low levels of population, which were therefore giving the wrong idea of the overall percentages, since they had zero unemployment in some years. Finally, the results were compiled into the box plot, to visualise the findings.This is relevant to mental health and unemployment in the Netherlands, because it gives us an accurate visual of one of the variables.
+The box plot above compares unemployment percentages from 2020 to 2023 between two subgroups: the 10 municipalities with the highest youth unemployment and the 10 with the lowest. The municipalities Vlieland and Schiermonnikoog were excluded due to the fact that they are islands and they have extremely small populations, which affected the accuracy of the overall results by showing zero unemployment in some years.
+
+This visualization is essential to our analysis of youth unemployment and its relationship to mental health because it illustrates a clear divide between the two subgroups, with the high-unemployment group consistently showing rates near or above 50%, while the low-unemployment group remains closer to 15%. This disparity helps us analyse the concept of economic pressure and its implications on psychological well-being.
 
 ## 3.6 Event analysis
 

@@ -380,7 +380,7 @@ ggplot(geo_data) +
   )  
 ```
 
-Here you provide a description of why the plot above is relevant to your specific social problem.
+The heat map above shows the corresponding youth unemployment percentage per dutch municipality in the year 2020 from 0% to 50%. It visualizes the spatial differences the country is facing regarding this issue, helping the overall understanding of the multitude of factors, that may have an impact on the social problem overall. The contrasting data can be explained by the very low population in some areas, that then has a stronger impact on the overall percentage.
 
 ## 3.5 Visualize sub-population variation
 

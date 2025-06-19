@@ -95,38 +95,38 @@ The data inside the table shows the labor market situation of young people who a
 
 ### Make 1 large mental data set of all the small partial mental datasets for 2020 and 2022
 
-```{r}
+```{r include=FALSE}
 
 ```
 
 ### Get rid of the useless variables in mental data set
 
-```{r}
+```{r include=FALSE}
 
 ```
 
 ### Get rid of the useless variables in unemployment data set
 
-```{r}
+```{r include=FALSE}
 
 ```
 
 ### Prepare mental and unemployment set so that we can merge them together in 1 data set
 
-```{r}
+```{r include=FALSE}
 
 ```
 
 ### Now merge the 2 data sets together
 
-```{r}
+```{r include=FALSE}
 
 ```
 
 
 ### clean the combined data set so that all useless variables are filtered out
 
-```{r data_cleaning}
+```{r data_cleaning, eval=FALSE, include=FALSE}
 
 #make 1 large mental data set of all the small partial mental datasets for 2020 and 2022
 gemeentesmentaldata2020 = bind_rows(Aatillgoereemental2020,goestillnissewaardmental2020,noardtillvlielandmental2020,vlissingentillzwollemental2020)

@@ -488,8 +488,6 @@ ggplot(landelijkunem, aes(x = Periode, y = unemployment_percentage)) +
 
 ```
 
-Here you provide a description of why the plot above is relevant to your specific social problem.
-
 ```{r}
 names(Data_Cleancombined) = c(
   "Period",
@@ -505,6 +503,8 @@ names(Data_Cleancombined) = c(
   "Unemployment_Change_per_Year"
 )
 ```
+
+We decided to chose the end of corona as an event. As it is possible to see in the graph, unemployment decreased after 2022...
 
 # Part 4 - Discussion
 

@@ -153,7 +153,7 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 ## 3.5 Visualize sub-population variation
 
-Here you provide a description of why the plot above is relevant to your specific social problem. #Firstly, the gemeente unemployment data from 2020-2023 was compared, to define the top 10 gemeentes with the lowest and highest percentages of unemployment. The gemeentes Vlieland and Schiermonnikoog were then excluded, due to being islands with low levels of population, which were therefore giving the wrong idea of the overall percentages, since they had zero unemployment in some years. Finally, the results were compiled into the box plot, to visualise the findings.This is relevant to mental health and unemployment in the Netherlands, because it gives us an accurate visual of one of the variables.
+Here you provide a description of why the plot above is relevant to your specific social problem. Firstly, the gemeente unemployment data from 2020-2023 was compared, to define the top 10 gemeentes with the lowest and highest percentages of unemployment. The gemeentes Vlieland and Schiermonnikoog were then excluded, due to being islands with low levels of population, which were therefore giving the wrong idea of the overall percentages, since they had zero unemployment in some years. Finally, the results were compiled into the box plot, to visualize the findings.This is relevant to mental health and unemployment in the Netherlands, because it gives us an accurate visual of one of the variables.
 
 ## 3.6 Event analysis
 

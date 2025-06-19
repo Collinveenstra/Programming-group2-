@@ -347,7 +347,37 @@ ggplot(landelijkunem, aes(x = Periode, y = unemployment_percentage)) +
 ## 3.4 Visualize spatial variation
 
 ```{r visualise_map}
+gemeenten_nl = gisco_get_lau(country = "NL", year = 2020) %>%
+  arrange(LAU_NAME)
 
+library(sf)
+
+
+gemeenten_nl = gemeenten_nl %>%
+  rename(Periode = YEAR, Gemeente = LAU_NAME, Gemeentegrenzen = `_ogr_geometry_`) 
+
+gemeenten_nl = gemeenten_nl %>%
+  select(Gemeente, Periode, Gemeentegrenzen)
+
+write.csv(gemeenten_nl,"important data/gemeenten_nl.csv")
+
+geo_data = Data_Cleancombined %>%
+  inner_join(gemeenten_nl, by = c("Periode", "Gemeente"))
+
+library(sf)
+geo_data = geo_data %>%
+  filter(!is.na(unemployment_percentage)) %>%
+  st_sf()
+
+write.csv(geo_data,"important data/geo_data.csv")
+
+ggplot(geo_data) +
+  geom_sf(aes(fill = unemployment_percentage), color = "black") +
+  scale_fill_viridis_c(option = "inferno", name = "Unemployment (%)") +
+  theme_minimal() +
+  labs(
+    title = "Youth unemployment per gemeente (2020)",
+  )  
 ```
 
 Here you provide a description of why the plot above is relevant to your specific social problem.

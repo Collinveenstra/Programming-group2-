@@ -48,13 +48,6 @@ There is an extensive amount of research surrounding the correlation among menta
 Preferably from a URL, but if not, make sure to download the data and store it in a shared location that you can load the data in from. Do not store the data in a folder you include in the Github repository!
 
 ```{r loading_data}
-dataset <- midwest
-
-
-###################################################################
-####importing the data of gemeentes and unemployment in Rstudio####
-###################################################################
-library(readr)
 
 #import of mental data gemeentes 2020
 Aatillgoereemental2020 = read.csv("data/Aatillgoereemental2020.csv")
@@ -160,24 +153,6 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 ## 3.5 Visualize sub-population variation
 
-What is the poverty rate by state?
-
-```{r visualise_subpopulations}
-dataset$inmetro <- dataset$inmetro %>% as.factor()
-# Boxplot of poverty rate by state using the 'midwest' dataset
-ggplot(dataset, aes(x = inmetro, y = percadultpoverty)) +
-  geom_boxplot() +
-  labs(
-    title = "Distribution of Poverty Rates by Metropolitan status (Midwest counties)",
-    x = "Metropolitan Area",
-    y = "Poverty Rate of Adults (%)"
-  ) +
-  theme_minimal() +
-  theme(
-    legend.position = "right"
-  )
-```
-
 Here you provide a description of why the plot above is relevant to your specific social problem.
 
 ## 3.6 Event analysis
@@ -202,14 +177,12 @@ Provide the link to your PUBLIC repository here: ...
 
 ## 5.2 Reference list
 
-```         
-Centraal Bureau voor de Statistiek. (2024). CBS Statline. Rijksinstituut voor Volksgezondheid en Milieu. Retrieved from: https://statline.rivm.nl/#/RIVM/nl/dataset/50120NED/table 
+Centraal Bureau voor de Statistiek. (2024). CBS Statline. Rijksinstituut voor Volksgezondheid en Milieu. Retrieved from: <https://statline.rivm.nl/#/RIVM/nl/dataset/50120NED/table>
 
-Centraal Bureau voor de Statistiek. (2025). CBS Statline. Retrieved from: https://opendata.cbs.nl/statline/#/CBS/nl/dataset/86087NED/table 
+Centraal Bureau voor de Statistiek. (2025). CBS Statline. Retrieved from: <https://opendata.cbs.nl/statline/#/CBS/nl/dataset/86087NED/table>
 
-ElMorsy, M. (2024, January 23). The silent struggle: The impact of unemployment on mental health. Career Edge. Retrieved from: https://www.careeredge.ca/the-silent-struggle-the-impact-of-unemployment-on-mental-health/ 
+ElMorsy, M. (2024, January 23). The silent struggle: The impact of unemployment on mental health. Career Edge. Retrieved from: <https://www.careeredge.ca/the-silent-struggle-the-impact-of-unemployment-on-mental-health/>
 
-Netherlands Enterprise Agency. (n.d.). Employment of minors and young adults. Business.gov.nl. Retrieved from: https://business.gov.nl/regulation/employment-young-people/ 
+Netherlands Enterprise Agency. (n.d.). Employment of minors and young adults. Business.gov.nl. Retrieved from: <https://business.gov.nl/regulation/employment-young-people/>
 
-Ringdal, C., & Rootjes, F. (2022). Depression and labor supply: Evidence from the Netherlands. Economics & Human Biology, 45, 101103. Retrieved from: https://doi.org/10.1016/j.ehb.2021.101103 
-```
+Ringdal, C., & Rootjes, F. (2022). Depression and labor supply: Evidence from the Netherlands. Economics & Human Biology, 45, 101103. Retrieved from: <https://doi.org/10.1016/j.ehb.2021.101103>

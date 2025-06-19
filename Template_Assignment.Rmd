@@ -223,7 +223,7 @@ Data_Cleancombined$unemployment_percentage = round(Data_Cleancombined$unemployme
 
 Variable 2: Unemployment change per year
 
-```{r}
+```{r echo=FALSE}
 avgmental_2020 = Data_Cleancombined$Hoog_risico_angst_depressie[Data_Cleancombined$Periode == 2020 & Data_Cleancombined$Gemeente == "Nederland"]
 avgmental_2022 = Data_Cleancombined$Hoog_risico_angst_depressie[Data_Cleancombined$Periode == 2022 & Data_Cleancombined$Gemeente == "Nederland"]
 
@@ -260,7 +260,7 @@ ggplot(df_percentmental, aes(x = Periode, y = percentage, fill = Above_or_Below_
 
 Variable 3: National Unemployment Averages of 2020-2023
 
-```{r}
+```{r echo=FALSE}
 #in the dataset 2023 was stated as 2023*, so we had to correct this
 Data_Cleancombined$Periode <- gsub("\\*", "", Data_Cleancombined$Periode)
 
@@ -308,7 +308,7 @@ ggplot(df_percent, aes(x = Periode, y = percentage, fill = Above_or_Below_Nation
 
 Variable 4: Unemployment Percentage Change
 
-```{r}
+```{r echo=FALSE}
 
 ###unemployment percentage change
 Data_Cleancombined$Periode = as.numeric(Data_Cleancombined$Periode)
@@ -328,7 +328,7 @@ Data_Cleancombined <- Data_Cleancombined %>%
 
 ## 3.3 Visualize temporal variation
 
-```{r}
+```{r echo=FALSE}
 landelijkunem = Data_Cleancombined %>%
   filter(Gemeente == "Nederland")
 
@@ -346,7 +346,7 @@ ggplot(landelijkunem, aes(x = Periode, y = unemployment_percentage)) +
 
 ## 3.4 Visualize spatial variation
 
-```{r visualise_map}
+```{r visualise_map, echo=FALSE}
 gemeenten_nl = gisco_get_lau(country = "NL", year = 2020) %>%
   arrange(LAU_NAME)
 
@@ -384,7 +384,7 @@ The heat map above shows the corresponding youth unemployment percentage per dut
 
 ## 3.5 Visualize sub-population variation
 
-```{r}
+```{r echo=FALSE}
 #top 10 gemeentes with the highest unemployment from 2020
 
 top10_gemeentes_2020 <- Data_Cleancombined %>%
@@ -471,7 +471,7 @@ Firstly, the gemeente unemployment data from 2020-2023 was compared, to define t
 
 Analyze the relationship between two variables.
 
-```{r}
+```{r echo=FALSE}
 ggplot(landelijkunem, aes(x = Periode, y = unemployment_percentage)) +
   geom_line(color = "blue", linewidth = 1.2) +
   geom_point(color = "blue", size = 3) +
@@ -482,10 +482,6 @@ ggplot(landelijkunem, aes(x = Periode, y = unemployment_percentage)) +
   theme_minimal() +
   geom_vline(xintercept = 2022, linetype = "solid", color = "black", linewidth = 1) +
   annotate("text", x = 2021, y = 20, size = 3.5, label = "End of Covid-19 -->")
-```
-
-```{r analysis}
-
 ```
 
 ```{r}

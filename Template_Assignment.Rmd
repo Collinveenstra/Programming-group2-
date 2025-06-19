@@ -386,6 +386,87 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 Firstly, the gemeente unemployment data from 2020-2023 was compared, to define the top 10 gemeentes with the lowest and highest percentages of unemployment. The gemeentes Vlieland and Schiermonnikoog were then excluded, due to being islands with low levels of population, which were therefore giving the wrong idea of the overall percentages, since they had zero unemployment in some years. Finally, the results were compiled into the box plot, to visualise the findings.This is relevant to mental health and unemployment in the Netherlands, because it gives us an accurate visual of one of the variables.
 
+```{r}
+#top 10 gemeentes with the highest unemployment from 2020
+
+top10_gemeentes_2020 <- Data_Cleancombined %>%
+  filter(Periode == 2020) %>%                        # Keep only rows from the year 2020
+  arrange(desc(unemployment_percentage)) %>%         # Sort by unemployment percentage, highest first
+  slice_head(n = 10)                                 # Take the top 10 rows
+
+#new data set with data solely from the gemeentes with the highest unemployment 2020-2023
+
+selected_gemeentes <- c(
+  "Vaals", "Wassenaar", "Wageningen", "Maastricht",
+  "Blaricum", "Bloemendaal", "Laren (NH.)", 
+  "Rozendaal", "Vlieland", "Delft"
+)
+
+TOP10HIGH2020 <- Data_Cleancombined %>%
+  filter(Periode >= 2020 & Periode <= 2023) %>%       # Keep only years 2020–2023
+  filter(Gemeente %in% selected_gemeentes)      # Keep only the specified Gemeentes
+
+#top 10 gemeentes with the lowest unemployment from 2020
+
+lowest10_gemeentes_2020 <- Data_Cleancombined %>%
+  filter(Periode == 2020) %>%                         # Only rows from the year 2020
+  arrange(unemployment_percentage) %>%               # Sort by unemployment percentage (lowest first)
+  slice_head(n = 10)                                  # Take the top 10 rows
+
+selected_gemeentes <- c(
+  "Schiermonnikoog", "Urk", "Zwartewaterland", "Opmeer",
+  "Bladel", "Staphorst", "Nederweert", "Neder-Betuwe",
+  "Boekel", "Bunschoten"
+)
+
+TOP10LOW2020 <- Data_Cleancombined %>%
+  filter(Periode >= 2020 & Periode <= 2023) %>%        # Filter years 2020 to 2023
+  filter(Gemeente %in% selected_gemeentes)             # Filter to selected Gemeentes
+write.csv(TOP10LOW2020,"important data/TOP10LOW2020.csv")
+# View the new dataset
+
+Subgroupunemp = bind_rows(TOP10HIGH2020, TOP10LOW2020)
+#Vlieland is an island with 300 people, so there was no unemployment one year and half the population was unemployed the next
+
+# Remove Vlieland and Schiermonnikoog (those are islands with little population, and therefore zero unemployment in some years, so it gives a wrong visual)
+plot_data <- Subgroupunemp %>%
+  filter(!Gemeente %in% c("Vlieland", "Schiermonnikoog"))
+
+# Define groups without Vlieland
+high_gemeentes <- c("Vaals", "Wassenaar", "Wageningen", "Maastricht",
+                    "Blaricum", "Bloemendaal", "Laren (NH.)", 
+                    "Rozendaal", "Delft")  # Vlieland removed
+
+low_gemeentes <- c("Urk", "Zwartewaterland", "Opmeer",
+                   "Bladel", "Staphorst", "Nederweert", "Neder-Betuwe",
+                   "Boekel", "Bunschoten")
+
+plot_data <- plot_data %>%
+  mutate(group = case_when(
+    Gemeente %in% high_gemeentes ~ "High Unemployment",
+    Gemeente %in% low_gemeentes  ~ "Low Unemployment",
+    TRUE ~ "Other"
+  ))
+
+###boxplot
+ggplot(plot_data, aes(x = group, y = unemployment_percentage, fill = group)) +
+  geom_boxplot() +
+  scale_fill_manual(values = c("High Unemployment" = "red", "Low Unemployment" = "blue")) +
+  labs(
+    title = "Unemployment Percentage \nby Subgroup (2020-2023)",
+    x = NULL,
+    y = "Unemployment Percentage (%)\n",
+    fill = "group"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_blank(),    # Remove x-axis labels
+    axis.ticks.x = element_blank(),   # Remove x-axis ticks
+    legend.position = "right"
+  ) +
+  scale_y_continuous(breaks = (0:6)*10, lim = c(0,70))
+```
+
 ## 3.6 Event analysis
 
 Analyze the relationship between two variables.

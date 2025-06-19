@@ -8,7 +8,12 @@ output: pdf_document
 # Set-up your environment
 
 ```{r package_install, include=FALSE}
-install.packages("tidyverse", "sf", "dplyr", "ggplot2", "giscoR")
+if (requireNamespace("rstudioapi", quietly = TRUE) &&
+    rstudioapi::isAvailable()) {
+  setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+}
+
+#install.packages("tidyverse", "sf", "dplyr", "ggplot2", "giscoR")
 library(tidyverse)
 library(sf)
 library(dplyr)

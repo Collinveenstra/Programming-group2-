@@ -230,24 +230,18 @@ write.csv(top10_lowunemployment, "important data/top10_lowunemployment.csv")
 ####temporal visualization####
 ##############################
 
-library(ggplot2)
-library(dplyr)
-
 #####
 landelijkunem = Data_Cleancombined %>%
   filter(Gemeente == "Nederland")
 
 #top 10 gemeentes with the highest unemployment from 2020
-library(dplyr)
 
 top10_gemeentes_2020 <- Data_Cleancombined %>%
   filter(Periode == 2020) %>%                        # Keep only rows from the year 2020
   arrange(desc(unemployment_percentage)) %>%         # Sort by unemployment percentage, highest first
   slice_head(n = 10)                                 # Take the top 10 rows
 
-top10_gemeentes_2020
 #new data set with data solely from the gemeentes with the highest unemployment 2020-2023
-library(dplyr)
 
 selected_gemeentes <- c(
   "Vaals", "Wassenaar", "Wageningen", "Maastricht",
@@ -259,24 +253,12 @@ TOP10HIGH2020 <- Data_Cleancombined %>%
   filter(Periode >= 2020 & Periode <= 2023) %>%       # Keep only years 2020–2023
   filter(Gemeente %in% selected_gemeentes)      # Keep only the specified Gemeentes
 
-write.csv(TOP10HIGH2020, "important data/TOP10HIGH2020.csv")
-
-# View the new dataset
-View(TOP10HIGH2020)
-
-write.csv(TOP10HIGH2020,"important data/TOP10HIGH2020.csv")
-
-
 #top 10 gemeentes with the lowest unemployment from 2020
-library(dplyr)
 
 lowest10_gemeentes_2020 <- Data_Cleancombined %>%
   filter(Periode == 2020) %>%                         # Only rows from the year 2020
   arrange(unemployment_percentage) %>%               # Sort by unemployment percentage (lowest first)
   slice_head(n = 10)                                  # Take the top 10 rows
-
-lowest10_gemeentes_2020
-library(dplyr)
 
 selected_gemeentes <- c(
   "Schiermonnikoog", "Urk", "Zwartewaterland", "Opmeer",
@@ -289,12 +271,10 @@ TOP10LOW2020 <- Data_Cleancombined %>%
   filter(Gemeente %in% selected_gemeentes)             # Filter to selected Gemeentes
 write.csv(TOP10LOW2020,"important data/TOP10LOW2020.csv")
 # View the new dataset
-View(TOP10LOW2020)
-library(dplyr)
+
 Subgroupunemp = bind_rows(TOP10HIGH2020, TOP10LOW2020)
 #Vlieland is an island with 300 people, so there was no unemployment one year and half the population was unemployed the next
 
-write.csv(Subgroupunemp,"important data/Subgroupemp.csv")
 
 Data_Cleancombined$Periode = as.numeric(Data_Cleancombined$Periode)
 
@@ -372,7 +352,6 @@ library(giscoR)
 
 gemeenten_nl = gisco_get_lau(country = "NL", year = 2020) %>%
   arrange(LAU_NAME)
-View(gemeenten_nl)
 
 library(sf)
 

@@ -487,7 +487,26 @@ ggplot(landelijkunem, aes(x = Periode, y = unemployment_percentage)) +
 
 ```
 
+
+
 Here you provide a description of why the plot above is relevant to your specific social problem.
+
+
+```{r}
+names(Data_Cleancombined) = c(
+  "Period",
+  "Gemeente",
+  "Total_Youth",
+  "Total_Unemployed_Youth",
+  "Region_Type",
+  "MHI_5",
+  "High_Risk_Anxiety_Depression",
+  "Unemployment(%)",
+  "Above_or_Below_National_Risk",
+  "Above_or_Below_National_Unemployment",
+  "Unemployment_Change_per_Year"
+)
+```
 
 # Part 4 - Discussion
 

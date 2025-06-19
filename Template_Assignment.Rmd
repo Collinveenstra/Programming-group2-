@@ -48,13 +48,6 @@ There is an extensive amount of research surrounding the correlation among menta
 Preferably from a URL, but if not, make sure to download the data and store it in a shared location that you can load the data in from. Do not store the data in a folder you include in the Github repository!
 
 ```{r loading_data}
-dataset <- midwest
-
-
-###################################################################
-####importing the data of gemeentes and unemployment in Rstudio####
-###################################################################
-library(readr)
 
 #import of mental data gemeentes 2020
 Aatillgoereemental2020 = read.csv("data/Aatillgoereemental2020.csv")
@@ -72,25 +65,19 @@ vlissingentillzwollemental2022 = read.csv("data/vlissingentillzwollemental2022.c
 gem_unemployment = read.csv("standard data/gem_unemployment.csv")
 ```
 
-
 ## 2.2 Provide a short summary of the dataset(s)
 
 ```{r}
 head(dataset)
 ```
 
-``` r
-inline_code = TRUE
-```
-For this project, we used all the gemeentes in the Netherlands, that could be roughly considered municipalities. Our data came from the national government's website (CBS StatLine). There is missing data because there was no information available in for certain years - the item 2.3 explains in more detail each variable of our analysis.  
+For this project, we used all the gemeentes in the Netherlands, that could be roughly considered municipalities. Our data came from the national government's website (CBS StatLine). There is missing data because there was no information available in for certain years - the item 2.3 explains in more detail each variable of our analysis.
 
 Regarding the unemployment data: the observed population were registered in the Basisregistratie Personen (BRP) as of October 1st of the reference year, which is the date when data is collected yearly. The amount of people going to school, for example, is determined based on their status on October 1st. In contrast, the total number of people receiving benefits is calculated throughout the entire month. The classification of the municipalities is based on their situation as of January 1st, 2024. The data on individuals looking for a job and registered with the UWV comes from two sources: from 2005 to 2018, it is taken from UWV Werkbedrijf, and from 2019 onwards, it is based on the Geregistreerd Werkzoekende UWV system. All the numbers are absolute.
 
 Regarding the mental health data: the information is retrieved from a model of calculation used by the National Institute for Public Health and the Environment (RIVM) based on data from the Health Monitor for Adults and the Elderly for the year of 2020 and the the Corona Health Monitor 2022 from GGDs, CBS and RIVM. Every four years, new data from the Health Monitor for Adults and the Elderly become available and that is obtained through surveys with an anonymous nature. The format of the questions follow the MHI-5 and the Kessler-10 (K10) questionnaires.
- 
-=======
+
 ## 2.3 Describe the type of variables included
->>>>>>> f95c12a9d5cae6c66ce04dfd55db588158993255
 
 ### MHI-5: Percentage of people reporting psychological complaints
 
@@ -102,7 +89,7 @@ The data was based on the Kessler-10 (K10) questionnaire: a very commonly used s
 
 ### Unemployment Variables
 
-The data inside the table shows the labor market situation of young people who are between 15 and 27 years old in the Netherlands (total youth), who were registered in the Basisregistratie Personen (BRP). It indicates whether a person is working, studying, searching for work and registered as job seekers at the UWV, or receiving benefits. The total unemployed youth represents the people that are not actively looking for a job or could not find work.  The people working can be divided into self employed or employees. This data can be split in different regions. 
+The data inside the table shows the labor market situation of young people who are between 15 and 27 years old in the Netherlands (total youth), who were registered in the Basisregistratie Personen (BRP). It indicates whether a person is working, studying, searching for work and registered as job seekers at the UWV, or receiving benefits. The total unemployed youth represents the people that are not actively looking for a job or could not find work. The people working can be divided into self employed or employees. This data can be split in different regions.
 
 # Part 3 - Quantifying
 
@@ -111,9 +98,6 @@ The data inside the table shows the labor market situation of young people who a
 Say we want to include only larger distances (above 2) in our dataset, we can filter for this.
 
 ```{r data_cleaning}
-mean(dataset$percollege)
-
-
 ##########################################################################
 ####data cleaning, get rid of the useless variables in mental data set####
 ##########################################################################
@@ -169,24 +153,6 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 ## 3.5 Visualize sub-population variation
 
-What is the poverty rate by state?
-
-```{r visualise_subpopulations}
-dataset$inmetro <- dataset$inmetro %>% as.factor()
-# Boxplot of poverty rate by state using the 'midwest' dataset
-ggplot(dataset, aes(x = inmetro, y = percadultpoverty)) +
-  geom_boxplot() +
-  labs(
-    title = "Distribution of Poverty Rates by Metropolitan status (Midwest counties)",
-    x = "Metropolitan Area",
-    y = "Poverty Rate of Adults (%)"
-  ) +
-  theme_minimal() +
-  theme(
-    legend.position = "right"
-  )
-```
-
 Here you provide a description of why the plot above is relevant to your specific social problem.
 
 ## 3.6 Event analysis
@@ -211,13 +177,12 @@ Provide the link to your PUBLIC repository here: ...
 
 ## 5.2 Reference list
 
-    Centraal Bureau voor de Statistiek. (2024). CBS Statline. Rijksinstituut voor Volksgezondheid en Milieu. Retrieved from: 
-https://statline.rivm.nl/#/RIVM/nl/dataset/50120NED/table 
+Centraal Bureau voor de Statistiek. (2024). CBS Statline. Rijksinstituut voor Volksgezondheid en Milieu. Retrieved from: <https://statline.rivm.nl/#/RIVM/nl/dataset/50120NED/table>
 
-    Centraal Bureau voor de Statistiek. (2025). CBS Statline. Retrieved from: https://opendata.cbs.nl/statline/#/CBS/nl/dataset/86087NED/table 
+Centraal Bureau voor de Statistiek. (2025). CBS Statline. Retrieved from: <https://opendata.cbs.nl/statline/#/CBS/nl/dataset/86087NED/table>
 
-    ElMorsy, M. (2024, January 23). The silent struggle: The impact of unemployment on mental health. Career Edge. Retrieved from: https://www.careeredge.ca/the-silent-struggle-the-impact-of-unemployment-on-mental-health/ 
+ElMorsy, M. (2024, January 23). The silent struggle: The impact of unemployment on mental health. Career Edge. Retrieved from: <https://www.careeredge.ca/the-silent-struggle-the-impact-of-unemployment-on-mental-health/>
 
-    Netherlands Enterprise Agency. (n.d.). Employment of minors and young adults. Business.gov.nl. Retrieved from: https://business.gov.nl/regulation/employment-young-people/ 
-    
-    Ringdal, C., & Rootjes, F. (2022). Depression and labor supply: Evidence from the Netherlands. Economics & Human Biology, 45, 101103. Retrieved from: https://doi.org/10.1016/j.ehb.2021.101103 
+Netherlands Enterprise Agency. (n.d.). Employment of minors and young adults. Business.gov.nl. Retrieved from: <https://business.gov.nl/regulation/employment-young-people/>
+
+Ringdal, C., & Rootjes, F. (2022). Depression and labor supply: Evidence from the Netherlands. Economics & Human Biology, 45, 101103. Retrieved from: <https://doi.org/10.1016/j.ehb.2021.101103>

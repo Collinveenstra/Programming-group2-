@@ -220,7 +220,111 @@ Please use a separate 'R block' of code for each type of cleaning. So, e.g. one 
 
 Variable 1: Unemployment percentage
 
+```{r}
+Data_Cleancombined$unemployment_percentage = (Data_Cleancombined$Niet_werkzame_jongeren/Data_Cleancombined$Aantal_jongeren)*100
+Data_Cleancombined$unemployment_percentage = round(Data_Cleancombined$unemployment_percentage,2)
+```
+
 Variable 2: Unemployment change per year
+
+```{r}
+avgmental_2020 = Data_Cleancombined$Hoog_risico_angst_depressie[Data_Cleancombined$Periode == 2020 & Data_Cleancombined$Gemeente == "Nederland"]
+avgmental_2022 = Data_Cleancombined$Hoog_risico_angst_depressie[Data_Cleancombined$Periode == 2022 & Data_Cleancombined$Gemeente == "Nederland"]
+
+#compare the gemeentes to national average which gives a value of Above or Below average
+Data_Cleancombined$Above_or_Below_National_Risk <- ifelse(
+  is.na(Data_Cleancombined$Hoog_risico_angst_depressie), NA,
+  ifelse(Data_Cleancombined$Periode == 2020 & Data_Cleancombined$Hoog_risico_angst_depressie > avgmental_2020, "Above",
+         ifelse(Data_Cleancombined$Periode == 2020 & Data_Cleancombined$Hoog_risico_angst_depressie < avgmental_2020, "Below",
+                ifelse(Data_Cleancombined$Periode == 2022 & Data_Cleancombined$Hoog_risico_angst_depressie > avgmental_2022, "Above",
+                       ifelse(Data_Cleancombined$Periode == 2022 & Data_Cleancombined$Hoog_risico_angst_depressie < avgmental_2022, "Below", "Equal")))))
+
+dfmental = Data_Cleancombined %>%
+  filter(Above_or_Below_National_Risk != "Equal")
+
+df_percentmental <- dfmental %>%
+  group_by(Periode, Above_or_Below_National_Risk) %>%
+  summarise(amount = n(), .groups = "drop") %>%
+  group_by(Periode) %>%
+  mutate(
+    percentage = 100 * amount / sum(amount) 
+  )
+
+ggplot(df_percentmental, aes(x = Periode, y = percentage, fill = Above_or_Below_National_Risk)) +
+  geom_col(position = "dodge") +
+  scale_fill_manual(values = c("Above" = "red", "Below" = "steelblue")) +
+  labs(
+    title = "Percentage Gemeenten \nAbove or Below National \nMental Average per Year",
+    x = "Year",
+    y = "Percentage of Gemeentes",
+    fill = "Above/Below"
+  ) +
+  theme_minimal()
+```
+
+```{r}
+#in the dataset 2023 was stated as 2023*, so we had to correct this
+Data_Cleancombined$Periode <- gsub("\\*", "", Data_Cleancombined$Periode)
+
+#national unemployment averages of 2020-2023
+avgunemp_2020 = Data_Cleancombined$unemployment_percentage[Data_Cleancombined$Periode == 2020 & Data_Cleancombined$Gemeente == "Nederland"]
+avgunemp_2021 = Data_Cleancombined$unemployment_percentage[Data_Cleancombined$Periode == 2021 & Data_Cleancombined$Gemeente == "Nederland"]
+avgunemp_2022 = Data_Cleancombined$unemployment_percentage[Data_Cleancombined$Periode == 2022 & Data_Cleancombined$Gemeente == "Nederland"]
+avgunemp_2023 = Data_Cleancombined$unemployment_percentage[Data_Cleancombined$Periode == 2023 & Data_Cleancombined$Gemeente == "Nederland"]
+
+#compare the gemeentes to national unemployment average which gives a value of Above or Below average
+Data_Cleancombined$Above_or_Below_National_Unemployment <- ifelse(
+  is.na(Data_Cleancombined$unemployment_percentage), NA,
+  ifelse(Data_Cleancombined$Periode == 2020 & Data_Cleancombined$unemployment_percentage > avgunemp_2020, "Above",
+         ifelse(Data_Cleancombined$Periode == 2020 & Data_Cleancombined$unemployment_percentage < avgunemp_2020, "Below",
+                ifelse(Data_Cleancombined$Periode == 2021 & Data_Cleancombined$unemployment_percentage > avgunemp_2021, "Above",
+                       ifelse(Data_Cleancombined$Periode == 2021 & Data_Cleancombined$unemployment_percentage < avgunemp_2021, "Below",
+                              ifelse(Data_Cleancombined$Periode == 2022 & Data_Cleancombined$unemployment_percentage > avgunemp_2022, "Above",
+                                     ifelse(Data_Cleancombined$Periode == 2022 & Data_Cleancombined$unemployment_percentage < avgunemp_2022, "Below",
+                                            ifelse(Data_Cleancombined$Periode == 2023 & Data_Cleancombined$unemployment_percentage > avgunemp_2023, "Above",
+                                                   ifelse(Data_Cleancombined$Periode == 2023 & Data_Cleancombined$unemployment_percentage < avgunemp_2023, "Below","Equal")))))))))
+
+####Above or Below national unemployment visual 
+dfunem = Data_Cleancombined %>%
+  filter(Above_or_Below_National_Unemployment != "Equal")
+
+df_percent <- dfunem %>%
+  group_by(Periode, Above_or_Below_National_Unemployment) %>%
+  summarise(amount = n(), .groups = "drop") %>%
+  group_by(Periode) %>%
+  mutate(
+    percentage = 100 * amount / sum(amount) 
+  )
+
+ggplot(df_percent, aes(x = Periode, y = percentage, fill = Above_or_Below_National_Unemployment)) +
+  geom_col(position = "dodge") +
+  scale_fill_manual(values = c("Above" = "red", "Below" = "steelblue")) +
+  labs(
+    title = "Percentage Gemeenten Above/Below \nNational Average per Year",
+    x = "Year",
+    y = "Percentage of Gemeentes",
+    fill = "Above/Below"
+  ) +
+  theme_minimal()
+```
+
+```{r}
+
+###unemployment percentage change
+Data_Cleancombined$Periode = as.numeric(Data_Cleancombined$Periode)
+
+Data_Cleancombined <- Data_Cleancombined %>%
+  arrange(Gemeente, Periode) %>%
+  group_by(Gemeente) %>%
+  mutate(
+    unemployment_change = if_else(
+      Periode - lag(Periode) == 1 & !is.na(lag(Niet_werkzame_jongeren)),
+      (Niet_werkzame_jongeren - lag(Niet_werkzame_jongeren)) / lag(Niet_werkzame_jongeren) * 100,
+      NA_real_
+    )
+  ) %>%
+  ungroup()
+```
 
 ## 3.3 Visualize temporal variation
 

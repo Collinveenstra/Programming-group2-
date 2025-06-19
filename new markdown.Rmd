@@ -1,0 +1,158 @@
+---
+title: "new markdown"
+output: html_document
+---
+
+---
+title: "The Mental Health Impact of Youth Unemployment in the Netherlands"
+author: "Collin Veenstra 2856836, Margarida Birne 2861977, Marit Springer 2860040, Naofal Adlouni 2860056, Valentina Caruso 2836174, Xenia Drude 2845696"
+date: "`2025-05-26`"
+output: pdf_document
+---
+
+# Set-up your environment
+
+```{r package_install, include=FALSE}
+install.packages("tidyverse")
+```
+
+```{r packages}
+require(tidyverse)
+```
+
+# The Mental Health Impact of Youth Unemployment in the Netherlands
+
+Collin Veenstra, Margarida Birne, Marit Springer, Naofal Adlouni, Valentina Caruso, Xenia Drude
+
+Tutorial 2
+
+Chantal Schouwenaar
+
+# Introduction
+
+## 1.1 Describe the Social Problem
+
+In the Netherlands, depression has proven to be the most prevalent mental health disorder, with almost one in five individuals expressing depressive symptoms (de Graaf et al., 2010, Trimbos Institute, 2020). Unemployment has been identified as a main factor that aggravates this issue. Beyond its financial implications, being out of work has substantial psychological consequences. It often has an affect on self-esteem, increased physical and cognitive issues, and, in severe cases, suicidal tendencies (Ringdal & Rootjes, 2022). These aspects are not not only a result of economic stress but also due to a loss of other benefits such as a sense of purpose, the absence of routine and decreased social connections (ElMorsy, 2024).
+
+There is an extensive amount of research surrounding the correlation among mental health and unemployment. This analysis is focused on how this relationship affects young people in the Netherlands. For emerging adults, working is important as it is associated with obtaining greater independence, forming an identity and starting a career. In the Netherlands, individuals are legally allowed to work from the age of 13 with certain conditions and freely from the age of 16 (Netherlands Enterprise Agency, n.d). Employment from a young age is widely normalized and many times expected during adolescence. Therefore, not having a job can be unsettling and a disruption of deeply rooted social expectations, leading to higher risk of mental health implications.
+
+# Part 2 - Data Sourcing
+
+## 2.1 Load in the data
+
+Preferably from a URL, but if not, make sure to download the data and store it in a shared location that you can load the data in from. Do not store the data in a folder you include in the Github repository!
+
+```{r loading_data}
+dataset <- midwest
+```
+
+midwest is an example dataset included in the tidyverse package
+
+## 2.2 Provide a short summary of the dataset(s)
+
+```{r}
+head(dataset)
+```
+
+``` r
+inline_code = TRUE
+```
+ 
+### MHI-5: Percentage of people reporting psychological complaints
+=======
+## 2.3 Describe the type of variables included
+>>>>>>> f95c12a9d5cae6c66ce04dfd55db588158993255
+
+### MHI-5: Percentage of people reporting psychological complaints
+
+The analysis surrounding psychological complaints is measured by the Mental Health Inventory 5 (MHI-5), which is the international standard procedure to measure mental health. It includes five questions related to the well being of an individual over the past month, related to displays of anxiety, depression, behavioral/emotional control and general positive effect. Based on the results of the questionnaire, people received a score ranging from 0 (extremely unhealthy) to 100 (perfectly healthy). A person is considered psychologically unhealthy by the Statistics Netherlands (CBS) if they have received a score lower than 60. The only data we had available was for the year of 2022 because the data of 2020, 2021 and 2023 were not available and that explains the N/A markings in the graph.
+
+### High Risk Anxiety and Depression: Percentage of people aged 18 or older at high risk of anxiety disorder or depression
+
+The data was based on the Kessler-10 (K10) questionnaire: a very commonly used screening questionnaire for anxiety and depression. It includes 10 questions concerning emotional states like worthlessness, tiredness and nervousness (during the past 4 weeks). Each question is answered on a 5 point scale, ranging from “Always” (highest score of 5) to “Never” (lowest score of 1). If 3 or more answers are marked as “Impossible to answer”, the indicator receives the value Impossible. If 1 or 2 items are Impossible, their values are estimated based on the average score for those items. The total score ranges from 10 to 50, where 10-50 suggests that there’s no or low risk, 16-29 that there is moderate risk, and 30-50 that there is high risk of anxiety disorder or depression. We could find data for 2020 and 2022.
+
+### Unemployment Variables
+
+The data inside the table shows the labor market situation of young people who are between 15 and 27 years old in the Netherlands (total youth), who were registered in the Basisregistratie Personen (BRP). It indicates whether a person is working, studying, searching for work and registered as job seekers at the UWV, or receiving benefits. The people working can be divided into self employed or employees. This data can be split in different regions. The total number of people with a benefit is counted for the whole month. The gemeenten are classified to the situation on January first 2024. The source for people who are seeking for work and registered at the UWV is from 2005-2018 UWV Werkbedrijf and after that it is Geregistreerd Werkzoekende UWV.
+
+we used all the gemeentes
+
+total unemployed youth = people that did not want to work and people who couldnt find work.
+
+# Part 3 - Quantifying
+
+## 3.1 Data cleaning
+
+Say we want to include only larger distances (above 2) in our dataset, we can filter for this.
+
+```{r data_cleaning}
+mean(dataset$percollege)
+```
+
+Please use a separate 'R block' of code for each type of cleaning. So, e.g. one for missing values, a new one for removing unnecessary variables etc.
+
+## 3.2 Generate necessary variables
+
+Variable 1: Unemployment percentage
+
+Variable 2: Unemployment change per year
+
+## 3.3 Visualize temporal variation
+
+```{r}
+
+```
+
+## 3.4 Visualize spatial variation
+
+```{r visualise_map}
+
+```
+
+Here you provide a description of why the plot above is relevant to your specific social problem.
+
+## 3.5 Visualize sub-population variation
+
+What is the poverty rate by state?
+
+```{r visualise_subpopulations}
+dataset$inmetro <- dataset$inmetro %>% as.factor()
+# Boxplot of poverty rate by state using the 'midwest' dataset
+ggplot(dataset, aes(x = inmetro, y = percadultpoverty)) +
+  geom_boxplot() +
+  labs(
+    title = "Distribution of Poverty Rates by Metropolitan status (Midwest counties)",
+    x = "Metropolitan Area",
+    y = "Poverty Rate of Adults (%)"
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "right"
+  )
+```
+
+Here you provide a description of why the plot above is relevant to your specific social problem.
+
+## 3.6 Event analysis
+
+Analyze the relationship between two variables.
+
+```{r analysis}
+
+```
+
+Here you provide a description of why the plot above is relevant to your specific social problem.
+
+# Part 4 - Discussion
+
+## 4.1 Discuss your findings
+
+# Part 5 - Reproducibility
+
+## 5.1 Github repository link
+
+Provide the link to your PUBLIC repository here: ...
+
+## 5.2 Reference list
+
+Use APA referencing throughout your document.

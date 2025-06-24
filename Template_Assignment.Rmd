@@ -495,6 +495,7 @@ Overall, our findings suggest a negative correlation between unemployment and me
 ## 5.1 Github repository link
 
 <https://github.com/Collinveenstra/Programming-group2->
+Both the raw and cleaned datasets, along with the script, can be found in the folder: "final project"
 
 ## 5.2 Reference list
 

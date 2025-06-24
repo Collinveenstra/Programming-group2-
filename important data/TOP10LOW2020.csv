@@ -1,41 +1,41 @@
-"","Periode","Gemeente","Aantal_jongeren","Niet_werkzame_jongeren","Regio_type","Psychische_klachten","Hoog_risico_angst_depressie","unemployment_percentage","Above_or_Below_National_Risk","Above_or_Below_National_Unemployment"
-"1","2020","Bladel",2900,500,"Gemeente  ",NA,4.8,17.24,"Below","Below"
-"2","2020","Boekel",1700,300,"Gemeente  ",NA,4.8,17.65,"Below","Below"
-"3","2020","Bunschoten",3400,600,"Gemeente  ",NA,5,17.65,"Below","Below"
-"4","2020","Neder-Betuwe",4000,700,"Gemeente  ",NA,5.5,17.5,"Below","Below"
-"5","2020","Nederweert",2300,400,"Gemeente  ",NA,5,17.39,"Below","Below"
-"6","2020","Opmeer",1800,300,"Gemeente  ",NA,4.5,16.67,"Below","Below"
-"7","2020","Schiermonnikoog",100,0,"Gemeente  ",NA,8.4,0,"Above","Below"
-"8","2020","Staphorst",2900,500,"Gemeente  ",NA,3.7,17.24,"Below","Below"
-"9","2020","Urk",4100,600,"Gemeente  ",NA,4.7,14.63,"Below","Below"
-"10","2020","Zwartewaterland",3700,600,"Gemeente  ",NA,4.2,16.22,"Below","Below"
-"11","2021","Bladel",2900,500,NA,NA,NA,17.24,NA,"Below"
-"12","2021","Boekel",1600,300,NA,NA,NA,18.75,NA,"Below"
-"13","2021","Bunschoten",3400,600,NA,NA,NA,17.65,NA,"Below"
-"14","2021","Neder-Betuwe",4000,700,NA,NA,NA,17.5,NA,"Below"
-"15","2021","Nederweert",2200,400,NA,NA,NA,18.18,NA,"Below"
-"16","2021","Opmeer",1800,300,NA,NA,NA,16.67,NA,"Below"
-"17","2021","Schiermonnikoog",100,0,NA,NA,NA,0,NA,"Below"
-"18","2021","Staphorst",3000,400,NA,NA,NA,13.33,NA,"Below"
-"19","2021","Urk",4100,500,NA,NA,NA,12.2,NA,"Below"
-"20","2021","Zwartewaterland",3800,600,NA,NA,NA,15.79,NA,"Below"
-"21","2022","Bladel",2900,500,"Gemeente  ",17.8,7,17.24,"Below","Below"
-"22","2022","Boekel",1700,200,"Gemeente  ",16.6,7.1,11.76,"Below","Below"
-"23","2022","Bunschoten",3400,600,"Gemeente  ",17.6,8,17.65,"Below","Below"
-"24","2022","Neder-Betuwe",4000,600,"Gemeente  ",17.9,7.9,15,"Below","Below"
-"25","2022","Nederweert",2300,400,"Gemeente  ",17.9,7.1,17.39,"Below","Below"
-"26","2022","Opmeer",1800,300,"Gemeente  ",17.2,7.5,16.67,"Below","Below"
-"27","2022","Schiermonnikoog",100,0,"Gemeente  ",19.4,8.9,0,"Below","Below"
-"28","2022","Staphorst",3100,400,"Gemeente  ",15.4,6.5,12.9,"Below","Below"
-"29","2022","Urk",4200,500,"Gemeente  ",16.9,7.8,11.9,"Below","Below"
-"30","2022","Zwartewaterland",3800,600,"Gemeente  ",16.6,7.3,15.79,"Below","Below"
-"31","2023","Bladel",2800,400,NA,NA,NA,14.29,NA,"Below"
-"32","2023","Boekel",1700,300,NA,NA,NA,17.65,NA,"Below"
-"33","2023","Bunschoten",3400,500,NA,NA,NA,14.71,NA,"Below"
-"34","2023","Neder-Betuwe",4100,700,NA,NA,NA,17.07,NA,"Below"
-"35","2023","Nederweert",2200,400,NA,NA,NA,18.18,NA,"Below"
-"36","2023","Opmeer",1700,300,NA,NA,NA,17.65,NA,"Below"
-"37","2023","Schiermonnikoog",100,0,NA,NA,NA,0,NA,"Below"
-"38","2023","Staphorst",3100,400,NA,NA,NA,12.9,NA,"Below"
-"39","2023","Urk",4100,600,NA,NA,NA,14.63,NA,"Below"
-"40","2023","Zwartewaterland",3700,600,NA,NA,NA,16.22,NA,"Below"
+"","Periode","Gemeente","Aantal_jongeren","Niet_werkzame_jongeren","Regio_type","Psychische_klachten","Hoog_risico_angst_depressie","unemployment_percentage","Above_or_Below_National_Risk","Above_or_Below_National_Unemployment","unemployment_change"
+"1",2020,"Bladel",2900,500,"Gemeente  ",NA,4.8,17.24,"Below","Below",NA
+"2",2021,"Bladel",2900,500,NA,NA,NA,17.24,NA,"Below",0
+"3",2022,"Bladel",2900,500,"Gemeente  ",17.8,7,17.24,"Below","Below",0
+"4",2023,"Bladel",2800,400,NA,NA,NA,14.29,NA,"Below",-20
+"5",2020,"Boekel",1700,300,"Gemeente  ",NA,4.8,17.65,"Below","Below",NA
+"6",2021,"Boekel",1600,300,NA,NA,NA,18.75,NA,"Below",0
+"7",2022,"Boekel",1700,200,"Gemeente  ",16.6,7.1,11.76,"Below","Below",-33.3333333333333
+"8",2023,"Boekel",1700,300,NA,NA,NA,17.65,NA,"Below",50
+"9",2020,"Bunschoten",3400,600,"Gemeente  ",NA,5,17.65,"Below","Below",NA
+"10",2021,"Bunschoten",3400,600,NA,NA,NA,17.65,NA,"Below",0
+"11",2022,"Bunschoten",3400,600,"Gemeente  ",17.6,8,17.65,"Below","Below",0
+"12",2023,"Bunschoten",3400,500,NA,NA,NA,14.71,NA,"Below",-16.6666666666667
+"13",2020,"Neder-Betuwe",4000,700,"Gemeente  ",NA,5.5,17.5,"Below","Below",NA
+"14",2021,"Neder-Betuwe",4000,700,NA,NA,NA,17.5,NA,"Below",0
+"15",2022,"Neder-Betuwe",4000,600,"Gemeente  ",17.9,7.9,15,"Below","Below",-14.2857142857143
+"16",2023,"Neder-Betuwe",4100,700,NA,NA,NA,17.07,NA,"Below",16.6666666666667
+"17",2020,"Nederweert",2300,400,"Gemeente  ",NA,5,17.39,"Below","Below",NA
+"18",2021,"Nederweert",2200,400,NA,NA,NA,18.18,NA,"Below",0
+"19",2022,"Nederweert",2300,400,"Gemeente  ",17.9,7.1,17.39,"Below","Below",0
+"20",2023,"Nederweert",2200,400,NA,NA,NA,18.18,NA,"Below",0
+"21",2020,"Opmeer",1800,300,"Gemeente  ",NA,4.5,16.67,"Below","Below",NA
+"22",2021,"Opmeer",1800,300,NA,NA,NA,16.67,NA,"Below",0
+"23",2022,"Opmeer",1800,300,"Gemeente  ",17.2,7.5,16.67,"Below","Below",0
+"24",2023,"Opmeer",1700,300,NA,NA,NA,17.65,NA,"Below",0
+"25",2020,"Schiermonnikoog",100,0,"Gemeente  ",NA,8.4,0,"Above","Below",NA
+"26",2021,"Schiermonnikoog",100,0,NA,NA,NA,0,NA,"Below",NA
+"27",2022,"Schiermonnikoog",100,0,"Gemeente  ",19.4,8.9,0,"Below","Below",NA
+"28",2023,"Schiermonnikoog",100,0,NA,NA,NA,0,NA,"Below",NA
+"29",2020,"Staphorst",2900,500,"Gemeente  ",NA,3.7,17.24,"Below","Below",NA
+"30",2021,"Staphorst",3000,400,NA,NA,NA,13.33,NA,"Below",-20
+"31",2022,"Staphorst",3100,400,"Gemeente  ",15.4,6.5,12.9,"Below","Below",0
+"32",2023,"Staphorst",3100,400,NA,NA,NA,12.9,NA,"Below",0
+"33",2020,"Urk",4100,600,"Gemeente  ",NA,4.7,14.63,"Below","Below",NA
+"34",2021,"Urk",4100,500,NA,NA,NA,12.2,NA,"Below",-16.6666666666667
+"35",2022,"Urk",4200,500,"Gemeente  ",16.9,7.8,11.9,"Below","Below",0
+"36",2023,"Urk",4100,600,NA,NA,NA,14.63,NA,"Below",20
+"37",2020,"Zwartewaterland",3700,600,"Gemeente  ",NA,4.2,16.22,"Below","Below",NA
+"38",2021,"Zwartewaterland",3800,600,NA,NA,NA,15.79,NA,"Below",0
+"39",2022,"Zwartewaterland",3800,600,"Gemeente  ",16.6,7.3,15.79,"Below","Below",0
+"40",2023,"Zwartewaterland",3700,600,NA,NA,NA,16.22,NA,"Below",0

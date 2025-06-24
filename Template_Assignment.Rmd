@@ -176,7 +176,7 @@ names(Data_Cleancombined) = c(
 )
 ```
 
-## 2.2.2 Provide a short summary of the dataset(s)
+## 3.2 Provide a short summary of the dataset(s)
 
 ```{r}
 head(Data_Cleancombined)
@@ -184,7 +184,7 @@ str(Data_Cleancombined)
 ```
 So in summary, the cleaned dataset includes the absolute numbers of both young people and unemployed individuals. Unemployment figures are presented for the period from 2020 to 2023, while the risk of anxiety and depression is shown for the years 2020 and 2022.
 
-## 3.2 Generate necessary variables
+## 3.3 Generate necessary variables
 
 ### Variable 1: Unemployment percentage
 
@@ -298,7 +298,7 @@ Data_Cleancombined <- Data_Cleancombined %>%
   ungroup()
 ```
 
-## 3.3 Visualize temporal variation
+## 3.4 Visualize temporal variation
 
 ```{r echo=FALSE}
 landelijkunem = Data_Cleancombined %>%
@@ -316,7 +316,7 @@ ggplot(landelijkunem, aes(x = Periode, y = unemployment_percentage)) +
   theme_minimal()
 ```
 
-## 3.4 Visualize spatial variation
+## 3.5 Visualize spatial variation
 
 ```{r visualise_map, echo=FALSE}
 gemeenten_nl = gisco_get_lau(country = "NL", year = 2020) %>%
@@ -356,7 +356,7 @@ The heat map above shows the percentage of youth unemployment per Dutch municipa
 Because the municipalities in the geographical dataset did not fully match those in our own dataset, some areas appear blank (in white) on the map. This discrepancy is mainly due to differences in naming conventions and the fact that municipalities are frequently merged or split over time.
 
 
-## 3.5 Visualize sub-population variation
+## 3.6 Visualize sub-population variation
 
 ```{r echo=FALSE}
 #top 10 gemeentes with the highest unemployment from 2020
@@ -442,7 +442,7 @@ ggplot(plot_data, aes(x = group, y = unemployment_percentage, fill = group)) +
 The box plot above compares unemployment percentages from 2020 to 2023 between two subgroups: the 10 municipalities with the highest youth unemployment and the 10 with the lowest. The municipalities Vlieland and Schiermonnikoog were excluded due to the fact that they are islands and have extremely small populations, which affected the accuracy of the overall results by showing zero unemployment in some years.
 This visualization is essential to our analysis of youth unemployment and its relationship to mental health because it illustrates a clear divide between the two subgroups, with the high-unemployment group consistently showing rates near or above 50%, while the low-unemployment group remains closer to 15%. This disparity helps us analyze the concept of economic pressure and its implications on psychological well-being.
 
-## 3.6 Event analysis
+## 3.7 Event analysis
 
 ```{r echo=FALSE}
 ggplot(landelijkunem, aes(x = Periode, y = unemployment_percentage)) +

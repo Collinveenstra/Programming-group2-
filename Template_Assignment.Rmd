@@ -137,7 +137,7 @@ Mental2020_2022$Perioden = as.character(Mental2020_2022$Perioden)
 ```
 
 ### Change unemployed from a row variable to a column variable
-```{r}
+```{r include=FALSE}
 totaal_unemp <- fltrd_unemployment %>% filter(Arbeidskenmerken == "Totaal ")
 totaal_unemp$aantal_jongeren <- totaal_unemp$Jongeren..15.tot.27.jaar...aantal.
 totaal_unemp$Jongeren..15.tot.27.jaar...aantal. <- NULL
@@ -159,7 +159,7 @@ Combined_data = full_join(unemployment,Mental2020_2022, by = c("Gemeente","Perio
 ```
 
 
-### clean the combined data set so that all useless variables are filtered out
+### Clean the combined data set so that all useless variables are filtered out
 
 ```{r data_cleaning, include=FALSE}
 Data_Cleancombined = Combined_data %>%
@@ -270,7 +270,7 @@ ggplot(df_percent, aes(x = Periode, y = percentage, fill = Above_or_Below_Nation
   geom_col(position = "dodge") +
   scale_fill_manual(values = c("Above" = "red", "Below" = "steelblue")) +
   labs(
-    title = "Percentage Gemeenten Above/Below \nNational Average per Year",
+    title = "Percentage Gemeenten Above/Below \nNational Unemployment Average per Year",
     x = "Year",
     y = "Percentage of Gemeentes\n",
     fill = "Above/Below"
@@ -280,7 +280,7 @@ ggplot(df_percent, aes(x = Periode, y = percentage, fill = Above_or_Below_Nation
 
 ### Variable 4: Unemployment Percentage Change
 
-```{r echo=FALSE}
+```{r}
 
 ###unemployment percentage change
 Data_Cleancombined$Periode = as.numeric(Data_Cleancombined$Periode)

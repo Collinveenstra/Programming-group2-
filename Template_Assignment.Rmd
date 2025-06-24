@@ -478,9 +478,14 @@ names(Data_Cleancombined) = c(
 # Part 4 - Discussion
 
 Between 2020 and 2023, unemployment levels in the Netherlands gradually declined, but at varying rates. In 2020, unemployment peaked at around 34%, likely due to the economic instability caused by the Covid-19 pandemic. By 2022, as the pandemic’s effects started to calm and economies began to recover, unemployment levels started to stabilize.
+
 Our analysis revealed a significant disparity in unemployment rates. The High Unemployment subgroup has a median of around 50% and the Low Unemployment subgroup has a median of around 16%. Gemeentes with high unemployment have more than triple the rates of the low unemployment subgroup, which tells us that there is a sharp divide between the two subgroups.
+
 We also observed noticeable geographic patterns in youth unemployment. Higher unemployment (30% to 50% and higher) is concentrated in certain gemeentes, particularly in Heerlen, Rotterdam, Tilburg, and others, which we can see is clearly yellow. Lower unemployment (0 to 10% and under) appears to be more frequent in smaller municipalities in Gelderland and Overijssel, some parts of North Brabant and Zeeland and Northern Friesland.
-Regarding mental health, our results show that most gemeentes reported better than the national average mental health. Each year, from 2020 to 2023, around 76 to 80% of gemeentes were below the national average, and around 20 to 25% were above. That indicates that mental health issues are more concentrated in only a small portion of the total gemeentes. The percentage of gemeentes above the national average is decreasing while the percentage below is increasing. Although it suggests that fewer areas are struggling, those that are might be struggling more intensely.
+Another interesting statistic is the high unemployment rate in the municipalities of Delft and Wageningen. This can be logically explained by the fact that these are well-known student cities. Many students do not have time to work alongside their studies, which contributes to the higher youth unemployment rates in these areas.
+
+Regarding mental health, our results show that most gemeentes reported better than the national average mental health. Each year, from 2020 to 2023, around 76 to 80% of gemeentes were below the national average, and around 20 to 25% were above. That indicates that mental health issues are more concentrated in only a small portion of the total gemeentes. The percentage of gemeentes above the national average is decreasing while the percentage below is increasing. While it suggests that fewer areas are facing difficulties, the ones that are may be experiencing more severe challenges.
+
 Overall, our findings suggest a negative correlation between unemployment and mental health. As unemployment declined from 2020 to 2023, mental health levels across the country improved. This supports the understanding that economic stability and employment are linked to one’s mental well-being.
 
 # Part 5 - Reproducibility

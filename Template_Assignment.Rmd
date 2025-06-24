@@ -82,7 +82,7 @@ The data was based on the Kessler-10 (K10) questionnaire: a very commonly used s
 
 ### Unemployment Variables
 
-The data inside the table shows the labor market situation of young people who are between 15 and 27 years old in the Netherlands (total youth), who were registered in the Basisregistratie Personen (BRP). It indicates whether a person is working, studying, searching for work, and registered as a job seeker at the UWV, or receiving benefits. The total unemployed youth represents the people who are not actively looking for a job or cannot find work.  The people working can be divided into self-employed or employees. This data can be split into different regions. 
+The data inside the table shows the labor market situation of young people who are between 15 and 27 years old in the Netherlands (total youth), who were registered in the Basisregistratie Personen (BRP). It indicates whether a person is working, studying, searching for work, and registered as a job seeker at the UWV, or receiving benefits. The total unemployed youth represents the people who are not actively looking for a job or cannot find work. The people working can be divided into self-employed or employees. This data can be split into different regions. 
 
 # Part 3 - Quantifying
 
@@ -191,7 +191,7 @@ Data_Cleancombined$unemployment_percentage = (Data_Cleancombined$Niet_werkzame_j
 Data_Cleancombined$unemployment_percentage = round(Data_Cleancombined$unemployment_percentage,2)
 ```
 
-### Variable 2: Unemployment change per year
+### Variable 2: Above or Below the national average risk of anxiety and depression
 
 ```{r echo=FALSE}
 avgmental_2020 = Data_Cleancombined$Hoog_risico_angst_depressie[Data_Cleancombined$Periode == 2020 & Data_Cleancombined$Gemeente == "Nederland"]
@@ -228,7 +228,7 @@ ggplot(df_percentmental, aes(x = Periode, y = percentage, fill = Above_or_Below_
   theme_minimal()
 ```
 
-### Variable 3: National Unemployment Averages of 2020-2023
+### Variable 3: Above or Below the national average unemployment
 
 ```{r echo=FALSE}
 #in the dataset 2023 was stated as 2023*, so we had to correct this
@@ -322,7 +322,6 @@ gemeenten_nl = gisco_get_lau(country = "NL", year = 2020) %>%
 
 library(sf)
 
-
 gemeenten_nl = gemeenten_nl %>%
   rename(Periode = YEAR, Gemeente = LAU_NAME, Gemeentegrenzen = `_ogr_geometry_`) 
 
@@ -350,7 +349,9 @@ ggplot(geo_data) +
   )  
 ```
 
-The heat map above shows the percentage of youth unemployment per Dutch municipality (gemeente) in the year 2020, ranging from 0% to over 50%. This spatial variation is important for our analysis as it allows us to better identify regional disparities in youth unemployment across the Netherlands. By making more apparent the municipalities with particularly high or low unemployment rates, where there may be a greater risk of mental health issues among young people. It helps us with the overall understanding of the multitude of factors that may have an impact on the social problem overall.  The contrasting data can be explained by the very low population in some areas, which then has a stronger impact on the general percentage.
+The heat map above shows the percentage of youth unemployment per Dutch municipality (gemeente) in the year 2020, ranging from 0% to over 50%. This spatial variation is important for our analysis as it allows us to better identify regional disparities in youth unemployment across the Netherlands. By making more apparent the municipalities with particularly high or low unemployment rates, where there may be a greater risk of mental health issues among young people. It helps us with the overall understanding of the multitude of factors that may have an impact on the social problem overall. The contrasting data can be explained by the very low population in some areas, which then has a stronger impact on the general percentage.
+
+Because the municipalities in the geographical dataset did not fully match those in our own dataset, some areas appear blank (in white) on the map. This discrepancy is mainly due to differences in naming conventions and the fact that municipalities are frequently merged or split over time.
 
 
 ## 3.5 Visualize sub-population variation
@@ -422,10 +423,10 @@ ggplot(plot_data, aes(x = group, y = unemployment_percentage, fill = group)) +
   geom_boxplot() +
   scale_fill_manual(values = c("High Unemployment" = "red", "Low Unemployment" = "blue")) +
   labs(
-    title = "Unemployment Percentage \nby Subgroup (2020-2023)",
+    title = "Unemployment Percentage by Subgroup (2020-2023)",
     x = NULL,
-    y = "Unemployment Percentage (%)\n",
-    fill = "group"
+    y = "Unemployment (%)\n",
+    fill = "Subroup"
   ) +
   theme_minimal() +
   theme(
@@ -451,10 +452,13 @@ ggplot(landelijkunem, aes(x = Periode, y = unemployment_percentage)) +
   scale_y_continuous(breaks = (0:8)*5, lim = c(0,40)) +
   theme_minimal() +
   geom_vline(xintercept = 2022, linetype = "solid", color = "black", linewidth = 1) +
-  annotate("text", x = 2021, y = 20, size = 3.5, label = "End of Covid-19 -->")
+  annotate("text", x = 2021, y = 20, size = 4, label = "End of Covid-19 -->")
 ```
 
-```{r}
+The graph above displays the youth unemployment in the Netherlands from the years 2020 to 2023, highlighting the end of the COVID-19 pandemic in 2022. This event is crucial when analyzing our main topic because the pandemic affected both the labor market and young people's mental well-being. During 2020 and 2021, there were higher rates of unemployment, since a lot of businesses had to adapt financially to the new reality. Entry-level jobs and part-time jobs, occupied by many young people, suffered cuts. After the COVID-19 lockdowns, it is possible to see a recovery, but the unemployment rates remained high since.
+
+
+```{r include=FALSE}
 names(Data_Cleancombined) = c(
   "Period",
   "Gemeente",
@@ -470,7 +474,6 @@ names(Data_Cleancombined) = c(
 )
 ```
 
-The graph above displays the youth unemployment in the Netherlands from the years 2020 to 2023, highlighting the end of the COVID-19 pandemic in 2022. This event is crucial when analyzing our main topic because the pandemic affected both the labor market and young people's mental well-being. During 2020 and 2021, there were highe rates of unemployment, since a lot of businesses had to adapt financially to the new reality. Entry-level jobs and part-time jobs, occupied by many young people, suffered cuts. After the covid lockdowns, it is possible to see a recovery, but the unemployment rates remained high since.
 
 # Part 4 - Discussion
 

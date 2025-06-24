@@ -16,8 +16,17 @@ goestillnissewaardmental2022 = read.csv("data/goestillnissewaardmental2022.csv")
 noardtillvlielandmental2022 = read.csv("data/noardtillvlielandmental2022.csv")
 vlissingentillzwollemental2022 = read.csv("data/vlissingentillzwollemental2022.csv")
 
+write.csv(Aatillgoereemental2022, "final project/raw data/Aatillgoereemental2022")
+write.csv(goestillnissewaardmental2022, "final project/raw data/goestillnissewaardmental2022")
+write.csv(noardtillvlielandmental2022, "final project/raw data/noardtillvlielandmental2022")
+write.csv(vlissingentillzwollemental2022, "final project/raw data/vlissingentillzwollemental2022")
+
+
 #import of unemployment data 2020-2023
 gem_unemployment = read.csv("standard data/gem_unemployment.csv")
+
+write.csv(gem_unemployment, "final project/raw data/gem_unemployment")
+
 
 #################################################################
 ####combining the multiple pieces of gemeentes into 1 dataset####
@@ -138,7 +147,11 @@ names(Data_Cleancombined) = c(
   "Hoog_risico_angst_depressie"
 )
 
-write.csv(Data_Cleancombined,"important data/Data_Cleancombined.csv")
+write.csv(Data_Cleancombined,"final project/clean data/Data_Cleancombined.csv")
+
+
+head(Data_Cleancombined)
+str(Data_Cleancombined)
 
 #####################################
 ####unemployment percentage#########
@@ -393,7 +406,7 @@ geo_data = geo_data %>%
   filter(!is.na(unemployment_percentage)) %>%
   st_sf()
 
-write.csv(geo_data,"important data/geo_data.csv")
+write.csv(geo_data,"final project/clean data/geo_data.csv")
 
 ggplot(geo_data) +
   geom_sf(aes(fill = unemployment_percentage), color = "black") +

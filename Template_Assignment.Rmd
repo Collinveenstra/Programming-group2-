@@ -88,14 +88,14 @@ The data inside the table shows the labor market situation of young people who a
 
 ## 3.1 Data cleaning
 
-### Make 1 large mental data set of all the small partial mental datasets for 2020 and 2022
+### 3.1.1 Make 1 large mental data set of all the small partial mental datasets for 2020 and 2022
 
 ```{r include=FALSE}
 gemeentesmentaldata2020 = bind_rows(Aatillgoereemental2020,goestillnissewaardmental2020,noardtillvlielandmental2020,vlissingentillzwollemental2020)
 gemeentesmentaldata2022 = bind_rows(Aatillgoereemental2022,goestillnissewaardmental2022,noardtillvlielandmental2022,vlissingentillzwollemental2022)
 ```
 
-### Get rid of the useless variables in mental data set
+### 3.1.2 Get rid of the useless variables in mental data set
 
 ```{r include=FALSE}
 filtered_gemeentesmentaldata2020 = gemeentesmentaldata2020 %>%
@@ -105,7 +105,7 @@ filtered_gemeentesmentaldata2022 = gemeentesmentaldata2022 %>%
   select(Leeftijd,Marges,Perioden,Wijken.en.buurten,Regioaanduiding.Soort.regio..omschrijving.,Psychische.klachten....,Hoog.risico.op.angst.of.depressie....)
 ```
 
-### Get rid of the useless variables in unemployment data set
+### 3.1.3 Get rid of the useless variables in unemployment data set
 
 ```{r include=FALSE}
 fltrd_unemployment = gem_unemployment %>%
@@ -115,7 +115,7 @@ fltrd_unemployment = fltrd_unemployment %>%
   filter(Geregistreerd.werkzoekende.bij.UWV %in% "Totaal")
 ```
 
-### Prepare mental and unemployment set so that we can merge them together in 1 data set
+### 3.1.4 Prepare mental and unemployment set so that we can merge them together in 1 data set
 
 ```{r include=FALSE}
 fltrd_unemployment = fltrd_unemployment %>%
@@ -136,7 +136,7 @@ Mental2020_2022 = Mental2020_2022 %>%
 Mental2020_2022$Perioden = as.character(Mental2020_2022$Perioden)
 ```
 
-### Change unemployed from a row variable to a column variable
+### 3.1.5 Change unemployed from a row variable to a column variable
 ```{r include=FALSE}
 totaal_unemp <- fltrd_unemployment %>% filter(Arbeidskenmerken == "Totaal ")
 totaal_unemp$aantal_jongeren <- totaal_unemp$Jongeren..15.tot.27.jaar...aantal.
@@ -152,14 +152,14 @@ nietwerkzaam$Arbeidskenmerken <- NULL
 unemployment <- full_join(totaal_unemp, nietwerkzaam, by = c("Onderwijsvolgend", "Uitkering", "Geregistreerd.werkzoekende.bij.UWV", "Perioden", "Gemeente"))
 ```
 
-### Now merge the 2 data sets together
+### 3.1.6 Now merge the 2 data sets together
 
 ```{r include=FALSE}
 Combined_data = full_join(unemployment,Mental2020_2022, by = c("Gemeente","Perioden"))
 ```
 
 
-### Clean the combined data set so that all useless variables are filtered out
+### 3.1.7 Clean the combined data set so that all useless variables are filtered out
 
 ```{r data_cleaning, include=FALSE}
 Data_Cleancombined = Combined_data %>%
@@ -232,7 +232,7 @@ ggplot(df_percentmental, aes(x = Periode, y = percentage, fill = Above_or_Below_
 
 ### Variable 3: Above or Below the national average unemployment
 
-```{r echo=FALSE}
+```{r include=FALSE}
 #in the dataset 2023 was stated as 2023*, so we had to correct this
 Data_Cleancombined$Periode <- gsub("\\*", "", Data_Cleancombined$Periode)
 

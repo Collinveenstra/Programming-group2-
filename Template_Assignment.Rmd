@@ -62,15 +62,13 @@ vlissingentillzwollemental2022 = read.csv("data/vlissingentillzwollemental2022.c
 gem_unemployment = read.csv("standard data/gem_unemployment.csv")
 ```
 
-## 2.2 Provide a short summary of the dataset(s)
-
-```{r}
-#head(dataset)
-```
+## 2.2.1 Provide a short summary of the dataset(s)
 
 For this project, we used all the gemeentes in the Netherlands, that could be roughly considered municipalities. Our data came from the national government's website (CBS StatLine). There is missing data because there was no information available for certain years - item 2.3 explains in more detail each variable of our analysis.  
-Regarding the unemployment data: the observed population was registered in the Basisregistratie Personen (BRP) as of October 1st of the reference year, which is the date when data is collected yearly. The amount of people going to school, for example, is determined based on their status on October 1st. In contrast, the total number of people receiving benefits is calculated throughout the entire month. The classification of the municipalities is based on their situation as of January 1st, 2024. The data on individuals looking for a job and registered with the UWV comes from two sources: from 2005 to 2018, it is taken from UWV Werkbedrijf, and from 2019 onwards, it is based on the Geregistreerd Werkzoekende UWV system. All the numbers are absolute.
+Regarding the unemployment data: the observed population was registered in the Basisregistratie Personen (BRP) as of October 1st of the reference year, which is the date when data is collected yearly. The amount of people going to school, for example, is determined based on their status on October 1st. The classification of the municipalities is based on their situation as of January 1st, 2024. The data on individuals looking for a job and registered with the UWV comes from two sources: from 2005 to 2018, it is taken from UWV Werkbedrijf, and from 2019 onwards, it is based on the Geregistreerd Werkzoekende UWV system. All the numbers are absolute.
 Regarding the mental health data: the information is retrieved from a model of calculation used by the National Institute for Public Health and the Environment (RIVM) based on data from the Health Monitor for Adults and the Elderly for the year 2020 and the the Corona Health Monitor 2022 from GGDs, CBS and RIVM. Every four years, new data from the Health Monitor for Adults and the Elderly become available and that is obtained through surveys with an anonymous nature. The format of the questions follows the MHI-5 and the Kessler-10 (K10) questionnaires.
+
+We choose to upload the head of the dataset from RStudio only after performing data cleaning, as the original datasets are highly unstructured and not easily readable in their raw state.
 
 ## 2.3 Describe the type of variables included
 
@@ -93,107 +91,53 @@ The data inside the table shows the labor market situation of young people who a
 ### Make 1 large mental data set of all the small partial mental datasets for 2020 and 2022
 
 ```{r include=FALSE}
-
+gemeentesmentaldata2020 = bind_rows(Aatillgoereemental2020,goestillnissewaardmental2020,noardtillvlielandmental2020,vlissingentillzwollemental2020)
+gemeentesmentaldata2022 = bind_rows(Aatillgoereemental2022,goestillnissewaardmental2022,noardtillvlielandmental2022,vlissingentillzwollemental2022)
 ```
 
 ### Get rid of the useless variables in mental data set
 
 ```{r include=FALSE}
+filtered_gemeentesmentaldata2020 = gemeentesmentaldata2020 %>%
+  select(Leeftijd,Marges,Perioden,Wijken.en.buurten,Regioaanduiding.Soort.regio..omschrijving.,Psychische.klachten....,Hoog.risico.op.angst.of.depressie....)
 
+filtered_gemeentesmentaldata2022 = gemeentesmentaldata2022 %>%
+  select(Leeftijd,Marges,Perioden,Wijken.en.buurten,Regioaanduiding.Soort.regio..omschrijving.,Psychische.klachten....,Hoog.risico.op.angst.of.depressie....)
 ```
 
 ### Get rid of the useless variables in unemployment data set
 
 ```{r include=FALSE}
+fltrd_unemployment = gem_unemployment %>%
+  filter(Arbeidskenmerken %in% c("Totaal ", "Arb.pos.: niet-werkzame bevolking"))
 
+fltrd_unemployment = fltrd_unemployment %>%
+  filter(Geregistreerd.werkzoekende.bij.UWV %in% "Totaal")
 ```
 
 ### Prepare mental and unemployment set so that we can merge them together in 1 data set
 
 ```{r include=FALSE}
-
-```
-
-### Now merge the 2 data sets together
-
-```{r include=FALSE}
-
-```
-
-
-### clean the combined data set so that all useless variables are filtered out
-
-```{r data_cleaning, eval=FALSE, include=FALSE}
-
-#make 1 large mental data set of all the small partial mental datasets for 2020 and 2022
-gemeentesmentaldata2020 = bind_rows(Aatillgoereemental2020,goestillnissewaardmental2020,noardtillvlielandmental2020,vlissingentillzwollemental2020)
-gemeentesmentaldata2022 = bind_rows(Aatillgoereemental2022,goestillnissewaardmental2022,noardtillvlielandmental2022,vlissingentillzwollemental2022)
-
-write.csv(gemeentesmentaldata2020,"data/gemeentesmentaldata2020.csv")
-write.csv(gemeentesmentaldata2022,"data/gemeentesmentaldata2022.csv")
-
-##########################################################################
-####data cleaning, get rid of the useless variables in mental data set####
-##########################################################################
-
-#filtering useless categories like smoking, alcohol consumption and other health statistics, so that we only have mental data left
-filtered_gemeentesmentaldata2020 = gemeentesmentaldata2020 %>%
-  select(Leeftijd,Marges,Perioden,Wijken.en.buurten,Regioaanduiding.Soort.regio..omschrijving.,Psychische.klachten....,Hoog.risico.op.angst.of.depressie....)
-
-write.csv(filtered_gemeentesmentaldata2020,"important data/filtered_gemeentesmentaldata2020.csv")
-
-#the same for the data of 2022
-filtered_gemeentesmentaldata2022 = gemeentesmentaldata2022 %>%
-  select(Leeftijd,Marges,Perioden,Wijken.en.buurten,Regioaanduiding.Soort.regio..omschrijving.,Psychische.klachten....,Hoog.risico.op.angst.of.depressie....)
-
-write.csv(filtered_gemeentesmentaldata2022,"important data/filtered_gemeentesmentaldata2022.csv")
-
-################################################################################
-####data cleaning, get rid of the useless variables in unemployment data set####
-################################################################################
-
-#to calculate unemployment% we need total population and the unemployed population. Therefore we can filter out the employed population
-fltrd_unemployment = gem_unemployment %>%
-  filter(Arbeidskenmerken %in% c("Totaal ", "Arb.pos.: niet-werkzame bevolking"))
-
-#this category was not useful for our analysis so to make the data set less complex we filtered this variable out 
-fltrd_unemployment = fltrd_unemployment %>%
-  filter(Geregistreerd.werkzoekende.bij.UWV %in% "Totaal")
-
-write.csv(fltrd_unemployment,"important data/fltrd_unemployment")
-
-############################################################################################
-####prepare mental and unemployment set so that we can merge them together in 1 data set####
-############################################################################################
-
-# unemployment data set arranged at Period
 fltrd_unemployment = fltrd_unemployment %>%
   arrange(Perioden)
 
-# variable name changed from regio.s to gemeente
 fltrd_unemployment = fltrd_unemployment %>%
   rename(Gemeente = Regio.s) 
 
-#Period made as character so that we could combine the data sets 
 fltrd_unemployment$Perioden = as.character(fltrd_unemployment$Perioden)
 
-#instead of no value, we made all missing values of 2020 NA
 filtered_gemeentesmentaldata2020$Psychische.klachten.... = NA_real_
 
-#combined the 2020 and 2022 mental data set
 Mental2020_2022 = bind_rows(filtered_gemeentesmentaldata2020,filtered_gemeentesmentaldata2022)
 
-#variable name changed from wijken en buurten to gemeente
 Mental2020_2022 = Mental2020_2022 %>%
   rename(Gemeente = Wijken.en.buurten)
 
-#Period made as character so thaat we could combine the data sets
 Mental2020_2022$Perioden = as.character(Mental2020_2022$Perioden)
+```
 
-#########################
-####
-#########################
-
+### Change unemployed from a row variable to a column variable
+```{r}
 totaal_unemp <- fltrd_unemployment %>% filter(Arbeidskenmerken == "Totaal ")
 totaal_unemp$aantal_jongeren <- totaal_unemp$Jongeren..15.tot.27.jaar...aantal.
 totaal_unemp$Jongeren..15.tot.27.jaar...aantal. <- NULL
@@ -206,27 +150,21 @@ nietwerkzaam$X <- NULL
 nietwerkzaam$Arbeidskenmerken <- NULL
 
 unemployment <- full_join(totaal_unemp, nietwerkzaam, by = c("Onderwijsvolgend", "Uitkering", "Geregistreerd.werkzoekende.bij.UWV", "Perioden", "Gemeente"))
+```
 
-write.csv(unemployment,"important data/unemployment.csv")
+### Now merge the 2 data sets together
 
-########################################
-###now merge the 2 data sets together###
-########################################
-
-#merge the mental and unemployment data set
+```{r include=FALSE}
 Combined_data = full_join(unemployment,Mental2020_2022, by = c("Gemeente","Perioden"))
+```
 
-write.csv(Combined_data,"important data/Combined_data.csv")
 
-##################################################################################
-####clean the combined data set so that all useless variables are filtered out####
-##################################################################################
+### clean the combined data set so that all useless variables are filtered out
 
-#clean up0 all useless variables so that the data set becomes more clear
+```{r data_cleaning, include=FALSE}
 Data_Cleancombined = Combined_data %>%
   select(-Onderwijsvolgend, -Uitkering, -Geregistreerd.werkzoekende.bij.UWV, -Marges, -Leeftijd)
 
-#change the variable names to easier names
 names(Data_Cleancombined) = c(
   "Periode",
   "Gemeente",
@@ -236,8 +174,12 @@ names(Data_Cleancombined) = c(
   "Psychische_klachten",
   "Hoog_risico_angst_depressie"
 )
+```
 
-write.csv(Data_Cleancombined,"important data/Data_Cleancombined.csv")
+## 2.2.2 Head of the combined dataset
+
+```{r}
+head(Data_Cleancombined)
 ```
 
 ## 3.2 Generate necessary variables

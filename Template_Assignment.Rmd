@@ -176,11 +176,13 @@ names(Data_Cleancombined) = c(
 )
 ```
 
-## 2.2.2 Head of the combined dataset
+## 2.2.2 Provide a short summary of the dataset(s)
 
 ```{r}
 head(Data_Cleancombined)
+str(Data_Cleancombined)
 ```
+So in summary, the cleaned dataset includes the absolute numbers of both young people and unemployed individuals. Unemployment figures are presented for the period from 2020 to 2023, while the risk of anxiety and depression is shown for the years 2020 and 2022.
 
 ## 3.2 Generate necessary variables
 
@@ -270,7 +272,7 @@ ggplot(df_percent, aes(x = Periode, y = percentage, fill = Above_or_Below_Nation
   labs(
     title = "Percentage Gemeenten Above/Below \nNational Average per Year",
     x = "Year",
-    y = "Percentage of Gemeentes",
+    y = "Percentage of Gemeentes\n",
     fill = "Above/Below"
   ) +
   theme_minimal()

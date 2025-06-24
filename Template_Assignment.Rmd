@@ -68,7 +68,7 @@ For this project, we used all the gemeentes in the Netherlands, that could be ro
 Regarding the unemployment data: the observed population was registered in the Basisregistratie Personen (BRP) as of October 1st of the reference year, which is the date when data is collected yearly. The amount of people going to school, for example, is determined based on their status on October 1st. The classification of the municipalities is based on their situation as of January 1st, 2024. The data on individuals looking for a job and registered with the UWV comes from two sources: from 2005 to 2018, it is taken from UWV Werkbedrijf, and from 2019 onwards, it is based on the Geregistreerd Werkzoekende UWV system. All the numbers are absolute.
 Regarding the mental health data: the information is retrieved from a model of calculation used by the National Institute for Public Health and the Environment (RIVM) based on data from the Health Monitor for Adults and the Elderly for the year 2020 and the the Corona Health Monitor 2022 from GGDs, CBS and RIVM. Every four years, new data from the Health Monitor for Adults and the Elderly become available and that is obtained through surveys with an anonymous nature. The format of the questions follows the MHI-5 and the Kessler-10 (K10) questionnaires.
 
-We choose to upload the head of the dataset from RStudio only after performing data cleaning, as the original datasets are highly unstructured and not easily readable in their raw state.
+We choose to upload the head of the dataset from RStudio only after performing data cleaning, as the original datasets are highly unstructured and not easily readable in their raw state. Please check item 3.2 for more information. 
 
 ## 2.3 Describe the type of variables included
 
